@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MegaVitrine: descubra produtos e ofertas em tecnologia, casa, beleza, moda e muito mais.">
+<title>MegaVitrine — As melhores ofertas estão aqui!</title>
+<style>
+:root{--yellow:#ffd400;--ink:#101216;--muted:#667085;--line:#e8eaf0;--bg:#f6f7f9;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#17191e;background:var(--bg)}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+.topline{background:var(--ink);color:white;padding:9px 5%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:18px 5%;display:grid;grid-template-columns:240px minmax(180px,1fr) auto;gap:22px;align-items:center}
+.brand{font-size:29px;font-weight:900;letter-spacing:-1px}.brand .mega{color:#15171c}.brand .vit{color:#d6a900}.tagline{font-size:12px;color:#626773;margin-top:4px}
+.search{display:flex;border:1px solid #d9dce3;border-radius:30px;overflow:hidden;background:white}.search input{border:0;outline:0;padding:13px 18px;width:100%;min-width:0}.search button{border:0;background:var(--yellow);font-weight:bold;padding:0 20px;cursor:pointer}
+.header-links{font-size:13px;display:flex;gap:16px;align-items:center}.header-links a{white-space:nowrap}
+nav{background:#17191e;color:white;display:flex;gap:25px;padding:13px 5%;font-size:14px;overflow:auto;white-space:nowrap}nav a:first-child{color:var(--yellow);font-weight:bold}
+main{max-width:1400px;margin:20px auto;padding:0 18px}
+.hero{border-radius:14px;overflow:hidden;background:linear-gradient(110deg,#101216 0%,#191b20 58%,#e2b900 58%,#ffd400 100%);color:white;padding:42px clamp(22px,5vw,70px);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;min-height:280px;gap:20px}
+.eyebrow{color:var(--yellow);font-weight:800;text-transform:uppercase;letter-spacing:1.4px;font-size:13px}.hero h1{font-size:clamp(32px,5vw,58px);line-height:.98;margin:12px 0}.hero h1 span{color:var(--yellow)}.hero p{color:#e2e4e8;font-size:17px;line-height:1.5}.btn{display:inline-block;background:var(--yellow);color:#17191e;border:0;border-radius:8px;padding:13px 19px;font-weight:800;cursor:pointer}.hero-art{font-size:clamp(65px,10vw,130px);text-align:center;filter:drop-shadow(0 10px 8px #0005)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 24px}.trust div{background:white;border:1px solid var(--line);border-radius:10px;padding:15px;text-align:center;font-size:13px;font-weight:700}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 0 14px}.section-head h2{font-size:24px;margin:0}.section-head a{font-size:13px;font-weight:bold}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.category{background:white;border:1px solid var(--line);border-radius:12px;text-align:center;padding:19px 8px;font-weight:700;font-size:13px;transition:transform .15s}.category:hover,.product:hover{transform:translateY(-2px)}.category .icon{font-size:30px;display:block;margin-bottom:9px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;position:relative;transition:transform .15s}.badge{position:absolute;top:12px;left:12px;background:#e83b42;color:white;font-size:11px;font-weight:800;padding:5px 8px;border-radius:5px}.product-img{height:145px;display:grid;place-items:center;background:#f7f8fa;border-radius:8px;font-size:72px;margin-bottom:12px}.product h3{font-size:14px;line-height:1.35;min-height:38px;margin:0 0 8px}.rating{color:#f0a900;font-size:12px;margin-bottom:8px}.old{font-size:12px;color:#8c929e;text-decoration:line-through}.price{font-size:21px;font-weight:900;margin:4px 0}.installment{font-size:11px;color:#69707c;margin-bottom:12px}.product .btn{width:100%;text-align:center;padding:11px 8px;font-size:12px}
+.notice{background:#fff9d8;border:1px solid #f4df74;border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.5;margin:24px 0}
+footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.3fr;gap:25px;font-size:13px}footer h3{font-size:14px;color:var(--yellow)}footer p,footer a{color:#c8cbd2;line-height:1.7}footer a{display:block}
+@media(max-width:900px){header{grid-template-columns:1fr;gap:13px}.header-links{justify-content:space-between}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-art{display:none}footer{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.topline{justify-content:center;text-align:center}nav{gap:18px}.trust{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.grid{gap:9px}.product{padding:9px}.product-img{height:110px;font-size:55px}.product h3{font-size:12px}.price{font-size:18px}.section-head h2{font-size:20px}footer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topline"><span>🚚 Ofertas selecionadas todos os dias</span><span>🛡️ Você compra diretamente na loja parceira</span><span>⭐ Descubra oportunidades</span></div>
+<header>
+  <a href="#" aria-label="MegaVitrine página inicial"><div class="brand"><span class="mega">Mega</span><span class="vit">Vitrine</span></div><div class="tagline">As melhores ofertas estão aqui!</div></a>
+  <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="O que você está procurando?" aria-label="Pesquisar produtos"><button type="submit" aria-label="Pesquisar">⌕</button></form>
+  <div class="header-links"><a href="#categorias">Categorias</a><a href="#ofertas">🔥 Ofertas</a></div>
+</header>
+<nav><a href="#">Início</a><a href="#ofertas">🔥 Ofertas em destaque</a><a href="#categorias">Todas as categorias</a><a href="#sobre">Sobre a MegaVitrine</a></nav>
+<main>
+<section class="hero">
+  <div><div class="eyebrow">Sua vitrine de oportunidades</div><h1>OFERTAS QUE<br>VALEM A <span>PENA!</span></h1><p>Encontre produtos para sua casa, rotina, estilo e diversão em um só lugar.</p><a class="btn" href="#ofertas">EXPLORAR OFERTAS&nbsp; →</a></div>
+  <div class="hero-art" aria-hidden="true">🛍️📱🎧</div>
+</section>
+<div class="trust"><div>🔎 Produtos selecionados</div><div>🏷️ Ofertas para comparar</div><div>🔗 Compra no site parceiro</div></div>
+<section id="categorias">
+  <div class="section-head"><h2>Compre por categoria</h2><a href="#ofertas">Ver produtos ↓</a></div>
+  <div class="categories">
+    <a class="category" href="#ofertas" data-category="Tecnologia"><span class="icon">📱</span>Tecnologia</a>
+    <a class="category" href="#ofertas" data-category="Casa"><span class="icon">🏠</span>Casa e decoração</a>
+    <a class="category" href="#ofertas" data-category="Beleza"><span class="icon">💄</span>Beleza</a>
+    <a class="category" href="#ofertas" data-category="Moda"><span class="icon">👟</span>Moda e acessórios</a>
+    <a class="category" href="#ofertas" data-category="Games"><span class="icon">🎮</span>Games</a>
+    <a class="category" href="#ofertas" data-category="Fitness"><span class="icon">💪</span>Fitness</a>
+  </div>
+</section>
+<section id="ofertas">
+  <div class="section-head"><h2>🔥 Ofertas em destaque</h2><span id="resultCount" style="font-size:13px;color:#687080">Produtos de exemplo</span></div>
+  <div class="grid" id="productGrid">
+    <article class="product" data-name="fone bluetooth tecnologia audio" data-category="Tecnologia"><span class="badge">DESTAQUE</span><div class="product-img">🎧</div><h3>Fone Bluetooth sem fio</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="smartwatch relógio tecnologia fitness" data-category="Tecnologia"><span class="badge">DESTAQUE</span><div class="product-img">⌚</div><h3>Relógio inteligente</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="tênis moda calçado" data-category="Moda"><span class="badge">EM ALTA</span><div class="product-img">👟</div><h3>Tênis casual</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="perfume beleza cuidados pessoais" data-category="Beleza"><span class="badge">DESTAQUE</span><div class="product-img">🧴</div><h3>Perfume e cuidados pessoais</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="air fryer cozinha casa" data-category="Casa"><span class="badge">PARA CASA</span><div class="product-img">🍟</div><h3>Fritadeira elétrica</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="controle games videogame" data-category="Games"><span class="badge">GAMES</span><div class="product-img">🎮</div><h3>Controle para jogos</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="garrafa fitness treino academia" data-category="Fitness"><span class="badge">FITNESS</span><div class="product-img">🥤</div><h3>Garrafa para treino</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+    <article class="product" data-name="organizador casa decoração" data-category="Casa"><span class="badge">CASA</span><div class="product-img">🧺</div><h3>Organizador multiuso</h3><div class="rating">★★★★★ <span style="color:#69707c">Confira avaliações</span></div><div class="old">Preço no parceiro</div><div class="price">Consultar oferta</div><div class="installment">Preço e disponibilidade no site parceiro</div><a class="btn affiliate-link" href="#" target="_blank" rel="sponsored nofollow noopener">VER OFERTA →</a></article>
+  </div>
+  <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Os produtos exibidos são exemplos de layout; antes de publicar, substitua-os por ofertas reais, confirme preços e adicione seus links de afiliado.</div>
+</section>
+<section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><br>Nosso objetivo é ajudar você a descobrir produtos de diferentes categorias e encontrar oportunidades em lojas parceiras. A compra, o pagamento, a entrega e o atendimento do pedido são realizados pela loja parceira.</section>
+</main>
+<footer>
+  <div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--yellow)">Vitrine</span></div><p>As melhores ofertas estão aqui!</p></div>
+  <div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><a href="#privacidade">Política de privacidade</a><a href="#termos">Termos de uso</a></div>
+  <div><h3>Atendimento</h3><a href="mailto:contato@megavitrine.example">Contato (configure seu e-mail)</a><a href="#ofertas">Como funcionam as ofertas</a></div>
+  <div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div>
+</footer>
+<script>
+const form=document.getElementById('searchForm'), input=document.getElementById('searchInput'), cards=[...document.querySelectorAll('.product')], count=document.getElementById('resultCount');
+function filterProducts(term, category=''){let shown=0; cards.forEach(card=>{const matches=card.dataset.name.includes(term.toLowerCase()) && (!category||card.dataset.category===category);card.style.display=matches?'':'none';if(matches)shown++});count.textContent=shown+' produto(s)';}
+form.addEventListener('submit',e=>{e.preventDefault();filterProducts(input.value.trim())});
+document.querySelectorAll('[data-category]').forEach(a=>a.addEventListener('click',()=>{input.value='';filterProducts('',a.dataset.category)}));
+document.querySelectorAll('.affiliate-link').forEach(a=>a.addEventListener('click',e=>{if(a.getAttribute('href')==='#'){e.preventDefault();alert('Este é um espaço de demonstração. Edite o arquivo index.html e substitua o link # pelo seu link de afiliado antes de publicar.')}}));
+</script>
+</body>
+</html>
