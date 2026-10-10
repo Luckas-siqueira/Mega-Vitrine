@@ -52,9 +52,7 @@ const text=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.clas
 function makeCard(p){
  const card=text('article','product','');
  if(p.destaque)card.append(text('span','badge','DESTAQUE'));
- const picture=text('div','product-img','');
- if(validUrl(p.imagem)){const img=document.createElement('img');img.src=p.imagem;img.alt=p.nome;img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>{picture.replaceChildren(text('span','',emojis[p.categoria]||'🛍️'));};picture.append(img);}else picture.append(text('span','',emojis[p.categoria]||'🛍️'));
- card.append(picture,text('h3','',p.nome));
+ const picture=text('div','product-img','');if(typeof p.imagem==='string' && p.imagem.trim() && (validUrl(p.imagem) || /^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(p.imagem))){card.append(picture,text('h3','',p.nome));
  if(p.descricao)card.append(text('p','description',p.descricao));
  if(Number.isFinite(p.preco)&&p.preco>=0){if(Number.isFinite(p.precoAnterior)&&p.precoAnterior>p.preco)card.append(text('div','old',money(p.precoAnterior)));card.append(text('div','price',money(p.preco)));}else card.append(text('div','price','Consultar preço'));
  card.append(text('div','installment','Preço e disponibilidade no parceiro'));
