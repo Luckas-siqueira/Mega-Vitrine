@@ -1,26 +1,25 @@
-
 [
   {
     "id": "fone-001",
-    "nome": "Fone Bluetooth sem fio",
+    "nome": "Caixinha de som bluetooth",
     "categoria": "Tecnologia",
-    "descricao": "Confira modelos e detalhes.",
-    "imagem": "",
-    "preco": null,
+    "descricao": "Caixa Caixinha De Som Bluetooth Potente Pendrive Fm Sd Portátil Ipx6",
+    "imagem": "no_markReactNative-snapshot-image.png",
+    "preco": 64.9,
     "precoAnterior": null,
     "destaque": true,
-    "url": ""
+    "url": "https://s.shopee.com.br/2qVEemjw8A"
   },
   {
     "id": "casa-001",
-    "nome": "Organizador multiuso",
+    "nome": "Caixa organizadora multiuso",
     "categoria": "Casa",
-    "descricao": "Confira opções disponíveis.",
-    "imagem": "",
-    "preco": null,
+    "descricao": "Caixa Organizadora 11 à 53L Tampa Forte Preta Resistente Rodinhas Trava Reforçada Multiuso Grande",
+    "imagem": "lw4btbr-11134207-820m7-morclqis70ub4a.jpg",
+    "preco": 23.9,
     "precoAnterior": null,
-    "destaque": false,
-    "url": ""
+    "destaque": true,
+    "url": "https://s.shopee.com.br/gQk4dIYfZ"
   },
   {
     "id": "shopee-001",
@@ -28,10 +27,53 @@
     "categoria": "Tecnologia",
     "descricao": "Fone sem fio compacto com estojo de carregamento e visor digital. Consulte preço e condições na Shopee.",
     "imagem": "IMG_20261010_104040.jpg",
-    "preco": null,
+    "preco": 26.53,
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/9APHWP0e9S"
+  },
+  {
+    "id": "shopee-mv2jyehl-z0qz",
+    "nome": "Kit Fitness 6 em 1 Roda Abdominal Flexão Corda Elástico Hand Grip Tapete Treino em Casa",
+    "categoria": "Fitness",
+    "descricao": "Kit treinamento funcional 7 peças para treino doméstico com roda abdominal e suporte para flexões",
+    "imagem": "yo2tkcn-11134207-820l4-mp3d55n2vklnb0.jpg",
+    "preco": 58.3,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/AKbFZUZmr3"
+  },
+  {
+    "id": "shopee-mv2kxseg-epfu",
+    "nome": "Console portátil R36S",
+    "categoria": "Games",
+    "descricao": "Console Portátil R36S + de 15.000 Jogos Vídeo Game 64g Linux Tela IPS 3.5 Polegadas",
+    "imagem": "no_markReactNative-snapshot-image_1.png",
+    "preco": 168.14,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/905s0nj5m6"
+  },
+  {
+    "id": "shopee-mv2l03l4-i6iu",
+    "nome": "Kit de ferramentas",
+    "categoria": "Tecnologia",
+    "descricao": "Kit de Ferramentas 37-94 Peças profissional jogo chave combinada soquetes e catraca grande",
+    "imagem": "no_markReactNative-snapshot-image_2.png",
+    "preco": 59.98,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/40hC3pIwXS"
+  },
+  {
+    "id": "shopee-mv2l28us-iz0r",
+    "nome": "Blusa moletom canguru gengar",
+    "categoria": "Moda",
+    "descricao": "Blusa Moletom Canguru gengar fantasma pokemon Feminino Masculino Flanelado Unissex Inverno Algodao",
+    "imagem": "no_markReactNative-snapshot-image_3.png",
+    "preco": 59.9,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/1qchTy1tRo"
   }
 ]
-  
