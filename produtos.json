@@ -23,13 +23,13 @@
   },
   {
     "id": "shopee-001",
-    "nome": "Produto na Shopee — conferir detalhes",
-    "categoria": "Outros",
-    "descricao": "Veja as informações, preço e disponibilidade diretamente na Shopee.",
-    "imagem": "Fone-X55.jpg",
+    "nome": "Fone de Ouvido Bluetooth X55 Mini",
+    "categoria": "Tecnologia",
+    "descricao": "Fone sem fio compacto com estojo de carregamento e visor digital. Consulte o preço e as condições na Shopee.",
+    "imagem": "",
     "preco": null,
     "precoAnterior": null,
-    "destaque": false,
+    "destaque": true,
     "url": "https://s.shopee.com.br/9APHWP0e9S"
   }
 ]
