@@ -1,0 +1,25 @@
+
+[
+  {
+    "id": "fone-001",
+    "nome": "Fone Bluetooth sem fio",
+    "categoria": "Tecnologia",
+    "descricao": "Confira modelos e detalhes.",
+    "imagem": "",
+    "preco": null,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": ""
+  },
+  {
+    "id": "casa-001",
+    "nome": "Organizador multiuso",
+    "categoria": "Casa",
+    "descricao": "Confira opções disponíveis.",
+    "imagem": "",
+    "preco": null,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": ""
+  }
+]
