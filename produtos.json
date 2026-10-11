@@ -251,5 +251,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/5LCaKc4tqB"
+  },
+  {
+    "id": "shopee-mv48kkkg-fa3i",
+    "nome": "Copo térmico inox",
+    "categoria": "Outros",
+    "descricao": "ROMANTIC CROWN Copo Térmico Inox Portátil 600ml/1.2l com Tampa e Canudo Garrafa Térmica Inoxidável",
+    "imagem": "no_markReactNative-snapshot-image_24.png",
+    "preco": 60,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/20w9WZyR7S"
   }
 ]
