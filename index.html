@@ -69,17 +69,19 @@ function resetCarousel(){
  pauseButton.disabled=!overflow;
  carouselTimer=setInterval(()=>{if(!paused&&!hovering&&!focused&&!document.hidden&&Date.now()>interactingUntil)moveFeatured(1);},4500);
 }
-function manualMove(direction){interactingUntil=Date.now()+10000;moveFeatured(direction);}
+function manualMove(direction){interactingUntil=Date.now()+4500;moveFeatured(direction);}
 document.getElementById('featuredPrev').addEventListener('click',()=>manualMove(-1));
 document.getElementById('featuredNext').addEventListener('click',()=>manualMove(1));
 pauseButton.addEventListener('click',()=>{paused=!paused;syncPause();});
-featuredSection.addEventListener('mouseenter',()=>{hovering=true;});
-featuredSection.addEventListener('mouseleave',()=>{hovering=false;});
-featuredSection.addEventListener('focusin',()=>{focused=true;});
-featuredSection.addEventListener('focusout',e=>{focused=featuredSection.contains(e.relatedTarget);});
-featuredTrack.addEventListener('pointerdown',()=>{interactingUntil=Date.now()+10000;});
-featuredTrack.addEventListener('scroll',()=>{interactingUntil=Date.now()+6000;},{passive:true});
-featuredTrack.addEventListener('wheel',()=>{interactingUntil=Date.now()+10000;},{passive:true});
+featuredSection.addEventListener('pointerenter',e=>{hovering=e.pointerType==='mouse';});
+featuredSection.addEventListener('pointerleave',()=>{hovering=false;});
+featuredSection.addEventListener('focusin',e=>{focused=e.target.matches(':focus-visible');});
+featuredSection.addEventListener('focusout',e=>{focused=!!(e.relatedTarget&&featuredSection.contains(e.relatedTarget)&&e.relatedTarget.matches(':focus-visible'));});
+featuredSection.addEventListener('pointerdown',e=>{focused=false;if(e.pointerType!=='mouse')hovering=false;});
+featuredTrack.addEventListener('pointerdown',()=>{interactingUntil=Infinity;});
+window.addEventListener('pointerup',()=>{if(interactingUntil===Infinity)interactingUntil=Date.now()+4500;});
+window.addEventListener('pointercancel',()=>{if(interactingUntil===Infinity)interactingUntil=Date.now()+4500;});
+featuredTrack.addEventListener('wheel',()=>{interactingUntil=Date.now()+4500;},{passive:true});
 featuredTrack.addEventListener('keydown',e=>{if(e.target!==featuredTrack)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();manualMove(e.key==='ArrowRight'?1:-1);}});
 reducedMotion.addEventListener('change',e=>{if(e.matches){paused=true;syncPause();}});
 syncPause();
