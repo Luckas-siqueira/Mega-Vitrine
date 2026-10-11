@@ -50,6 +50,13 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
  #catalogo .zoom-hint::after{content:'🔍';font-size:12px}
  .featured-track .description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;min-height:0;margin:5px 0 9px}
 }
+
+.product-name{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;font:inherit;font-weight:inherit;line-height:inherit;text-align:left;cursor:pointer}
+.product-name:hover{color:var(--yellow)}
+.viewer-description{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.viewer-description h3{font-size:16px;margin:0 0 8px}
+.viewer-description p{margin:0;color:#d5d8df;font-size:14px;line-height:1.65;white-space:pre-line;overflow-wrap:anywhere}
+.viewer-viewport[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -64,7 +71,7 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
 <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja parceira. Itens sem link são exemplos e não estão disponíveis para compra por aqui.</div></section>
 <section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><p>Nosso objetivo é ajudar você a descobrir produtos de diferentes categorias e encontrar oportunidades em lojas parceiras. Compra, pagamento, entrega e atendimento são realizados pela loja parceira.</p></section></main>
 <footer><div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--yellow)">Vitrine</span></div><p>As melhores ofertas estão aqui!</p></div><div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><a href="./privacidade.html">Política de Privacidade</a><a href="./termos.html">Termos de Uso</a></div><div><h3>Atendimento</h3><a href="./contato.html">Fale com a MegaVitrine</a><a href="mailto:luckas.5414@gmail.com" style="overflow-wrap:anywhere">luckas.5414@gmail.com</a><a href="#ofertas">Como funcionam as ofertas</a></div><div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div></footer>
-<dialog id="imageViewer" class="image-viewer" aria-labelledby="viewerTitle"><div class="viewer-head"><h2 id="viewerTitle">Imagem do produto</h2><button id="viewerClose" type="button" aria-label="Fechar imagem">Fechar ✕</button></div><div id="viewerViewport" class="viewer-viewport"><img id="viewerImage" alt=""></div><div class="viewer-actions"><button id="viewerZoom" type="button" aria-pressed="false">Ampliar mais ＋</button><p id="viewerStatus" class="viewer-status" role="status" aria-live="polite"></p></div></dialog>
+<dialog id="imageViewer" class="image-viewer" aria-labelledby="viewerTitle"><div class="viewer-head"><h2 id="viewerTitle">Imagem do produto</h2><button id="viewerClose" type="button" aria-label="Fechar imagem">Fechar ✕</button></div><div id="viewerViewport" class="viewer-viewport"><img id="viewerImage" alt=""></div><div class="viewer-actions"><button id="viewerZoom" type="button" aria-pressed="false">Ampliar mais ＋</button><p id="viewerStatus" class="viewer-status" role="status" aria-live="polite"></p></div><section class="viewer-description" aria-labelledby="viewerDescriptionTitle"><h3 id="viewerDescriptionTitle">Descrição completa</h3><p id="viewerDescription"></p></section></dialog>
 <script>
 'use strict';
 const form=document.getElementById('searchForm');
@@ -125,18 +132,24 @@ const viewerImage=document.getElementById('viewerImage');
 const viewerViewport=document.getElementById('viewerViewport');
 const viewerZoom=document.getElementById('viewerZoom');
 const viewerStatus=document.getElementById('viewerStatus');
+const viewerDescription=document.getElementById('viewerDescription');
 let viewerOpener=null,previousBodyOverflow='';
 function resetViewerZoom(){viewerViewport.classList.remove('magnified');viewerZoom.setAttribute('aria-pressed','false');viewerZoom.textContent='Ampliar mais ＋';viewerViewport.scrollTop=0;viewerViewport.scrollLeft=0;}
 function openProductImage(p,opener){
  viewerOpener=opener;resetViewerZoom();
  document.getElementById('viewerTitle').textContent=p.nome;
+ viewerDescription.textContent=typeof p.descricao==='string'&&p.descricao.trim()?p.descricao:'Descrição não informada para este produto.';
+ imageViewer.scrollTop=0;
+ const hasImage=validImage(p.imagem);
+ viewerViewport.hidden=!hasImage;viewerZoom.disabled=!hasImage;
  viewerImage.alt=p.nome;
  viewerStatus.textContent='Carregando imagem com mais detalhes...';
  let usedFallback=false;
  viewerImage.onload=()=>{viewerStatus.textContent=usedFallback?'Visualizando a foto disponível.':'Use Ampliar mais para ver os detalhes.';};
  viewerImage.onerror=()=>{if(!usedFallback&&viewerImage.getAttribute('src')!==p.imagem){usedFallback=true;viewerImage.src=p.imagem;}else{viewerStatus.textContent='Não foi possível carregar esta foto. Feche e tente novamente.';}};
  viewerImage.decoding='async';viewerImage.referrerPolicy='no-referrer';
- viewerImage.src=largeImages[p.imagem]||(/^imagens\/produtos\/[a-zA-Z0-9_.-]+\.webp$/.test(p.imagem)?p.imagem.replace('imagens/produtos/','imagens/ampliadas/'):p.imagem);
+ if(hasImage)viewerImage.src=largeImages[p.imagem]||(/^imagens\/produtos\/[a-zA-Z0-9_.-]+\.webp$/.test(p.imagem)?p.imagem.replace('imagens/produtos/','imagens/ampliadas/'):p.imagem);
+ if(!hasImage){viewerImage.removeAttribute('src');viewerStatus.textContent='Este produto ainda não tem uma foto disponível.';}
  previousBodyOverflow=document.body.style.overflow;
  document.body.style.overflow='hidden';
  imageViewer.showModal();
@@ -167,7 +180,11 @@ function makeCard(p,showBadge=false,priority=false){
  }else{
   picture.append(text('span','',emojis[p.categoria]||'🛍️'));
  }
- card.append(picture,text('h3','',p.nome));
+ const heading=text('h3','','');
+ const nameButton=text('button','product-name',p.nome);
+ nameButton.type='button';nameButton.setAttribute('aria-haspopup','dialog');nameButton.setAttribute('aria-controls','imageViewer');nameButton.setAttribute('aria-label','Ver detalhes de '+p.nome);
+ nameButton.addEventListener('click',()=>openProductImage(p,nameButton));heading.append(nameButton);
+ card.append(picture,heading);
  if(p.descricao)card.append(text('p','description',p.descricao));
  if(Number.isFinite(p.preco)&&p.preco>=0){
   if(Number.isFinite(p.precoAnterior)&&p.precoAnterior>p.preco)card.append(text('div','old',money(p.precoAnterior)));
