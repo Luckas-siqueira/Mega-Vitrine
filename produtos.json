@@ -240,5 +240,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/9fLZS2HEeo"
+  },
+  {
+    "id": "shopee-mv372iui-lf0j",
+    "nome": "Tênis de corrida",
+    "categoria": "Fitness",
+    "descricao": "Tênis De Corrida Profissional Para Maratona Flying Burn 3 , Palma Completa , Placa De Carbono , PB IZHC NOKS",
+    "imagem": "no_markReactNative-snapshot-image_23.png",
+    "preco": 75.23,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/5LCaKc4tqB"
   }
 ]
