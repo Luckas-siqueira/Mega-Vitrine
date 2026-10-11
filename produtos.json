@@ -196,5 +196,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/3qNmFAq57W"
+  },
+  {
+    "id": "shopee-mv3418iu-5ddb",
+    "nome": "Kit mobilador completo",
+    "categoria": "Games",
+    "descricao": "Mobilador Gamer Completo Teclado RGB Mouse Gamer Mouse Pad Hub USB C Tripé Celular Free Fire",
+    "imagem": "no_markReactNative-snapshot-image_19.png",
+    "preco": 51.88,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/7ptvCzfWGs"
   }
 ]
