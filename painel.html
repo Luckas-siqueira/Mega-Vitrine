@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111318"><title>MegaVitrine | Cadastro direto</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111318"><title>MegaVitrine | Cadastro direto</title><meta name="panel-version" content="2026-10-11-conexao">
 <style>
 :root{--dark:#111318;--yellow:#ffd400;--bg:#f4f5f7;--line:#dfe2e8;--muted:#5f6877;--red:#b42318}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 system-ui,Arial,sans-serif;color:#191b20}header{background:var(--dark);color:#fff;padding:22px 16px}header .wrap{max-width:980px;margin:auto}h1{font-size:25px;margin:0}h1 span{color:var(--yellow)}header p{margin:5px 0 0;color:#e1e1e1;font-size:13px}main{max-width:980px;margin:auto;padding:16px 12px 70px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;margin-bottom:14px}h2{font-size:19px;margin:0 0 12px}.help{font-size:13px;color:var(--muted);margin:0 0 14px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:5px}.wide{grid-column:1/-1}label{font-size:13px;font-weight:700}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd0da;border-radius:9px;background:#fff;color:#16181d;font:inherit}textarea{min-height:75px;resize:vertical}input:focus,textarea:focus,select:focus{outline:2px solid #b99500;outline-offset:1px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}button,.file-button{border:1px solid #d2d5dd;background:white;border-radius:9px;padding:11px 13px;font:700 14px system-ui;cursor:pointer;color:#16181d;display:inline-flex;justify-content:center;align-items:center;gap:5px}button.primary,.file-button.primary{background:var(--yellow);border-color:#e5bc00}button.dark{background:var(--dark);color:white;border-color:var(--dark)}button.danger{color:var(--red);border-color:#eab9b4}button:disabled{opacity:.55;cursor:not-allowed}.file-button input{display:none}.notice{background:#fff7d4;border:1px solid #ead780;padding:11px;border-radius:10px;font-size:13px}.status{font-size:13px;margin:12px 0 0;min-height:20px;color:#235d38}.error{color:var(--red)}.stats{font-weight:700;font-size:14px}.item{border:1px solid var(--line);border-radius:11px;padding:12px;margin:9px 0;display:flex;gap:12px;justify-content:space-between;align-items:start}.item strong{display:block}.item small{color:var(--muted);display:block;overflow-wrap:anywhere}.item .buttons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.item button{padding:7px 10px;font-size:12px}.empty{color:var(--muted);padding:12px;text-align:center}.steps{padding-left:22px;margin-bottom:0}.steps li{margin-bottom:8px}code{background:#eff0f2;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.footer{font-size:12px;color:var(--muted);text-align:center}#preview{white-space:pre-wrap;overflow-wrap:anywhere;background:#16181d;color:#eee;padding:12px;border-radius:10px;max-height:260px;overflow:auto;font-size:11px;display:none}@media(max-width:580px){.fields{grid-template-columns:1fr}.item{display:block}.item .buttons{justify-content:flex-start;margin-top:10px}.actions>*{flex:1 1 auto}header{padding:20px 15px}}
 </style></head><body>
@@ -11,15 +11,15 @@
 <section class="panel"><h2>Conectar ao GitHub</h2>
 <p class="help">Repositório: <strong>Luckas-siqueira/Mega-Vitrine</strong> • arquivo: <code>produtos.json</code>. A chave é usada somente enquanto esta página estiver aberta, nunca é salva no navegador nem enviada para a MegaVitrine. Ela é enviada apenas à API do GitHub para autenticação.</p>
 <div class="fields"><div class="field wide"><label for="githubToken">Token de acesso de curta duração (GitHub fine-grained)</label><input id="githubToken" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Cole somente aqui o token criado no GitHub"></div></div>
-<div class="actions"><button type="button" id="loadGithub" class="dark">↻ Carregar catálogo do GitHub</button><button type="button" id="forgetToken">Apagar token deste painel</button></div><p id="githubStatus" class="status" role="status" aria-live="polite"></p>
-<p class="notice">⚠️ Crie o token apenas na sua conta do GitHub, limitado ao repositório <strong>Mega-Vitrine</strong>, com permissão <strong>Contents: Read and write</strong> e expiração curta. Nunca envie o token pelo chat, por prints ou para outras pessoas. Não adicione tokens ao código do site. Não use este painel em dispositivos compartilhados.</p>
-<p class="help">Depois de informar o token, use “Cadastrar no GitHub”. Para editar, carregue primeiro o catálogo. Se outro acesso alterar o mesmo produto, o painel bloqueia a edição para evitar perder dados.</p></section>
-<section class="panel"><h2>Importar produto por link</h2><p class="help">Cole um link da Shopee para preencher nome, preço, foto e link de afiliado. Confira a categoria sugerida antes de cadastrar. A descrição completa pode precisar ser preenchida por você.</p><div class="field"><label for="importUrl">Link do produto na Shopee</label><input id="importUrl" type="url" placeholder="https://s.shopee.com.br/..." autocomplete="off"></div><div class="actions"><button id="importProduct" type="button" class="primary">🔎 Extrair informações</button></div><p class="help"><a href="https://github.com/Luckas-siqueira/Mega-Vitrine/actions/workflows/importar-produto.yml" target="_blank" rel="noopener noreferrer">Acompanhar importações no GitHub</a></p><p id="importStatus" class="status" role="status" aria-live="polite"></p><p id="importReview" class="notice" hidden></p><details><summary>Ativar a importação automática</summary><ol class="steps"><li>Confira o acesso à <a href="https://affiliate.shopee.com.br/open_api" target="_blank" rel="noopener noreferrer">Open API no painel de afiliados Shopee</a>. A aprovação depende da Shopee.</li><li>Guarde o App ID e o Secret nos <a href="https://github.com/Luckas-siqueira/Mega-Vitrine/settings/secrets/actions" target="_blank" rel="noopener noreferrer">Secrets do repositório</a>, com os nomes <code>SHOPEE_APP_ID</code> e <code>SHOPEE_SECRET</code>. Não envie essas chaves pelo chat.</li><li>O token do GitHub usado neste painel precisa de <strong>Contents: Read and write</strong> e <strong>Actions: Read and write</strong>, apenas para Mega-Vitrine.</li></ol><p class="help">O cadastro manual continua disponível. A importação salva um rascunho e as fotos no GitHub; o produto só entra na vitrine depois de você conferir e cadastrar.</p></details></section>
+<div class="actions"><button type="button" id="testGithub" class="primary">✓ Testar conexão</button><button type="button" id="loadGithub" class="dark">↻ Carregar catálogo do GitHub</button><button type="button" id="forgetToken">Apagar token deste painel</button></div><p id="githubStatus" class="status" role="status" aria-live="polite"></p>
+<p id="connectionImport" class="help" role="status" aria-live="polite"></p><details><summary>Como configurar o token do GitHub</summary><ol class="steps"><li>Abra <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">seus tokens no GitHub</a>. Confira <strong>Resource owner: Luckas-siqueira</strong> e selecione somente <strong>Mega-Vitrine</strong>.</li><li>Para cadastrar e editar: <strong>Contents → Read and write</strong>.</li><li>Somente para extrair informações automaticamente: também <strong>Actions → Read and write</strong>. A API da Shopee precisa estar aprovada e configurada.</li><li>Copie o valor completo do token para o campo acima e use <strong>Testar conexão</strong>. Ele é mantido apenas enquanto esta página está aberta.</li></ol></details><p class="notice">⚠️ Crie o token apenas na sua conta do GitHub, limitado ao repositório <strong>Mega-Vitrine</strong>, com permissão <strong>Contents: Read and write</strong> e expiração curta. Nunca envie o token pelo chat, por prints ou para outras pessoas. Não adicione tokens ao código do site. Não use este painel em dispositivos compartilhados.</p>
+<p class="help">O token solicitado aqui é do GitHub. App ID e Secret da Shopee servem apenas à importação automática. Depois de informar o token, use “Cadastrar no GitHub”. Para editar, carregue primeiro o catálogo. Se outro acesso alterar o mesmo produto, o painel bloqueia a edição para evitar perder dados.</p></section>
+<section class="panel"><h2>Importar produto por link</h2><p class="help">Cole um link da Shopee para preencher nome, preço, foto e link de afiliado. Confira a categoria sugerida antes de cadastrar. A descrição completa pode precisar ser preenchida por você.</p><div class="field"><label for="importUrl">Link do produto na Shopee</label><input id="importUrl" type="url" placeholder="https://s.shopee.com.br/..." autocomplete="off"></div><p class="notice">A extração automática precisa de acesso aprovado à Open API da Shopee. Se sua conta ainda não tem esse acesso, use <strong>Usar link no cadastro manual</strong>; gerar outro token do GitHub não libera a API da Shopee.</p><div class="actions"><button id="useProductLink" type="button" class="dark">＋ Usar link no cadastro manual</button><button id="importProduct" type="button" class="primary">🔎 Extrair informações</button></div><p class="help"><a href="https://github.com/Luckas-siqueira/Mega-Vitrine/actions/workflows/importar-produto.yml" target="_blank" rel="noopener noreferrer">Acompanhar importações no GitHub</a></p><p id="importStatus" class="status" role="status" aria-live="polite"></p><p id="importReview" class="notice" hidden></p><details><summary>Ativar a importação automática</summary><ol class="steps"><li>Confira o acesso à <a href="https://affiliate.shopee.com.br/open_api" target="_blank" rel="noopener noreferrer">Open API no painel de afiliados Shopee</a>. A aprovação depende da Shopee.</li><li>Guarde o App ID e o Secret nos <a href="https://github.com/Luckas-siqueira/Mega-Vitrine/settings/secrets/actions" target="_blank" rel="noopener noreferrer">Secrets do repositório</a>, com os nomes <code>SHOPEE_APP_ID</code> e <code>SHOPEE_SECRET</code>. Não envie essas chaves pelo chat.</li><li>O token do GitHub usado neste painel precisa de <strong>Contents: Read and write</strong> e <strong>Actions: Read and write</strong>, apenas para Mega-Vitrine.</li></ol><p class="help">O cadastro manual continua disponível. A importação salva um rascunho e as fotos no GitHub; o produto só entra na vitrine depois de você conferir e cadastrar.</p></details></section>
 <section class="panel"><h2>1. Seu catálogo</h2><p class="help">Use Carregar catálogo do GitHub para ver e editar seus produtos. Cada cadastro busca a versão mais recente e salva diretamente no GitHub.</p><div class="actions"><label class="file-button primary">📂 Importar produtos.json <input id="importFile" type="file" accept=".json,application/json"></label><button id="download" class="dark" type="button">⬇ Baixar produtos.json</button><button id="copy" type="button">📋 Copiar JSON</button></div><p id="status" class="status" role="status" aria-live="polite"></p></section>
 <section class="panel"><h2 id="formTitle">2. Adicionar produto</h2><p id="modeInfo" class="notice" aria-live="polite">🟢 Modo: novo cadastro</p><form id="productForm"><div class="fields"><div class="field wide"><label for="name">Nome do produto *</label><input id="name" required maxlength="180" placeholder="Ex.: Kit de musculação 15 kg"></div><div class="field"><label for="category">Categoria *</label><select id="category"><option>Tecnologia</option><option>Casa</option><option>Beleza</option><option>Moda</option><option>Games</option><option>Fitness</option><option>Música</option><option>Veículos</option><option>Acessórios</option><option>Ferramentas</option><option>Papelaria</option><option>Brinquedos</option><option>Pet</option><option>Bebê</option><option>Esportes</option><option>Jardim</option><option>Eletrodomésticos</option><option>Saúde e Bem-estar</option><option>Alimentos e Bebidas</option><option>Livros</option><option>Bolsas e Malas</option><option>Outros</option></select></div><div class="field"><label for="image">Imagem (caminho do arquivo ou URL HTTPS)</label><input id="image" placeholder="imagens/produtos/tenis-de-corrida.webp"></div><div class="field wide"><label for="description">Descrição</label><textarea id="description" maxlength="500" placeholder="Breve descrição verdadeira do produto"></textarea></div><div class="field wide"><label for="url">Link de afiliado (HTTPS)</label><input id="url" type="url" placeholder="https://s.shopee.com.br/..."></div><div class="field"><label for="price">Preço atual (opcional, R$)</label><input id="price" inputmode="decimal" placeholder="Deixe vazio para Consultar preço"></div><div class="field"><label for="oldPrice">Preço anterior (opcional, R$)</label><input id="oldPrice" inputmode="decimal" placeholder="Ex.: 199,90"></div><div class="field wide"><label><input id="featured" type="checkbox" style="width:auto;margin-right:8px">Destacar produto na loja</label></div></div><div class="actions"><button class="primary" type="submit" id="save">☁ Cadastrar no GitHub</button><button type="button" id="newProduct" class="dark">＋ Novo cadastro</button><button type="button" id="reset">🧹 Limpar campos</button></div><p id="formFeedback" class="status" role="status" aria-live="polite"></p></form><p class="help" style="margin-top:12px">Envie a foto para a pasta imagens/produtos e informe o caminho completo, por exemplo imagens/produtos/tenis-de-corrida.webp. Use nomes sem espaços e sem acentos. Também são aceitos arquivos na pasta principal e links HTTPS. Formatos: JPG, JPEG, PNG ou WEBP.</p></section>
 <section class="panel"><h2>3. Produtos cadastrados</h2><p class="stats" id="count">0 produtos</p><div id="items"></div><div class="actions"><button id="download2" class="primary" type="button">⬇ Gerar produtos.json</button><button id="clearAll" class="danger" type="button">Limpar cópia local</button></div><pre id="preview"></pre></section>
 
-<p class="footer">MegaVitrine • O cadastro só é confirmado depois que o GitHub salva o produto.</p>
+<p class="footer">MegaVitrine • Painel atualizado em 11/10/2026 • O cadastro só é confirmado depois que o GitHub salva o produto.</p>
 </main>
 <script>
 'use strict';
@@ -83,38 +83,89 @@ $('copy').onclick=async()=>{if(!products.length){message('Adicione ou importe pe
 $('clearAll').onclick=()=>{if(confirm('Excluir todos os produtos salvos neste painel? Isso não exclui produtos do GitHub.')){products=[];resetForm();saveLocal();render();message('Catálogo local esvaziado. O site publicado não foi alterado.')}};
 try{const raw=localStorage.getItem(KEY);if(raw){const arr=JSON.parse(raw);if(Array.isArray(arr))products=arr.map(normalize)}}catch{message('Não foi possível restaurar os dados locais. Importe seu produtos.json.',true)}render();
 
-// Publicação via GitHub Contents API; token nunca vai para localStorage.
-const REPO_API='https://api.github.com/repos/Luckas-siqueira/Mega-Vitrine/contents/produtos.json';
+// Conexão com GitHub; token mantido somente nesta página.
+const GITHUB_API='https://api.github.com';
+const REPO_PATH='/repos/Luckas-siqueira/Mega-Vitrine';
 let remoteSha=null,remoteSnapshot=null;
 function ghStatus(text,isError=false){const el=$('githubStatus');el.textContent=text;el.className='status'+(isError?' error':'')}
-function token(){return $('githubToken').value.trim()}
+function token(){
+ const raw=$('githubToken').value;
+ const cleaned=raw.trim().replace(/^['"`]+|['"`]+$/g,'').replace(/^(?:Bearer|token)\s+/i,'').replace(/[\s\u200B-\u200D\uFEFF]/g,'');
+ if(!cleaned)return '';
+ if(/^https?:\/\//i.test(cleaned))throw Error('O campo de token recebeu um link. Cole o link do produto no cadastro e o token criado no GitHub em Conectar ao GitHub.');
+ if(!/^[A-Za-z0-9_.-]+$/.test(cleaned))throw Error('Cole o valor completo do token do GitHub, sem texto adicional. Não use o App ID ou Secret da Shopee.');
+ return cleaned;
+}
 function encode64Unicode(str){const bytes=new TextEncoder().encode(str);let bin='';for(const b of bytes)bin+=String.fromCharCode(b);return btoa(bin)}
 function decode64Unicode(str){const bin=atob(str.replace(/\s/g,''));const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
-async function githubRequest(method,body){
- if(!token())throw Error('Informe um token de acesso no campo acima.');
- const res=await fetch(REPO_API,{method,cache:'no-store',referrerPolicy:'no-referrer',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token(),'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
- let data;try{data=await res.json()}catch{throw Error('Resposta inválida do GitHub ('+res.status+').')}
- if(!res.ok){let msg=data.message||'Falha na conexão';if(res.status===401)msg='Token inválido ou expirado.';if(res.status===403)msg='Sem permissão de escrita/leitura, ou limite da API atingido. Confira Contents: Read and write.';if(res.status===409)msg='Conflito: o arquivo foi alterado. Carregue novamente antes de publicar.';throw Error(msg+' (HTTP '+res.status+')')}
- return data;
+function githubError(res,data,permission){
+ const status=res.status,details=String(data&&data.message||'');
+ let text;
+ if(status===401)text='O GitHub recusou este token: ele pode estar incompleto, expirado ou revogado. Use o valor completo do token, não o nome dado a ele.';
+ else if(status===429||(status===403&&(res.headers.get('x-ratelimit-remaining')==='0'||res.headers.get('retry-after')||/rate limit|abuse/i.test(details))))text='O GitHub limitou as consultas. Aguarde alguns minutos antes de tentar novamente; gerar outro token não resolve esse limite.';
+ else if(status===403)text='O GitHub bloqueou esta operação. Confira o acesso a Mega-Vitrine e a permissão '+permission+'. Um token novo com as mesmas permissões também será bloqueado.';
+ else if(status===404)text='O GitHub não disponibilizou este recurso para o token. Confira Resource owner: Luckas-siqueira, o repositório Mega-Vitrine e a permissão '+permission+'.';
+ else if(status===409)text='O catálogo mudou enquanto você editava. Seus campos foram mantidos; carregue o catálogo e revise a edição.';
+ else if(status===422)text='O GitHub não aceitou os dados da operação. Confira o catálogo ou o importador; este erro não confirma um token inválido.';
+ else if(status>=500)text='O GitHub está temporariamente indisponível. Seus campos foram mantidos; tente novamente mais tarde.';
+ else text='Não foi possível concluir esta operação no GitHub.';
+ const error=Error(text+' (HTTP '+status+')');error.status=status;return error;
 }
+async function githubApi(path,{method='GET',body,permission='Contents: Read and write',allowMissing=false}={}){
+ const credential=token();if(!credential)throw Error('Cole o token do GitHub em Conectar ao GitHub. O link da Shopee e as chaves da Shopee não substituem esse token.');
+ const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),25000);
+ let res;
+ try{
+  res=await fetch(GITHUB_API+path,{method,cache:'no-store',signal:controller.signal,referrerPolicy:'no-referrer',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+credential,'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
+  if(allowMissing&&res.status===404)return null;
+  if(res.status===204)return null;
+  let data;try{data=await res.json()}catch{if(!res.ok)throw githubError(res,{},permission);throw Error('O GitHub enviou uma resposta inesperada. Tente novamente.');}
+  if(!res.ok)throw githubError(res,data,permission);
+  return data;
+ }catch(error){
+  if(error.name==='AbortError')throw Error('A conexão com o GitHub demorou demais. Confira a internet e tente novamente.');
+  if(error instanceof TypeError)throw Error('Não foi possível conectar ao GitHub. Confira a internet, bloqueadores e abra o painel pelo endereço oficial do site.');
+  throw error;
+ }finally{clearTimeout(timeout);}
+}
+async function githubRequest(method,body){return githubApi(REPO_PATH+'/contents/produtos.json'+(method==='GET'?'?ref=main':''),{method,body,permission:method==='GET'?'Contents: Read (leitura)':'Contents: Read and write (cadastro)'});}
+$('testGithub').addEventListener('click',async()=>{
+ if(saving)return;lockSaving(true);ghStatus('Testando o token e a leitura do catálogo...');
+ try{
+  const user=await githubApi('/user',{permission:'autenticação do GitHub'});
+  await githubRequest('GET');
+  let status='✅ Token reconhecido pelo GitHub como '+user.login+'. Leitura do catálogo disponível. Para salvar, o token precisa de Contents: Read and write; este teste não altera arquivos.';
+  if(user.login.toLowerCase()!=='luckas-siqueira')status+=' Atenção: esta é outra conta. Ela precisa ter acesso de escrita a Luckas-siqueira/Mega-Vitrine.';
+  ghStatus(status);
+  try{
+   await githubApi(REPO_PATH+'/actions/workflows/importar-produto.yml',{permission:'Actions: Read and write (importação)'});
+   $('connectionImport').textContent='Importador localizado. Para iniciar a extração, são necessários Actions: Read and write e a Open API da Shopee aprovada e configurada. Ler o importador não confirma permissão para executá-lo.';
+  }catch(error){$('connectionImport').textContent='Cadastro manual e extração têm permissões diferentes. Importação: '+error.message;}
+ }catch(error){ghStatus('❌ '+error.message,true);$('connectionImport').textContent='';}
+ finally{lockSaving(false);}
+});
 $('loadGithub').addEventListener('click',async()=>{
  if(saving)return;lockSaving(true);ghStatus('Consultando catálogo no GitHub...');
  try{const d=await githubRequest('GET');const incoming=JSON.parse(decode64Unicode(d.content)).map(normalize);if(products.length&&!confirm('Carregar '+incoming.length+' produtos do GitHub? Isso substitui o catálogo LOCAL do painel.'))return;
- products=incoming;remoteSha=d.sha;remoteSnapshot=JSON.stringify(incoming);resetForm();saveLocal();render();ghStatus('✅ '+incoming.length+' produtos carregados. Você já pode cadastrar e editar diretamente.');}
- catch(e){ghStatus('❌ '+e.message,true)}finally{lockSaving(false)}
+ products=incoming;remoteSha=d.sha;remoteSnapshot=JSON.stringify(incoming);resetForm();saveLocal();render();ghStatus('✅ '+incoming.length+' produtos carregados. A leitura funcionou. Para salvar alterações, confira Contents: Read and write.');}
+ catch(error){ghStatus('❌ '+error.message,true)}finally{lockSaving(false)}
 });
-$('forgetToken').addEventListener('click',()=>{$('githubToken').value='';remoteSha=null;remoteSnapshot=null;ghStatus('Token apagado da página.');});
+$('forgetToken').addEventListener('click',()=>{$('githubToken').value='';remoteSha=null;remoteSnapshot=null;ghStatus('Token apagado da página.');$('connectionImport').textContent='';});
+$('githubToken').addEventListener('input',()=>{ghStatus('Token alterado. Use Testar conexão para conferir.');$('connectionImport').textContent='';});
+
 // A consulta é executada no GitHub; as chaves da Shopee não passam pelo navegador.
-const IMPORT_API='https://api.github.com/repos/Luckas-siqueira/Mega-Vitrine';
 let importing=false;
 function importStatus(text,error=false){$('importStatus').textContent=text;$('importStatus').className='status'+(error?' error':'');}
 function shopeeLink(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&['shopee.com.br','www.shopee.com.br','s.shopee.com.br','shope.ee'].includes(u.hostname)&&(!u.port||u.port==='443')}catch{return false}}
-async function importRequest(path,method='GET',body){
- const res=await fetch(IMPORT_API+path,{method,cache:'no-store',referrerPolicy:'no-referrer',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token(),'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
- if(res.status===404&&method==='GET'&&path.startsWith('/contents/.imports/'))return null;
- if(!res.ok){if(res.status===401)throw Error('Token do GitHub inválido ou expirado.');if(res.status===403)throw Error('Confira as permissões do token: Contents e Actions em Read and write, limitadas a Mega-Vitrine.');if(res.status===404)throw Error('Importador indisponível. Confira o repositório e a permissão Actions do token.');throw Error('Não foi possível consultar o importador (HTTP '+res.status+').');}
- return res.status===204?null:res.json();
-}
+async function importRequest(path,method='GET',body){return githubApi(REPO_PATH+path,{method,body,permission:path.startsWith('/actions/')?'Actions: Read and write (extrair informações)':'Contents: Read (ler o rascunho)',allowMissing:method==='GET'&&path.startsWith('/contents/.imports/')});}
+$('useProductLink').addEventListener('click',()=>{
+ if(saving)return;
+ const url=$('importUrl').value.trim();
+ if(!shopeeLink(url)){importStatus('Cole um link HTTPS de produto da Shopee.',true);return;}
+ $('url').value=url;
+ importStatus('✅ Link colocado no formulário. Preencha nome, foto e preço para cadastrar manualmente; esse caminho não precisa da API da Shopee.');
+ $('productForm').scrollIntoView({behavior:'smooth',block:'start'});
+});
 function fillImportedProduct(result){
  const p=result.product;
  if(!p||!p.nome||!validImage(p.imagem)||!shopeeLink(p.url))throw Error('O importador devolveu dados incompletos. Seus campos foram mantidos.');
@@ -127,7 +178,7 @@ $('importProduct').addEventListener('click',async()=>{
  if(importing||saving)return;
  const url=$('importUrl').value.trim();
  if(!shopeeLink(url)){importStatus('Cole um link HTTPS de produto da Shopee.',true);return;}
- if(!token()){importStatus('Informe primeiro o token na seção Conectar ao GitHub.',true);return;}
+ try{if(!token())throw Error('Cole o token do GitHub em Conectar ao GitHub e use Testar conexão. Para o cadastro manual, use Usar link no cadastro manual.');}catch(error){importStatus(error.message,true);return;}
  if(editing>=0||['name','image','description','url','price','oldPrice'].some(id=>$(id).value.trim())){
   if(!confirm('Importar um novo produto e substituir os campos do formulário? O catálogo já salvo não será alterado.'))return;
  }
