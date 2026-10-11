@@ -112,7 +112,7 @@ function openProductImage(p,opener){
  viewerImage.onload=()=>{viewerStatus.textContent=usedFallback?'Visualizando a foto disponível.':'Use Ampliar mais para ver os detalhes.';};
  viewerImage.onerror=()=>{if(!usedFallback&&viewerImage.getAttribute('src')!==p.imagem){usedFallback=true;viewerImage.src=p.imagem;}else{viewerStatus.textContent='Não foi possível carregar esta foto. Feche e tente novamente.';}};
  viewerImage.decoding='async';viewerImage.referrerPolicy='no-referrer';
- viewerImage.src=largeImages[p.imagem]||p.imagem;
+ viewerImage.src=largeImages[p.imagem]||(/^imagens\/produtos\/[a-zA-Z0-9_.-]+\.webp$/.test(p.imagem)?p.imagem.replace('imagens/produtos/','imagens/ampliadas/'):p.imagem);
  previousBodyOverflow=document.body.style.overflow;
  document.body.style.overflow='hidden';
  imageViewer.showModal();

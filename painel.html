@@ -14,6 +14,7 @@
 <div class="actions"><button type="button" id="loadGithub" class="dark">↻ Carregar catálogo do GitHub</button><button type="button" id="forgetToken">Apagar token deste painel</button></div><p id="githubStatus" class="status" role="status" aria-live="polite"></p>
 <p class="notice">⚠️ Crie o token apenas na sua conta do GitHub, limitado ao repositório <strong>Mega-Vitrine</strong>, com permissão <strong>Contents: Read and write</strong> e expiração curta. Nunca envie o token pelo chat, por prints ou para outras pessoas. Não adicione tokens ao código do site. Não use este painel em dispositivos compartilhados.</p>
 <p class="help">Depois de informar o token, use “Cadastrar no GitHub”. Para editar, carregue primeiro o catálogo. Se outro acesso alterar o mesmo produto, o painel bloqueia a edição para evitar perder dados.</p></section>
+<section class="panel"><h2>Importar produto por link</h2><p class="help">Cole um link da Shopee para preencher nome, preço, foto e link de afiliado. Confira a categoria sugerida antes de cadastrar. A descrição completa pode precisar ser preenchida por você.</p><div class="field"><label for="importUrl">Link do produto na Shopee</label><input id="importUrl" type="url" placeholder="https://s.shopee.com.br/..." autocomplete="off"></div><div class="actions"><button id="importProduct" type="button" class="primary">🔎 Extrair informações</button></div><p class="help"><a href="https://github.com/Luckas-siqueira/Mega-Vitrine/actions/workflows/importar-produto.yml" target="_blank" rel="noopener noreferrer">Acompanhar importações no GitHub</a></p><p id="importStatus" class="status" role="status" aria-live="polite"></p><p id="importReview" class="notice" hidden></p><details><summary>Ativar a importação automática</summary><ol class="steps"><li>Confira o acesso à <a href="https://affiliate.shopee.com.br/open_api" target="_blank" rel="noopener noreferrer">Open API no painel de afiliados Shopee</a>. A aprovação depende da Shopee.</li><li>Guarde o App ID e o Secret nos <a href="https://github.com/Luckas-siqueira/Mega-Vitrine/settings/secrets/actions" target="_blank" rel="noopener noreferrer">Secrets do repositório</a>, com os nomes <code>SHOPEE_APP_ID</code> e <code>SHOPEE_SECRET</code>. Não envie essas chaves pelo chat.</li><li>O token do GitHub usado neste painel precisa de <strong>Contents: Read and write</strong> e <strong>Actions: Read and write</strong>, apenas para Mega-Vitrine.</li></ol><p class="help">O cadastro manual continua disponível. A importação salva um rascunho e as fotos no GitHub; o produto só entra na vitrine depois de você conferir e cadastrar.</p></details></section>
 <section class="panel"><h2>1. Seu catálogo</h2><p class="help">Use Carregar catálogo do GitHub para ver e editar seus produtos. Cada cadastro busca a versão mais recente e salva diretamente no GitHub.</p><div class="actions"><label class="file-button primary">📂 Importar produtos.json <input id="importFile" type="file" accept=".json,application/json"></label><button id="download" class="dark" type="button">⬇ Baixar produtos.json</button><button id="copy" type="button">📋 Copiar JSON</button></div><p id="status" class="status" role="status" aria-live="polite"></p></section>
 <section class="panel"><h2 id="formTitle">2. Adicionar produto</h2><p id="modeInfo" class="notice" aria-live="polite">🟢 Modo: novo cadastro</p><form id="productForm"><div class="fields"><div class="field wide"><label for="name">Nome do produto *</label><input id="name" required maxlength="180" placeholder="Ex.: Kit de musculação 15 kg"></div><div class="field"><label for="category">Categoria *</label><select id="category"><option>Tecnologia</option><option>Casa</option><option>Beleza</option><option>Moda</option><option>Games</option><option>Fitness</option><option>Música</option><option>Veículos</option><option>Acessórios</option><option>Ferramentas</option><option>Papelaria</option><option>Brinquedos</option><option>Pet</option><option>Bebê</option><option>Esportes</option><option>Jardim</option><option>Eletrodomésticos</option><option>Saúde e Bem-estar</option><option>Alimentos e Bebidas</option><option>Livros</option><option>Bolsas e Malas</option><option>Outros</option></select></div><div class="field"><label for="image">Imagem (caminho do arquivo ou URL HTTPS)</label><input id="image" placeholder="imagens/produtos/tenis-de-corrida.webp"></div><div class="field wide"><label for="description">Descrição</label><textarea id="description" maxlength="500" placeholder="Breve descrição verdadeira do produto"></textarea></div><div class="field wide"><label for="url">Link de afiliado (HTTPS)</label><input id="url" type="url" placeholder="https://s.shopee.com.br/..."></div><div class="field"><label for="price">Preço atual (opcional, R$)</label><input id="price" inputmode="decimal" placeholder="Deixe vazio para Consultar preço"></div><div class="field"><label for="oldPrice">Preço anterior (opcional, R$)</label><input id="oldPrice" inputmode="decimal" placeholder="Ex.: 199,90"></div><div class="field wide"><label><input id="featured" type="checkbox" style="width:auto;margin-right:8px">Destacar produto na loja</label></div></div><div class="actions"><button class="primary" type="submit" id="save">☁ Cadastrar no GitHub</button><button type="button" id="newProduct" class="dark">＋ Novo cadastro</button><button type="button" id="reset">🧹 Limpar campos</button></div><p id="formFeedback" class="status" role="status" aria-live="polite"></p></form><p class="help" style="margin-top:12px">Envie a foto para a pasta imagens/produtos e informe o caminho completo, por exemplo imagens/produtos/tenis-de-corrida.webp. Use nomes sem espaços e sem acentos. Também são aceitos arquivos na pasta principal e links HTTPS. Formatos: JPG, JPEG, PNG ou WEBP.</p></section>
 <section class="panel"><h2>3. Produtos cadastrados</h2><p class="stats" id="count">0 produtos</p><div id="items"></div><div class="actions"><button id="download2" class="primary" type="button">⬇ Gerar produtos.json</button><button id="clearAll" class="danger" type="button">Limpar cópia local</button></div><pre id="preview"></pre></section>
@@ -35,7 +36,7 @@ function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(products))}catc
 function render(){const root=$('items');root.replaceChildren();$('count').textContent=products.length+' produto(s)';if(!products.length){const e=document.createElement('p');e.className='empty';e.textContent='Nenhum produto ainda. Importe seu catálogo ou adicione um produto.';root.append(e)}products.forEach((p,i)=>{const box=document.createElement('div');box.className='item';const detail=document.createElement('div');const name=document.createElement('strong');name.textContent=(i+1)+'. '+p.nome;const meta=document.createElement('small');meta.textContent=p.categoria+' • '+(p.destaque?'⭐ Destaque':'Normal')+' • '+(p.imagem||'Sem foto')+' • '+(p.url?'Com link':'Sem link');detail.append(name,meta);const buttons=document.createElement('div');buttons.className='buttons';const edit=document.createElement('button');edit.textContent='Editar';edit.type='button';edit.onclick=()=>startEdit(i);const remove=document.createElement('button');remove.textContent='Remover da cópia local';remove.type='button';remove.className='danger';remove.onclick=()=>{if(confirm('Remover somente da cópia local? O produto continua no GitHub.')){products.splice(i,1);if(editing===i)resetForm();else if(editing>i)editing--;saveLocal();render()}};buttons.append(edit,remove);box.append(detail,buttons);root.append(box)})}
 function clearFields(){['name','image','description','url','price','oldPrice'].forEach(id=>$(id).value='');$('category').value='Tecnologia';$('featured').checked=false;}
 function feedback(s){$('formFeedback').textContent=s;message(s)}
-function resetForm(){clearFields();editing=-1;$('formTitle').textContent='2. Adicionar produto';$('save').textContent='＋ Adicionar produto';$('modeInfo').textContent='🟢 Modo: novo cadastro'}
+function resetForm(){clearFields();editing=-1;$('formTitle').textContent='2. Adicionar produto';$('save').textContent='☁ Cadastrar no GitHub';$('modeInfo').textContent='🟢 Modo: novo cadastro'}
 function newProduct(){resetForm();feedback('✅ Novo cadastro iniciado. O produto anterior permanece salvo.');$('name').focus();}
 function startEdit(i){const p=products[i];editing=i;$('name').value=p.nome;$('category').value=p.categoria;$('image').value=p.imagem;$('description').value=p.descricao;$('url').value=p.url;$('price').value=p.preco===null?'':String(p.preco).replace('.',',');$('oldPrice').value=p.precoAnterior===null?'':String(p.precoAnterior).replace('.',',');$('featured').checked=p.destaque;$('formTitle').textContent='2. Editar produto';$('modeInfo').textContent='🟡 Modo: editando '+p.nome;$('formFeedback').textContent='';$('save').textContent='☁ Salvar no GitHub';$('productForm').scrollIntoView({behavior:'smooth',block:'start'})}
 let saving=false;
@@ -63,6 +64,7 @@ $('productForm').addEventListener('submit',async e=>{
   incoming[index]={...incoming[index],...p};
  }else{
   if(incoming.some(item=>item.id===p.id))throw Error('Este cadastro já existe. Carregue o catálogo para conferir.');
+  if(p.url&&incoming.some(item=>item.url===p.url))throw Error('Esse link já está no catálogo. Carregue o catálogo para editar o produto existente.');
   incoming.push(p);
  }
  const result=await githubRequest('PUT',{message:(old?'Editar produto: ':'Cadastrar produto: ')+p.nome,content:encode64Unicode(JSON.stringify(incoming,null,2)+"\n"),sha:latest.sha,branch:'main'});
@@ -102,4 +104,52 @@ $('loadGithub').addEventListener('click',async()=>{
  catch(e){ghStatus('❌ '+e.message,true)}finally{lockSaving(false)}
 });
 $('forgetToken').addEventListener('click',()=>{$('githubToken').value='';remoteSha=null;remoteSnapshot=null;ghStatus('Token apagado da página.');});
+// A consulta é executada no GitHub; as chaves da Shopee não passam pelo navegador.
+const IMPORT_API='https://api.github.com/repos/Luckas-siqueira/Mega-Vitrine';
+let importing=false;
+function importStatus(text,error=false){$('importStatus').textContent=text;$('importStatus').className='status'+(error?' error':'');}
+function shopeeLink(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&['shopee.com.br','www.shopee.com.br','s.shopee.com.br','shope.ee'].includes(u.hostname)&&(!u.port||u.port==='443')}catch{return false}}
+async function importRequest(path,method='GET',body){
+ const res=await fetch(IMPORT_API+path,{method,cache:'no-store',referrerPolicy:'no-referrer',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token(),'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ if(res.status===404&&method==='GET'&&path.startsWith('/contents/.imports/'))return null;
+ if(!res.ok){if(res.status===401)throw Error('Token do GitHub inválido ou expirado.');if(res.status===403)throw Error('Confira as permissões do token: Contents e Actions em Read and write, limitadas a Mega-Vitrine.');if(res.status===404)throw Error('Importador indisponível. Confira o repositório e a permissão Actions do token.');throw Error('Não foi possível consultar o importador (HTTP '+res.status+').');}
+ return res.status===204?null:res.json();
+}
+function fillImportedProduct(result){
+ const p=result.product;
+ if(!p||!p.nome||!validImage(p.imagem)||!shopeeLink(p.url))throw Error('O importador devolveu dados incompletos. Seus campos foram mantidos.');
+ resetForm();$('name').value=p.nome;$('category').value=categories.includes(p.categoria)?p.categoria:'Outros';$('description').value=p.descricao||'';$('image').value=p.imagem;$('url').value=p.url;$('price').value=p.preco===null?'':String(p.preco).replace('.',',');$('oldPrice').value='';$('featured').checked=false;
+ $('importReview').hidden=false;
+ $('importReview').textContent='✅ Dados preenchidos. Imagem otimizada: '+Math.ceil(result.imageBytes/1024)+' KB; versão ampliada: '+Math.ceil(result.largeImageBytes/1024)+' KB. '+(result.warnings||[]).join(' ');
+ feedback('Confira os campos e toque em Cadastrar no GitHub para publicar o produto.');
+}
+$('importProduct').addEventListener('click',async()=>{
+ if(importing||saving)return;
+ const url=$('importUrl').value.trim();
+ if(!shopeeLink(url)){importStatus('Cole um link HTTPS de produto da Shopee.',true);return;}
+ if(!token()){importStatus('Informe primeiro o token na seção Conectar ao GitHub.',true);return;}
+ if(editing>=0||['name','image','description','url','price','oldPrice'].some(id=>$(id).value.trim())){
+  if(!confirm('Importar um novo produto e substituir os campos do formulário? O catálogo já salvo não será alterado.'))return;
+ }
+ importing=true;lockSaving(true);$('importReview').hidden=true;
+ let requestId='';
+ try{
+  const bytes=crypto.getRandomValues(new Uint8Array(16));requestId=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
+  importStatus('Consultando a Shopee e otimizando as imagens do novo produto. Isso pode levar alguns minutos...');
+  await importRequest('/actions/workflows/importar-produto.yml/dispatches','POST',{ref:'main',inputs:{product_url:url,request_id:requestId}});
+  const deadline=Date.now()+300000;
+  while(Date.now()<deadline){
+   await new Promise(resolve=>setTimeout(resolve,4000));
+   const file=await importRequest('/contents/.imports/'+requestId+'.json?ref=main');
+   if(!file)continue;
+   const result=JSON.parse(decode64Unicode(file.content));
+   if(!result.ok)throw Error(result.error||'A Shopee não retornou os dados do produto.');
+   fillImportedProduct(result);importStatus('✅ Importação concluída. Confira o produto antes de cadastrar.');
+   $('productForm').scrollIntoView({behavior:'smooth',block:'start'});return;
+  }
+  throw Error('A importação está demorando. Confira a execução no GitHub Actions; o catálogo não foi alterado.');
+ }catch(err){importStatus('❌ '+err.message,true);}
+ finally{importing=false;lockSaving(false);}
+});
+
 </script></body></html>
