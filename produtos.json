@@ -262,5 +262,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/20w9WZyR7S"
+  },
+  {
+    "id": "shopee-mv48o5ch-ftkt",
+    "nome": "Óculos de sol UV",
+    "categoria": "Acessórios",
+    "descricao": "Óculos De Sol UV400 Da Moda , Elegantes Para Esportes Ao Ar Livre Homens E Mulheres",
+    "imagem": "no_markReactNative-snapshot-image_25.png",
+    "preco": 12.25,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/20w9WmxW0z"
   }
 ]
