@@ -57,7 +57,7 @@
   {
     "id": "shopee-mv2l03l4-i6iu",
     "nome": "Kit de ferramentas",
-    "categoria": "Tecnologia",
+    "categoria": "Ferramentas",
     "descricao": "Kit de Ferramentas 37-94 Peças profissional jogo chave combinada soquetes e catraca grande",
     "imagem": "no_markReactNative-snapshot-image_2.webp",
     "preco": 59.98,
@@ -90,7 +90,7 @@
   {
     "id": "shopee-mv2q19q1-teua",
     "nome": "Mochila térmica",
-    "categoria": "Tecnologia",
+    "categoria": "Bolsas e Malas",
     "descricao": "Mochila Térmica Grande Capacidade Cooler Portátil Piquenique Quente Frio Não colocar gelo ou água",
     "imagem": "no_markReactNative-snapshot-image_5.webp",
     "preco": 36.95,
@@ -211,7 +211,7 @@
   {
     "id": "shopee-mv34cuig-rzfw",
     "nome": "Kit 6 canetas Wow",
-    "categoria": "Casa",
+    "categoria": "Papelaria",
     "descricao": "Kit 6 Caneta Wow Esferográfica 0.7 Coloridas e Preta",
     "imagem": "no_markReactNative-snapshot-image_20.webp",
     "preco": 10.99,
@@ -222,9 +222,9 @@
   {
     "id": "shopee-mv35n4uk-kp6h",
     "nome": "Trava de afinação",
-    "categoria": "Tecnologia",
+    "categoria": "Música",
     "descricao": "Trava de Afinação para Parafuso de Caixa 7/32 Torelli TCP32",
-    "imagem": "no_markReactNative-snapshot-image_21.png",
+    "imagem": "no_markReactNative-snapshot-image_21.webp",
     "preco": 49.99,
     "precoAnterior": null,
     "destaque": false,
@@ -233,9 +233,9 @@
   {
     "id": "shopee-mv35oz8d-pech",
     "nome": "Trava de canoa",
-    "categoria": "Tecnologia",
+    "categoria": "Música",
     "descricao": "Trava De Canoa Para Bateria Acústica Parafuso Afinação Kit 10 30 50 Peças Caixa Tom Surdo Bumbo",
-    "imagem": "no_markReactNative-snapshot-image_22.png",
+    "imagem": "no_markReactNative-snapshot-image_22.webp",
     "preco": 18.32,
     "precoAnterior": null,
     "destaque": false,
