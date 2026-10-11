@@ -7,7 +7,7 @@
     "imagem": "no_markReactNative-snapshot-image.png",
     "preco": 64.9,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/2qVEemjw8A"
   },
   {
@@ -40,7 +40,7 @@
     "imagem": "yo2tkcn-11134207-820l4-mp3d55n2vklnb0.jpg",
     "preco": 58.3,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/AKbFZUZmr3"
   },
   {
@@ -62,7 +62,7 @@
     "imagem": "no_markReactNative-snapshot-image_2.png",
     "preco": 59.98,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/40hC3pIwXS"
   },
   {
@@ -73,7 +73,7 @@
     "imagem": "no_markReactNative-snapshot-image_3.png",
     "preco": 59.9,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/1qchTy1tRo"
   },
   {
@@ -84,7 +84,7 @@
     "imagem": "no_markReactNative-snapshot-image_4.png",
     "preco": 27.11,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/AAHpUrK8C2"
   },
   {
@@ -95,7 +95,7 @@
     "imagem": "no_markReactNative-snapshot-image_5.png",
     "preco": 36.95,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/9V28lfnH6U"
   },
   {
@@ -106,7 +106,7 @@
     "imagem": "no_markReactNative-snapshot-image_6.png",
     "preco": 29.9,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/9V28lfnH6U"
   },
   {
@@ -117,7 +117,7 @@
     "imagem": "no_markReactNative-snapshot-image_7.png",
     "preco": 39.9,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/9V28lqipaA"
   },
   {
@@ -128,7 +128,7 @@
     "imagem": "no_markReactNative-snapshot-image_8.png",
     "preco": 16.49,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/905sB7bUHI"
   },
   {
@@ -150,7 +150,7 @@
     "imagem": "no_markReactNative-snapshot-image_10.png",
     "preco": 27.99,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/1gJHRuA0Gc"
   },
   {
@@ -161,7 +161,7 @@
     "imagem": "no_markReactNative-snapshot-image_11.png",
     "preco": 29.9,
     "precoAnterior": null,
-    "destaque": true,
+    "destaque": false,
     "url": "https://s.shopee.com.br/gQkGCEyid"
   },
   {
@@ -183,7 +183,7 @@
     "imagem": "no_markReactNative-snapshot-image_16.png",
     "preco": 30,
     "precoAnterior": null,
-    "destaque": false,
+    "destaque": true,
     "url": "https://s.shopee.com.br/Lnu4YH7Yf"
   },
   {
@@ -194,7 +194,7 @@
     "imagem": "no_markReactNative-snapshot-image_17.png",
     "preco": 27.99,
     "precoAnterior": null,
-    "destaque": false,
+    "destaque": true,
     "url": "https://s.shopee.com.br/3qNmFAq57W"
   }
 ]
