@@ -24,6 +24,8 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
 
 .featured-controls{display:flex;gap:8px;flex-wrap:wrap}.featured-controls button{border:1px solid var(--line);border-radius:8px;background:#121315;color:white;min-width:44px;min-height:44px;padding:8px 12px}.featured-controls button:hover{border-color:var(--yellow)}.carousel-hint{color:var(--muted);font-size:13px;margin:0 0 14px}.featured-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:2px;padding:4px 2px 16px;scrollbar-color:var(--yellow) #121315;scrollbar-width:thin}.featured-track .product{flex:0 0 calc((100% - 42px)/4);scroll-snap-align:start;display:flex;flex-direction:column}.featured-track .product .btn{margin-top:auto}.featured-track:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}.featured-track .empty{width:100%}#ofertas .section-head{flex-wrap:wrap}#ofertas[hidden]{display:none}@media(max-width:900px){.featured-track .product{flex-basis:calc((100% - 28px)/2.5)}}@media(max-width:480px){.featured-track .product{flex-basis:78%}.featured-controls{gap:6px}.featured-controls button{padding:8px 10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product,.category{transition:none}}
 .categories:not(.expanded) .category:nth-child(n+7){display:none}.category-toggle{display:block;margin:14px auto 0;border:1px solid var(--line);border-radius:9px;background:#121315;color:var(--yellow);padding:12px 18px;font-weight:700}.toolbar select{max-width:100%}
+
+.image-button{position:relative;width:100%;padding:0;border:0;cursor:zoom-in;color:inherit}.image-button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}.zoom-hint{position:absolute;bottom:6px;right:6px;background:#111d;color:white;border-radius:6px;padding:5px 7px;font-size:11px;pointer-events:none}.image-viewer{width:min(94vw,1050px);max-width:1050px;max-height:94vh;padding:16px;border:1px solid var(--line);border-radius:14px;background:#16181d;color:white;overflow:auto}.image-viewer::backdrop{background:#000c}.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}.viewer-head h2{font-size:17px;line-height:1.4;margin:0}.viewer-head button,.viewer-actions button{background:#25272e;color:#fff;border:1px solid #555;border-radius:8px;padding:10px 14px;min-height:44px}.viewer-head button{flex-shrink:0}.viewer-viewport{background:#222327;border-radius:8px;max-height:70vh;overflow:auto;overscroll-behavior:contain;text-align:center}.viewer-viewport img{display:block;max-width:100%;max-height:70vh;width:auto;height:auto;object-fit:contain;margin:auto}.viewer-viewport.magnified img{width:1200px;max-width:none;max-height:none}.viewer-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}.viewer-status{font-size:13px;color:#bbc0cc;margin:0}@media(max-width:480px){.image-viewer{padding:10px}.viewer-head h2{font-size:14px}.viewer-viewport,.viewer-viewport img{max-height:65vh}}
 </style>
 </head>
 <body>
@@ -38,6 +40,7 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
 <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja parceira. Itens sem link são exemplos e não estão disponíveis para compra por aqui.</div></section>
 <section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><p>Nosso objetivo é ajudar você a descobrir produtos de diferentes categorias e encontrar oportunidades em lojas parceiras. Compra, pagamento, entrega e atendimento são realizados pela loja parceira.</p></section></main>
 <footer><div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--yellow)">Vitrine</span></div><p>As melhores ofertas estão aqui!</p></div><div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><span>Política de privacidade: em preparação</span><br><span>Termos de uso: em preparação</span></div><div><h3>Atendimento</h3><p>Canal de contato: em preparação</p><a href="#ofertas">Como funcionam as ofertas</a></div><div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div></footer>
+<dialog id="imageViewer" class="image-viewer" aria-labelledby="viewerTitle"><div class="viewer-head"><h2 id="viewerTitle">Imagem do produto</h2><button id="viewerClose" type="button" aria-label="Fechar imagem">Fechar ✕</button></div><div id="viewerViewport" class="viewer-viewport"><img id="viewerImage" alt=""></div><div class="viewer-actions"><button id="viewerZoom" type="button" aria-pressed="false">Ampliar mais ＋</button><p id="viewerStatus" class="viewer-status" role="status" aria-live="polite"></p></div></dialog>
 <script>
 'use strict';
 const form=document.getElementById('searchForm');
@@ -92,11 +95,41 @@ const money=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).
 const validUrl=value=>{try{const u=new URL(value);return u.protocol==='https:';}catch{return false;}};
 const validImage=value=>typeof value==='string'&&value.trim()&&(validUrl(value)||/^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp|gif)$/i.test(value));
 const text=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;return el;};
+const largeImages={"no_markReactNative-snapshot-image.webp":"no_markReactNative-snapshot-image-ampliada.webp","lw4btbr-11134207-820m7-morclqis70ub4a.webp":"lw4btbr-11134207-820m7-morclqis70ub4a-ampliada.webp","IMG_20261010_104040.webp":"IMG_20261010_104040-ampliada.webp","8ydnccn-11134207-820l4-mp3d19ehhn2ne9.webp":"8ydnccn-11134207-820l4-mp3d19ehhn2ne9-ampliada.webp","no_markReactNative-snapshot-image_1.webp":"no_markReactNative-snapshot-image_1-ampliada.webp","no_markReactNative-snapshot-image_2.webp":"no_markReactNative-snapshot-image_2-ampliada.webp","no_markReactNative-snapshot-image_3.webp":"no_markReactNative-snapshot-image_3-ampliada.webp","no_markReactNative-snapshot-image_4.webp":"no_markReactNative-snapshot-image_4-ampliada.webp","no_markReactNative-snapshot-image_5.webp":"no_markReactNative-snapshot-image_5-ampliada.webp","no_markReactNative-snapshot-image_6.webp":"no_markReactNative-snapshot-image_6-ampliada.webp","no_markReactNative-snapshot-image_7.webp":"no_markReactNative-snapshot-image_7-ampliada.webp","no_markReactNative-snapshot-image_8.webp":"no_markReactNative-snapshot-image_8-ampliada.webp","no_markReactNative-snapshot-image_9.webp":"no_markReactNative-snapshot-image_9-ampliada.webp","no_markReactNative-snapshot-image_10.webp":"no_markReactNative-snapshot-image_10-ampliada.webp","no_markReactNative-snapshot-image_11.webp":"no_markReactNative-snapshot-image_11-ampliada.webp","no_markReactNative-snapshot-image_12.webp":"no_markReactNative-snapshot-image_12-ampliada.webp","no_markReactNative-snapshot-image_16.webp":"no_markReactNative-snapshot-image_16-ampliada.webp","no_markReactNative-snapshot-image_17.webp":"no_markReactNative-snapshot-image_17-ampliada.webp","no_markReactNative-snapshot-image_19.webp":"no_markReactNative-snapshot-image_19-ampliada.webp","no_markReactNative-snapshot-image_20.webp":"no_markReactNative-snapshot-image_20-ampliada.webp","no_markReactNative-snapshot-image_21.webp":"no_markReactNative-snapshot-image_21-ampliada.webp","no_markReactNative-snapshot-image_22.webp":"no_markReactNative-snapshot-image_22-ampliada.webp"};
+const imageViewer=document.getElementById('imageViewer');
+const viewerImage=document.getElementById('viewerImage');
+const viewerViewport=document.getElementById('viewerViewport');
+const viewerZoom=document.getElementById('viewerZoom');
+const viewerStatus=document.getElementById('viewerStatus');
+let viewerOpener=null,previousBodyOverflow='';
+function resetViewerZoom(){viewerViewport.classList.remove('magnified');viewerZoom.setAttribute('aria-pressed','false');viewerZoom.textContent='Ampliar mais ＋';viewerViewport.scrollTop=0;viewerViewport.scrollLeft=0;}
+function openProductImage(p,opener){
+ viewerOpener=opener;resetViewerZoom();
+ document.getElementById('viewerTitle').textContent=p.nome;
+ viewerImage.alt=p.nome;
+ viewerStatus.textContent='Carregando imagem com mais detalhes...';
+ let usedFallback=false;
+ viewerImage.onload=()=>{viewerStatus.textContent=usedFallback?'Visualizando a foto disponível.':'Use Ampliar mais para ver os detalhes.';};
+ viewerImage.onerror=()=>{if(!usedFallback&&viewerImage.getAttribute('src')!==p.imagem){usedFallback=true;viewerImage.src=p.imagem;}else{viewerStatus.textContent='Não foi possível carregar esta foto. Feche e tente novamente.';}};
+ viewerImage.decoding='async';viewerImage.referrerPolicy='no-referrer';
+ viewerImage.src=largeImages[p.imagem]||p.imagem;
+ previousBodyOverflow=document.body.style.overflow;
+ document.body.style.overflow='hidden';
+ imageViewer.showModal();
+}
+document.getElementById('viewerClose').addEventListener('click',()=>imageViewer.close());
+imageViewer.addEventListener('click',e=>{if(e.target===imageViewer){const rect=imageViewer.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)imageViewer.close();}});
+imageViewer.addEventListener('close',()=>{document.body.style.overflow=previousBodyOverflow;viewerImage.onload=null;viewerImage.onerror=null;viewerImage.removeAttribute('src');resetViewerZoom();if(viewerOpener&&viewerOpener.isConnected)viewerOpener.focus();});
+viewerZoom.addEventListener('click',()=>{const expanded=viewerViewport.classList.toggle('magnified');viewerZoom.setAttribute('aria-pressed',String(expanded));viewerZoom.textContent=expanded?'Ajustar à tela −':'Ampliar mais ＋';});
+
 function makeCard(p,showBadge=false,priority=false){
  const card=text('article','product','');
  if(showBadge&&p.destaque)card.append(text('span','badge','DESTAQUE'));
- const picture=text('div','product-img','');
+ const picture=text(validImage(p.imagem)?'button':'div','product-img'+(validImage(p.imagem)?' image-button':''),'');
  if(validImage(p.imagem)){
+  picture.type='button';picture.setAttribute('aria-label','Ampliar imagem de '+p.nome);
+  picture.setAttribute('aria-haspopup','dialog');
+  picture.addEventListener('click',()=>openProductImage(p,picture));
   const img=document.createElement('img');
   img.src=p.imagem;
   img.alt=p.nome;
@@ -106,7 +139,7 @@ function makeCard(p,showBadge=false,priority=false){
   img.width=480;img.height=480;
   img.referrerPolicy='no-referrer';
   img.onerror=()=>{picture.replaceChildren(text('span','',emojis[p.categoria]||'🛍️'));};
-  picture.append(img);
+  picture.append(img,text('span','zoom-hint','🔍 Ampliar'));
  }else{
   picture.append(text('span','',emojis[p.categoria]||'🛍️'));
  }
