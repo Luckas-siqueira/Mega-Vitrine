@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111318"><title>MegaVitrine | Cadastro direto</title>
+<style>
+:root{--dark:#111318;--yellow:#ffd400;--bg:#f4f5f7;--line:#dfe2e8;--muted:#5f6877;--red:#b42318}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 system-ui,Arial,sans-serif;color:#191b20}header{background:var(--dark);color:#fff;padding:22px 16px}header .wrap{max-width:980px;margin:auto}h1{font-size:25px;margin:0}h1 span{color:var(--yellow)}header p{margin:5px 0 0;color:#e1e1e1;font-size:13px}main{max-width:980px;margin:auto;padding:16px 12px 70px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;margin-bottom:14px}h2{font-size:19px;margin:0 0 12px}.help{font-size:13px;color:var(--muted);margin:0 0 14px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:5px}.wide{grid-column:1/-1}label{font-size:13px;font-weight:700}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd0da;border-radius:9px;background:#fff;color:#16181d;font:inherit}textarea{min-height:75px;resize:vertical}input:focus,textarea:focus,select:focus{outline:2px solid #b99500;outline-offset:1px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}button,.file-button{border:1px solid #d2d5dd;background:white;border-radius:9px;padding:11px 13px;font:700 14px system-ui;cursor:pointer;color:#16181d;display:inline-flex;justify-content:center;align-items:center;gap:5px}button.primary,.file-button.primary{background:var(--yellow);border-color:#e5bc00}button.dark{background:var(--dark);color:white;border-color:var(--dark)}button.danger{color:var(--red);border-color:#eab9b4}button:disabled{opacity:.55;cursor:not-allowed}.file-button input{display:none}.notice{background:#fff7d4;border:1px solid #ead780;padding:11px;border-radius:10px;font-size:13px}.status{font-size:13px;margin:12px 0 0;min-height:20px;color:#235d38}.error{color:var(--red)}.stats{font-weight:700;font-size:14px}.item{border:1px solid var(--line);border-radius:11px;padding:12px;margin:9px 0;display:flex;gap:12px;justify-content:space-between;align-items:start}.item strong{display:block}.item small{color:var(--muted);display:block;overflow-wrap:anywhere}.item .buttons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.item button{padding:7px 10px;font-size:12px}.empty{color:var(--muted);padding:12px;text-align:center}.steps{padding-left:22px;margin-bottom:0}.steps li{margin-bottom:8px}code{background:#eff0f2;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.footer{font-size:12px;color:var(--muted);text-align:center}#preview{white-space:pre-wrap;overflow-wrap:anywhere;background:#16181d;color:#eee;padding:12px;border-radius:10px;max-height:260px;overflow:auto;font-size:11px;display:none}@media(max-width:580px){.fields{grid-template-columns:1fr}.item{display:block}.item .buttons{justify-content:flex-start;margin-top:10px}.actions>*{flex:1 1 auto}header{padding:20px 15px}}
+</style></head><body>
+<header><div class="wrap"><h1>Mega<span>Vitrine</span> <span style="color:#fff;font-size:15px">• Cadastro direto</span></h1><p>Cadastre e edite produtos diretamente na sua loja.</p></div></header>
+<main>
+<section class="panel"><h2>Conectar ao GitHub</h2>
+<p class="help">Repositório: <strong>Luckas-siqueira/Mega-Vitrine</strong> • arquivo: <code>produtos.json</code>. A chave é usada somente enquanto esta página estiver aberta, nunca é salva no navegador nem enviada para a MegaVitrine. Ela é enviada apenas à API do GitHub para autenticação.</p>
+<div class="fields"><div class="field wide"><label for="githubToken">Token de acesso de curta duração (GitHub fine-grained)</label><input id="githubToken" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Cole somente aqui o token criado no GitHub"></div></div>
+<div class="actions"><button type="button" id="loadGithub" class="dark">↻ Carregar catálogo do GitHub</button><button type="button" id="forgetToken">Apagar token deste painel</button></div><p id="githubStatus" class="status" role="status" aria-live="polite"></p>
+<p class="notice">⚠️ Crie o token apenas na sua conta do GitHub, limitado ao repositório <strong>Mega-Vitrine</strong>, com permissão <strong>Contents: Read and write</strong> e expiração curta. Nunca envie o token pelo chat, por prints ou para outras pessoas. Não adicione tokens ao código do site. Não use este painel em dispositivos compartilhados.</p>
+<p class="help">Depois de informar o token, use “Cadastrar no GitHub”. Para editar, carregue primeiro o catálogo. Se outro acesso alterar o mesmo produto, o painel bloqueia a edição para evitar perder dados.</p></section>
+<section class="panel"><h2>1. Seu catálogo</h2><p class="help">Use Carregar catálogo do GitHub para ver e editar seus produtos. Cada cadastro busca a versão mais recente e salva diretamente no GitHub.</p><div class="actions"><label class="file-button primary">📂 Importar produtos.json <input id="importFile" type="file" accept=".json,application/json"></label><button id="download" class="dark" type="button">⬇ Baixar produtos.json</button><button id="copy" type="button">📋 Copiar JSON</button></div><p id="status" class="status" role="status" aria-live="polite"></p></section>
+<section class="panel"><h2 id="formTitle">2. Adicionar produto</h2><p id="modeInfo" class="notice" aria-live="polite">🟢 Modo: novo cadastro</p><form id="productForm"><div class="fields"><div class="field wide"><label for="name">Nome do produto *</label><input id="name" required maxlength="180" placeholder="Ex.: Kit de musculação 15 kg"></div><div class="field"><label for="category">Categoria *</label><select id="category"><option>Tecnologia</option><option>Casa</option><option>Beleza</option><option>Moda</option><option>Games</option><option>Fitness</option></select></div><div class="field"><label for="image">Imagem (nome do arquivo ou URL HTTPS)</label><input id="image" placeholder="foto-produto.jpg"></div><div class="field wide"><label for="description">Descrição</label><textarea id="description" maxlength="500" placeholder="Breve descrição verdadeira do produto"></textarea></div><div class="field wide"><label for="url">Link de afiliado (HTTPS)</label><input id="url" type="url" placeholder="https://s.shopee.com.br/..."></div><div class="field"><label for="price">Preço atual (opcional, R$)</label><input id="price" inputmode="decimal" placeholder="Deixe vazio para Consultar preço"></div><div class="field"><label for="oldPrice">Preço anterior (opcional, R$)</label><input id="oldPrice" inputmode="decimal" placeholder="Ex.: 199,90"></div><div class="field wide"><label><input id="featured" type="checkbox" style="width:auto;margin-right:8px">Destacar produto na loja</label></div></div><div class="actions"><button class="primary" type="submit" id="save">☁ Cadastrar no GitHub</button><button type="button" id="newProduct" class="dark">＋ Novo cadastro</button><button type="button" id="reset">🧹 Limpar campos</button></div><p id="formFeedback" class="status" role="status" aria-live="polite"></p></form><p class="help" style="margin-top:12px">A foto precisa estar enviada à pasta principal do repositório com o mesmo nome informado aqui. Formatos de nome de arquivo aceitos pelo site: JPG, JPEG, PNG ou WEBP.</p></section>
+<section class="panel"><h2>3. Produtos cadastrados</h2><p class="stats" id="count">0 produtos</p><div id="items"></div><div class="actions"><button id="download2" class="primary" type="button">⬇ Gerar produtos.json</button><button id="clearAll" class="danger" type="button">Limpar cópia local</button></div><pre id="preview"></pre></section>
+
+<p class="footer">MegaVitrine • O cadastro só é confirmado depois que o GitHub salva o produto.</p>
+</main>
+<script>
+'use strict';
+const KEY='megavitrine-catalog-v1';
+const $=id=>document.getElementById(id);
+const categories=['Tecnologia','Casa','Beleza','Moda','Games','Fitness'];
+let products=[],editing=-1;
+function message(s,error=false){$('status').textContent=s;$('status').className='status'+(error?' error':'');}
+function isHttps(s){try{return new URL(s).protocol==='https:'}catch{return false}}
+function validImage(s){return !s||isHttps(s)||/^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(s)}
+function amount(s){if(!s.trim())return null;const raw=s.trim().replace(/\s/g,'');const v=raw.includes(',')?raw.replace(/\./g,'').replace(',','.'):raw;const n=Number(v);if(!Number.isFinite(n)||n<0)throw Error('Digite um preço válido, por exemplo 79,90.');return Math.round(n*100)/100}
+function normalize(p){if(!p||typeof p!=='object'||typeof p.id!=='string'||typeof p.nome!=='string'||!p.nome.trim()||!categories.includes(p.categoria))throw Error('Catálogo contém produto sem id, nome ou categoria válida.');return {id:p.id,nome:p.nome,categoria:p.categoria,descricao:typeof p.descricao==='string'?p.descricao:'',imagem:typeof p.imagem==='string'?p.imagem:'',preco:typeof p.preco==='number'&&Number.isFinite(p.preco)?p.preco:null,precoAnterior:typeof p.precoAnterior==='number'&&Number.isFinite(p.precoAnterior)?p.precoAnterior:null,destaque:!!p.destaque,url:typeof p.url==='string'?p.url:''}}
+function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(products))}catch{message('Não foi possível salvar neste navegador. Baixe seu JSON para não perder os dados.',true)}}
+function render(){const root=$('items');root.replaceChildren();$('count').textContent=products.length+' produto(s)';if(!products.length){const e=document.createElement('p');e.className='empty';e.textContent='Nenhum produto ainda. Importe seu catálogo ou adicione um produto.';root.append(e)}products.forEach((p,i)=>{const box=document.createElement('div');box.className='item';const detail=document.createElement('div');const name=document.createElement('strong');name.textContent=(i+1)+'. '+p.nome;const meta=document.createElement('small');meta.textContent=p.categoria+' • '+(p.destaque?'⭐ Destaque':'Normal')+' • '+(p.imagem||'Sem foto')+' • '+(p.url?'Com link':'Sem link');detail.append(name,meta);const buttons=document.createElement('div');buttons.className='buttons';const edit=document.createElement('button');edit.textContent='Editar';edit.type='button';edit.onclick=()=>startEdit(i);const remove=document.createElement('button');remove.textContent='Remover da cópia local';remove.type='button';remove.className='danger';remove.onclick=()=>{if(confirm('Remover somente da cópia local? O produto continua no GitHub.')){products.splice(i,1);if(editing===i)resetForm();else if(editing>i)editing--;saveLocal();render()}};buttons.append(edit,remove);box.append(detail,buttons);root.append(box)})}
+function clearFields(){['name','image','description','url','price','oldPrice'].forEach(id=>$(id).value='');$('category').value='Tecnologia';$('featured').checked=false;}
+function feedback(s){$('formFeedback').textContent=s;message(s)}
+function resetForm(){clearFields();editing=-1;$('formTitle').textContent='2. Adicionar produto';$('save').textContent='＋ Adicionar produto';$('modeInfo').textContent='🟢 Modo: novo cadastro'}
+function newProduct(){resetForm();feedback('✅ Novo cadastro iniciado. O produto anterior permanece salvo.');$('name').focus();}
+function startEdit(i){const p=products[i];editing=i;$('name').value=p.nome;$('category').value=p.categoria;$('image').value=p.imagem;$('description').value=p.descricao;$('url').value=p.url;$('price').value=p.preco===null?'':String(p.preco).replace('.',',');$('oldPrice').value=p.precoAnterior===null?'':String(p.precoAnterior).replace('.',',');$('featured').checked=p.destaque;$('formTitle').textContent='2. Editar produto';$('modeInfo').textContent='🟡 Modo: editando '+p.nome;$('formFeedback').textContent='';$('save').textContent='☁ Salvar no GitHub';$('productForm').scrollIntoView({behavior:'smooth',block:'start'})}
+let saving=false;
+function lockSaving(value){saving=value;document.querySelectorAll('button,input,select,textarea').forEach(el=>el.disabled=value);}
+$('productForm').addEventListener('submit',async e=>{
+ e.preventDefault();if(saving)return;
+ try{
+ const name=$('name').value.trim(),image=$('image').value.trim(),url=$('url').value.trim();
+ if(!name)throw Error('Informe o nome do produto.');
+ if(!validImage(image))throw Error('Imagem: use um arquivo .jpg, .png, .webp ou um link HTTPS.');
+ if(url&&!isHttps(url))throw Error('O link de afiliado deve começar com https://.');
+ if(!token())throw Error('Informe seu token na seção Conectar ao GitHub.');
+ const old=editing>=0?products[editing]:null;
+ const p={id:old?old.id:'shopee-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,6),nome:name,categoria:$('category').value,descricao:$('description').value.trim(),imagem:image,preco:amount($('price').value),precoAnterior:amount($('oldPrice').value),destaque:$('featured').checked,url};
+ lockSaving(true);ghStatus('Salvando produto no GitHub...');message('Salvando produto...');
+ const latest=await githubRequest('GET');
+ const incoming=JSON.parse(decode64Unicode(latest.content));
+ if(!Array.isArray(incoming))throw Error('O catálogo online não é uma lista válida.');
+ incoming.forEach(normalize);
+ if(old){
+  if(!remoteSnapshot)throw Error('Carregue o catálogo do GitHub antes de editar.');
+  const base=JSON.parse(remoteSnapshot).find(item=>item.id===old.id);
+  const index=incoming.findIndex(item=>item.id===old.id);
+  if(!base||index<0||JSON.stringify(normalize(incoming[index]))!==JSON.stringify(base))throw Error('Este produto mudou no GitHub. Seus campos foram mantidos; carregue o catálogo e revise a edição.');
+  incoming[index]={...incoming[index],...p};
+ }else{
+  if(incoming.some(item=>item.id===p.id))throw Error('Este cadastro já existe. Carregue o catálogo para conferir.');
+  incoming.push(p);
+ }
+ const result=await githubRequest('PUT',{message:(old?'Editar produto: ':'Cadastrar produto: ')+p.nome,content:encode64Unicode(JSON.stringify(incoming,null,2)+"\n"),sha:latest.sha,branch:'main'});
+ remoteSha=result.content.sha;products=incoming.map(normalize);remoteSnapshot=JSON.stringify(products);
+ saveLocal();render();resetForm();feedback('✅ Produto salvo no GitHub! A loja será atualizada automaticamente.');ghStatus('✅ Cadastro confirmado no GitHub.');
+ }catch(err){message(err.message,true);ghStatus('❌ Não salvo: '+err.message,true);}
+ finally{lockSaving(false);}
+});
+$('newProduct').addEventListener('click',function(e){e.preventDefault();newProduct();});
+$('reset').addEventListener('click',function(e){e.preventDefault();clearFields();feedback(editing>=0?'🧹 Campos limpos. Você continua editando o mesmo produto. Toque em Novo cadastro para mudar de modo.':'🧹 Campos limpos. Pode preencher um novo produto.');$('name').focus();});
+$('importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const raw=JSON.parse(await file.text());if(!Array.isArray(raw))throw Error('O arquivo deve conter uma lista JSON de produtos.');const arr=raw.map(normalize);if(products.length&&!confirm('Substituir a lista atual do painel pelos '+arr.length+' produtos importados?'))return;products=arr;resetForm();saveLocal();render();message('Catálogo importado: '+arr.length+' produto(s).')}catch(err){message('Erro ao importar: '+err.message,true)}finally{e.target.value=''}};
+function json(){return JSON.stringify(products,null,2)+'\n'}
+function download(){if(!products.length){message('Adicione ou importe pelo menos um produto.',true);return}const blob=new Blob([json()],{type:'application/json;charset=utf-8'});const a=document.createElement('a');const u=URL.createObjectURL(blob);a.href=u;a.download='produtos.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),15000);message('Arquivo produtos.json gerado. Cópia de segurança do catálogo.')}
+$('download').onclick=download;$('download2').onclick=download;
+$('copy').onclick=async()=>{if(!products.length){message('Adicione ou importe pelo menos um produto.',true);return}try{await navigator.clipboard.writeText(json());message('JSON copiado. Cole no editor do produtos.json no GitHub.')}catch{$('preview').style.display='block';$('preview').textContent=json();const range=document.createRange();range.selectNodeContents($('preview'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);message('Selecione e copie o JSON exibido abaixo; seu navegador bloqueou a cópia automática.',true)}};
+$('clearAll').onclick=()=>{if(confirm('Excluir todos os produtos salvos neste painel? Isso não exclui produtos do GitHub.')){products=[];resetForm();saveLocal();render();message('Catálogo local esvaziado. O site publicado não foi alterado.')}};
+try{const raw=localStorage.getItem(KEY);if(raw){const arr=JSON.parse(raw);if(Array.isArray(arr))products=arr.map(normalize)}}catch{message('Não foi possível restaurar os dados locais. Importe seu produtos.json.',true)}render();
+
+// Publicação via GitHub Contents API; token nunca vai para localStorage.
+const REPO_API='https://api.github.com/repos/Luckas-siqueira/Mega-Vitrine/contents/produtos.json';
+let remoteSha=null,remoteSnapshot=null;
+function ghStatus(text,isError=false){const el=$('githubStatus');el.textContent=text;el.className='status'+(isError?' error':'')}
+function token(){return $('githubToken').value.trim()}
+function encode64Unicode(str){const bytes=new TextEncoder().encode(str);let bin='';for(const b of bytes)bin+=String.fromCharCode(b);return btoa(bin)}
+function decode64Unicode(str){const bin=atob(str.replace(/\s/g,''));const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
+async function githubRequest(method,body){
+ if(!token())throw Error('Informe um token de acesso no campo acima.');
+ const res=await fetch(REPO_API,{method,cache:'no-store',referrerPolicy:'no-referrer',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token(),'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ let data;try{data=await res.json()}catch{throw Error('Resposta inválida do GitHub ('+res.status+').')}
+ if(!res.ok){let msg=data.message||'Falha na conexão';if(res.status===401)msg='Token inválido ou expirado.';if(res.status===403)msg='Sem permissão de escrita/leitura, ou limite da API atingido. Confira Contents: Read and write.';if(res.status===409)msg='Conflito: o arquivo foi alterado. Carregue novamente antes de publicar.';throw Error(msg+' (HTTP '+res.status+')')}
+ return data;
+}
+$('loadGithub').addEventListener('click',async()=>{
+ if(saving)return;lockSaving(true);ghStatus('Consultando catálogo no GitHub...');
+ try{const d=await githubRequest('GET');const incoming=JSON.parse(decode64Unicode(d.content)).map(normalize);if(products.length&&!confirm('Carregar '+incoming.length+' produtos do GitHub? Isso substitui o catálogo LOCAL do painel.'))return;
+ products=incoming;remoteSha=d.sha;remoteSnapshot=JSON.stringify(incoming);resetForm();saveLocal();render();ghStatus('✅ '+incoming.length+' produtos carregados. Você já pode cadastrar e editar diretamente.');}
+ catch(e){ghStatus('❌ '+e.message,true)}finally{lockSaving(false)}
+});
+$('forgetToken').addEventListener('click',()=>{$('githubToken').value='';remoteSha=null;remoteSnapshot=null;ghStatus('Token apagado da página.');});
+</script></body></html>
