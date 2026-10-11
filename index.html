@@ -92,7 +92,7 @@ const money=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).
 const validUrl=value=>{try{const u=new URL(value);return u.protocol==='https:';}catch{return false;}};
 const validImage=value=>typeof value==='string'&&value.trim()&&(validUrl(value)||/^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp|gif)$/i.test(value));
 const text=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;return el;};
-function makeCard(p,showBadge=false){
+function makeCard(p,showBadge=false,priority=false){
  const card=text('article','product','');
  if(showBadge&&p.destaque)card.append(text('span','badge','DESTAQUE'));
  const picture=text('div','product-img','');
@@ -100,7 +100,10 @@ function makeCard(p,showBadge=false){
   const img=document.createElement('img');
   img.src=p.imagem;
   img.alt=p.nome;
-  img.loading='lazy';
+  img.loading=priority?'eager':'lazy';
+  img.fetchPriority=priority?'high':'auto';
+  img.decoding='async';
+  img.width=480;img.height=480;
   img.referrerPolicy='no-referrer';
   img.onerror=()=>{picture.replaceChildren(text('span','',emojis[p.categoria]||'🛍️'));};
   picture.append(img);
@@ -136,7 +139,7 @@ function render(){
  else if(sort.value==='high')filtered.sort((a,b)=>(Number.isFinite(b.preco)?b.preco:-Infinity)-(Number.isFinite(a.preco)?a.preco:-Infinity));
  else filtered.sort((a,b)=>Number(b.destaque)-Number(a.destaque));
  const highlights=filtered.filter(p=>p.destaque===true);
- featuredTrack.replaceChildren(...highlights.map(p=>makeCard(p,true)));
+ featuredTrack.replaceChildren(...highlights.map((p,i)=>makeCard(p,true,i<2)));
  featuredSection.hidden=!highlights.length;
  resetCarousel();
  grid.replaceChildren(...(filtered.length?filtered.map(p=>makeCard(p)):[text('p','empty','Nenhum produto encontrado. Tente outra busca ou categoria.')]));
