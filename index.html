@@ -21,6 +21,8 @@ main{max-width:1400px;margin:20px auto;padding:0 18px}.hero{border-radius:14px;o
 footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.3fr;gap:25px;font-size:13px}footer h3{font-size:14px;color:var(--yellow)}footer p,footer a{color:#c8cbd2;line-height:1.7}footer a{display:block}
 @media(max-width:900px){header{grid-template-columns:1fr;gap:13px}.header-links{justify-content:space-between}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-art{display:none}footer{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.topline{justify-content:center;text-align:center}nav{gap:18px}.trust{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.grid{gap:9px}.product{padding:9px}.product-img{height:110px;font-size:55px}.product h3{font-size:12px}.price{font-size:18px}.section-head h2{font-size:20px}footer{grid-template-columns:1fr}}
+
+.featured-controls{display:flex;gap:8px;flex-wrap:wrap}.featured-controls button{border:1px solid var(--line);border-radius:8px;background:#121315;color:white;min-width:44px;min-height:44px;padding:8px 12px}.featured-controls button:hover{border-color:var(--yellow)}.carousel-hint{color:var(--muted);font-size:13px;margin:0 0 14px}.featured-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:2px;padding:4px 2px 16px;scrollbar-color:var(--yellow) #121315;scrollbar-width:thin}.featured-track .product{flex:0 0 calc((100% - 42px)/4);scroll-snap-align:start;display:flex;flex-direction:column}.featured-track .product .btn{margin-top:auto}.featured-track:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}.featured-track .empty{width:100%}#ofertas .section-head{flex-wrap:wrap}#ofertas[hidden]{display:none}@media(max-width:900px){.featured-track .product{flex-basis:calc((100% - 28px)/2.5)}}@media(max-width:480px){.featured-track .product{flex-basis:78%}.featured-controls{gap:6px}.featured-controls button{padding:8px 10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product,.category{transition:none}}
 </style>
 </head>
 <body>
@@ -29,10 +31,11 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
 <nav><a href="#inicio">Início</a><a href="#ofertas">🔥 Ofertas em destaque</a><a href="#categorias">Todas as categorias</a><a href="#sobre">Sobre a MegaVitrine</a></nav>
 <main id="inicio"><section class="hero"><div><div class="eyebrow">Sua vitrine de oportunidades</div><h1>OFERTAS QUE<br>VALEM A <span>PENA!</span></h1><p>Encontre produtos para sua casa, rotina, estilo e diversão em um só lugar.</p><a class="btn" href="#ofertas">EXPLORAR OFERTAS →</a></div><div class="hero-art" aria-hidden="true">🛍️📱🎧</div></section>
 <div class="trust"><div>🔎 Produtos selecionados</div><div>🏷️ Ofertas para comparar</div><div>🔗 Compra no site parceiro</div></div>
-<section id="categorias"><div class="section-head"><h2>Compre por categoria</h2><a href="#ofertas" id="viewAll">Ver produtos ↓</a></div><div class="categories">
-<a class="category" href="#ofertas" data-category="Tecnologia"><span class="icon">📱</span>Tecnologia</a><a class="category" href="#ofertas" data-category="Casa"><span class="icon">🏠</span>Casa e Decoração</a><a class="category" href="#ofertas" data-category="Beleza"><span class="icon">💄</span>Beleza</a><a class="category" href="#ofertas" data-category="Moda"><span class="icon">👟</span>Moda e acessórios</a><a class="category" href="#ofertas" data-category="Games"><span class="icon">🎮</span>Games</a><a class="category" href="#ofertas" data-category="Fitness"><span class="icon">💪</span>Fitness</a>
+<section id="categorias"><div class="section-head"><h2>Compre por categoria</h2><a href="#catalogo" id="viewAll">Ver produtos ↓</a></div><div class="categories">
+<a class="category" href="#catalogo" data-category="Tecnologia"><span class="icon">📱</span>Tecnologia</a><a class="category" href="#catalogo" data-category="Casa"><span class="icon">🏠</span>Casa e Decoração</a><a class="category" href="#catalogo" data-category="Beleza"><span class="icon">💄</span>Beleza</a><a class="category" href="#catalogo" data-category="Moda"><span class="icon">👟</span>Moda e acessórios</a><a class="category" href="#catalogo" data-category="Games"><span class="icon">🎮</span>Games</a><a class="category" href="#catalogo" data-category="Fitness"><span class="icon">💪</span>Fitness</a>
 </div></section>
-<section id="ofertas"><div class="section-head"><h2>🔥 Ofertas em destaque</h2><span id="resultCount" aria-live="polite" style="font-size:13px;color:#a3a5ac">Carregando...</span></div><div class="toolbar"><label for="sort">Ordenar:</label><select id="sort"><option value="featured">Destaques</option><option value="name">Nome (A–Z)</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select><button id="clearFilters" type="button">Limpar filtros</button></div><div class="grid" id="productGrid" aria-live="polite"></div>
+<section id="ofertas" aria-labelledby="featuredTitle" hidden><div class="section-head"><h2 id="featuredTitle">🔥 Ofertas em destaque</h2><div class="featured-controls"><button id="featuredPrev" type="button" aria-label="Destaques anteriores" aria-controls="featuredTrack">←</button><button id="featuredPause" type="button" aria-controls="featuredTrack" aria-pressed="false">Pausar</button><button id="featuredNext" type="button" aria-label="Próximos destaques" aria-controls="featuredTrack">→</button></div></div><p class="carousel-hint">Deslize para escolher ou use as setas. A passagem pausa enquanto você navega.</p><div id="featuredTrack" class="featured-track" tabindex="0" role="region" aria-label="Produtos em destaque" aria-roledescription="carrossel"></div></section>
+<section id="catalogo"><div class="section-head"><h2>Todos os produtos</h2><span id="resultCount" aria-live="polite" style="font-size:13px;color:#a3a5ac">Carregando...</span></div><div class="toolbar"><label for="sort">Ordenar:</label><select id="sort"><option value="featured">Destaques</option><option value="name">Nome (A–Z)</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select><button id="clearFilters" type="button">Limpar filtros</button></div><div class="grid" id="productGrid" aria-live="polite"></div>
 <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja parceira. Itens sem link são exemplos e não estão disponíveis para compra por aqui.</div></section>
 <section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><p>Nosso objetivo é ajudar você a descobrir produtos de diferentes categorias e encontrar oportunidades em lojas parceiras. Compra, pagamento, entrega e atendimento são realizados pela loja parceira.</p></section></main>
 <footer><div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--yellow)">Vitrine</span></div><p>As melhores ofertas estão aqui!</p></div><div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><span>Política de privacidade: em preparação</span><br><span>Termos de uso: em preparação</span></div><div><h3>Atendimento</h3><p>Canal de contato: em preparação</p><a href="#ofertas">Como funcionam as ofertas</a></div><div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div></footer>
@@ -43,6 +46,43 @@ const input=document.getElementById('searchInput');
 const grid=document.getElementById('productGrid');
 const count=document.getElementById('resultCount');
 const sort=document.getElementById('sort');
+const featuredTrack=document.getElementById('featuredTrack');
+const featuredSection=document.getElementById('ofertas');
+const pauseButton=document.getElementById('featuredPause');
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let paused=reducedMotion.matches,hovering=false,focused=false,interactingUntil=0,carouselTimer=null;
+function syncPause(){pauseButton.textContent=paused?'Reproduzir':'Pausar';pauseButton.setAttribute('aria-pressed',String(paused));}
+function moveFeatured(direction){
+ const max=featuredTrack.scrollWidth-featuredTrack.clientWidth;
+ if(max<=1)return;
+ const card=featuredTrack.querySelector('.product');
+ const step=card?card.getBoundingClientRect().width+14:featuredTrack.clientWidth;
+ const current=featuredTrack.scrollLeft;
+ const target=direction>0?(current>=max-2?0:Math.min(max,current+step)):(current<=2?max:Math.max(0,current-step));
+ featuredTrack.scrollTo({left:target,behavior:reducedMotion.matches?'auto':'smooth'});
+}
+function resetCarousel(){
+ clearInterval(carouselTimer);featuredTrack.scrollLeft=0;
+ const overflow=featuredTrack.children.length>1;
+ document.getElementById('featuredPrev').disabled=!overflow;
+ document.getElementById('featuredNext').disabled=!overflow;
+ pauseButton.disabled=!overflow;
+ carouselTimer=setInterval(()=>{if(!paused&&!hovering&&!focused&&!document.hidden&&Date.now()>interactingUntil)moveFeatured(1);},4500);
+}
+function manualMove(direction){interactingUntil=Date.now()+10000;moveFeatured(direction);}
+document.getElementById('featuredPrev').addEventListener('click',()=>manualMove(-1));
+document.getElementById('featuredNext').addEventListener('click',()=>manualMove(1));
+pauseButton.addEventListener('click',()=>{paused=!paused;syncPause();});
+featuredSection.addEventListener('mouseenter',()=>{hovering=true;});
+featuredSection.addEventListener('mouseleave',()=>{hovering=false;});
+featuredSection.addEventListener('focusin',()=>{focused=true;});
+featuredSection.addEventListener('focusout',e=>{focused=featuredSection.contains(e.relatedTarget);});
+featuredTrack.addEventListener('pointerdown',()=>{interactingUntil=Date.now()+10000;});
+featuredTrack.addEventListener('scroll',()=>{interactingUntil=Date.now()+6000;},{passive:true});
+featuredTrack.addEventListener('wheel',()=>{interactingUntil=Date.now()+10000;},{passive:true});
+featuredTrack.addEventListener('keydown',e=>{if(e.target!==featuredTrack)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();manualMove(e.key==='ArrowRight'?1:-1);}});
+reducedMotion.addEventListener('change',e=>{if(e.matches){paused=true;syncPause();}});
+syncPause();
 let products=[];
 let category='';
 const emojis={Tecnologia:'📱',Casa:'🏠',Beleza:'💄',Moda:'👟',Games:'🎮',Fitness:'💪'};
@@ -93,6 +133,10 @@ function render(){
  else if(sort.value==='low')filtered.sort((a,b)=>(Number.isFinite(a.preco)?a.preco:Infinity)-(Number.isFinite(b.preco)?b.preco:Infinity));
  else if(sort.value==='high')filtered.sort((a,b)=>(Number.isFinite(b.preco)?b.preco:-Infinity)-(Number.isFinite(a.preco)?a.preco:-Infinity));
  else filtered.sort((a,b)=>Number(b.destaque)-Number(a.destaque));
+ const highlights=filtered.filter(p=>p.destaque===true);
+ featuredTrack.replaceChildren(...highlights.map(makeCard));
+ featuredSection.hidden=!highlights.length;
+ resetCarousel();
  grid.replaceChildren(...(filtered.length?filtered.map(makeCard):[text('p','empty','Nenhum produto encontrado. Tente outra busca ou categoria.')]));
  count.textContent=filtered.length+' produto(s)';
  document.querySelectorAll('[data-category]').forEach(a=>a.classList.toggle('active',a.dataset.category===category));
@@ -111,7 +155,7 @@ async function loadProducts(){
   count.textContent='Catálogo indisponível';
  }
 }
-form.addEventListener('submit',e=>{e.preventDefault();render();document.getElementById('ofertas').scrollIntoView();});
+form.addEventListener('submit',e=>{e.preventDefault();render();document.getElementById('catalogo').scrollIntoView();});
 input.addEventListener('input',render);
 sort.addEventListener('change',render);
 document.querySelectorAll('[data-category]').forEach(a=>a.addEventListener('click',()=>{category=a.dataset.category;input.value='';render();}));
