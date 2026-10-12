@@ -350,5 +350,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/6VOZK9sVZJ"
+  },
+  {
+    "id": "shopee-mv4ms5dl-g5xn",
+    "nome": "Kit gamer",
+    "categoria": "Tecnologia",
+    "descricao": "Kit Gamer Teclado RGB Semi-Mecânico com Fio + Mouse Gamer Sem Fio Recarregável 6 Botões",
+    "imagem": "no_markReactNative-snapshot-image_32.png",
+    "preco": 150.96,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/9zyRUfz5tv"
   }
 ]
