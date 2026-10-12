@@ -273,5 +273,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/20w9WmxW0z"
+  },
+  {
+    "id": "shopee-mv4lihqg-g9mm",
+    "nome": "Cadeira gamer",
+    "categoria": "Games",
+    "descricao": "Cadeira Gamer Ergonômica Reclinável com Apoio Para Pés e Rodinhas Confortável para Escritório e Jogos",
+    "imagem": "no_markReactNative-snapshot-image_26.png",
+    "preco": 360.09,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/30oh7FoRQB"
   }
 ]
