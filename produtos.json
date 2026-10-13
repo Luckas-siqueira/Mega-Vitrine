@@ -119,5 +119,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/6q1SU3iF8L"
+  },
+  {
+    "id": "tech-b90d5689-ccd9-4a2a-9be3-4072058ed010",
+    "nome": "Teclado RGB",
+    "descricao": "Teclado de Jogos 61 Teclas com Fio, RGB, Ergonômico, Compacto e Portátil 60%",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-4d809b18-fdb1-4be8-bcc6-7edb901be814.png",
+    "preco": 103.06,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/3g4QizFJWh"
   }
 ]
