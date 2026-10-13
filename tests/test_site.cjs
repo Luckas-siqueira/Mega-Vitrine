@@ -7,11 +7,11 @@ const ctx={console,document:{getElementById:get,createElement:element,querySelec
 vm.createContext(ctx);vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],ctx);
 (async()=>{
  await vm.runInContext('loadProducts()',ctx);
- assert.equal(get('productGrid').children.length,14);assert.equal(get('featuredTrack').children.length,5);
- vm.runInContext("category='Teclados e Mouses';render()",ctx);assert.equal(get('productGrid').children.length,5);
+ assert.equal(get('productGrid').children.length,7);assert.equal(get('featuredTrack').children.length,5);
+ vm.runInContext("category='Teclados e Mouses';render()",ctx);assert.match(get('productGrid').children[0].textContent,/Nenhum produto disponível/);
  vm.runInContext("category='Processadores';render()",ctx);assert.match(get('productGrid').children[0].textContent,/Nenhum produto disponível/);
- vm.runInContext("category='';input.value='Mouse Attack Shark x11';render()",ctx);assert.equal(get('productGrid').children.length,1);
- const card=get('productGrid').children[0];card.children[1].children[0].listeners.click();assert.equal(get('imageViewer').open,true);assert.equal(get('viewerTitle').textContent,'Mouse Attack Shark x11');assert.ok(get('viewerDescription').textContent.length>0);
+ vm.runInContext("category='';input.value='Headset gamer';render()",ctx);assert.equal(get('productGrid').children.length,1);
+ const card=get('productGrid').children[0];card.children[1].children[0].listeners.click();assert.equal(get('imageViewer').open,true);assert.equal(get('viewerTitle').textContent,'Headset gamer');assert.ok(get('viewerDescription').textContent.length>0);
  card.children[0].children[0].onerror();assert.equal(card.children[0].children[0].textContent,'Foto em breve');
  assert.equal(categories.length,15);assert.ok(catalog.every(p=>categories.some(c=>c.dataset.category===p.categoria)));
  console.log('Vitrine verificada: catálogo do nicho, destaques, filtros, categoria vazia, busca, detalhes e indicação de foto pendente.');
