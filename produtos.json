@@ -97,5 +97,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/3g4QfOdGF0"
+  },
+  {
+    "id": "tech-b9fc3a61-8737-4eb2-a2a3-079b436a3af7",
+    "nome": "Placa mãe gigabyte B550M",
+    "descricao": "Placa Mãe Gigabyte B550M AORUS Elite, Chipset B550, AMD AM4, mATX, DDR4",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-e869b574-bee2-4f6b-8d6b-f75a160eac2a.png",
+    "preco": 722.2,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/2BFctgImdI"
   }
 ]
