@@ -1,20 +1,14 @@
-# Imagens da MegaVitrine
+# Imagens da MegaVitrine — Informática e eletrônicos
 
 | Pasta | Uso |
 | --- | --- |
-| produtos | Fotos leves usadas nos cartões, em WebP. |
-| ampliadas | Fotos com mais detalhes, carregadas ao abrir a visualização. |
-| originais | Arquivos de origem preservados para futuras otimizações. |
-| sem-cadastro | Fotos que ainda não estão associadas ao catálogo. |
+| produtos | Fotos leves dos eletrônicos do catálogo, em WebP. |
+| ampliadas | Fotos com mais detalhes, carregadas ao abrir o produto. |
+| originais | Fontes das imagens de eletrônicos, preservadas para futuras otimizações. |
 
-Os nomes seguem o produto, sem acentos e com hífens: `tenis-de-corrida.webp`.
-No painel, informe o caminho completo: `imagens/produtos/tenis-de-corrida.webp`.
+Use nomes descritivos, sem espaços ou acentos, como `headset-gamer.webp`.
+No painel, informe o caminho completo: `imagens/produtos/headset-gamer.webp`.
 
-Para novos produtos, envie a imagem à pasta produtos com um nome descritivo.
-A versão ampliada pode usar o mesmo nome na pasta ampliadas. A otimização e a atualização do vínculo são feitas quando uma nova atualização é solicitada no chat.
+Nas atualizações com novos produtos, a otimização utiliza WebP de até 480 px e qualidade 76 para o catálogo; até 1200 px e qualidade 84 para a visualização ampliada. Imagens pequenas não são aumentadas. As duas versões usam o mesmo nome em suas respectivas pastas.
 
-A verificação dos 69 arquivos anteriores não encontrou arquivos idênticos nem fotos iguais entre produtos diferentes. Foram encontradas versões leve, ampliada e original da mesma foto, mantidas por terem usos distintos.
-
-Fotos sem cadastro preservadas:
-- kit-halteres-ajustaveis.jpg
-- spray-impermeabilizante-vedatudo.png
+Esta pasta contém apenas arquivos ligados ao catálogo de informática e eletrônicos. Fotos dos nichos anteriores foram removidas.
