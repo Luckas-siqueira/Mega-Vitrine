@@ -31,3 +31,11 @@ Se faltarem chaves ou aprovação, o painel informa que a importação não est�
 `node tests/test_import_panel.cjs` verifica o preenchimento e os erros do painel. `python -m unittest discover -s tests` verifica resolução de links, validação de origem, assinatura com resposta simulada, preservação de imagens e ausência de alteração do catálogo. A integração completa com a Shopee exige credenciais aprovadas.
 
 `node tests/test_site.cjs` verifica filtros, destaques e detalhes da vitrine de informática.
+
+## Vários links e divulgação
+
+No painel, cole até 20 links Shopee por vez em **Adicionar vários links** e use **Preparar lista**. Links repetidos são ignorados; entradas inválidas mantêm a fila anterior. A fila comporta até 50 itens e fica no armazenamento local do navegador, sem tokens.
+
+Sem a API Shopee, use **Preencher cadastro** por item. Com a API aprovada, os Secrets configurados e o token com Actions write, **Extrair lista (API)** consulta os itens sequencialmente e otimiza imagens dos novos produtos. Os rascunhos ficam prontos para revisão; cada produto precisa de confirmação em **Cadastrar no GitHub**. Uma falha interrompe a fila e preserva os itens já extraídos. **Interromper espera** para a consulta local; uma execução já iniciada no GitHub pode continuar até gerar seu rascunho.
+
+Nos produtos cadastrados, **Gerar divulgação** monta texto com nome, preço informado e o link de afiliado original, além de avisos de preço/estoque e comissão. O texto pode ser revisado e copiado. **Compartilhar no WhatsApp** abre o compartilhamento do dispositivo ou um link de conversa; o usuário escolhe o grupo e confirma o envio. O painel não envia mensagens em segundo plano nem agenda publicações.

@@ -2,8 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111318"><title>MegaVitrine | Cadastro direto</title><meta name="panel-version" content="2026-10-13-informatica">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111318"><title>MegaVitrine | Cadastro direto</title><meta name="panel-version" content="2026-10-13-lote-whatsapp">
 <style>
+[hidden]{display:none!important}#offerText{min-height:210px}#bulkItems small{overflow-wrap:anywhere}
+
 :root{--dark:#111318;--accent:#38bdf8;--bg:#f4f5f7;--line:#dfe2e8;--muted:#5f6877;--red:#b42318}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 system-ui,Arial,sans-serif;color:#191b20}header{background:var(--dark);color:#fff;padding:22px 16px}header .wrap{max-width:980px;margin:auto}h1{font-size:25px;margin:0}h1 span{color:var(--accent)}header p{margin:5px 0 0;color:#e1e1e1;font-size:13px}main{max-width:980px;margin:auto;padding:16px 12px 70px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;margin-bottom:14px}h2{font-size:19px;margin:0 0 12px}.help{font-size:13px;color:var(--muted);margin:0 0 14px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:5px}.wide{grid-column:1/-1}label{font-size:13px;font-weight:700}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd0da;border-radius:9px;background:#fff;color:#16181d;font:inherit}textarea{min-height:75px;resize:vertical}input:focus,textarea:focus,select:focus{outline:2px solid #0284c7;outline-offset:1px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}button,.file-button{border:1px solid #d2d5dd;background:white;border-radius:9px;padding:11px 13px;font:700 14px system-ui;cursor:pointer;color:#16181d;display:inline-flex;justify-content:center;align-items:center;gap:5px}button.primary,.file-button.primary{background:var(--accent);border-color:#0ea5e9}button.dark{background:var(--dark);color:white;border-color:var(--dark)}button.danger{color:var(--red);border-color:#eab9b4}button:disabled{opacity:.55;cursor:not-allowed}.file-button input{display:none}.notice{background:#fff7d4;border:1px solid #ead780;padding:11px;border-radius:10px;font-size:13px}.status{font-size:13px;margin:12px 0 0;min-height:20px;color:#235d38}.error{color:var(--red)}.stats{font-weight:700;font-size:14px}.item{border:1px solid var(--line);border-radius:11px;padding:12px;margin:9px 0;display:flex;gap:12px;justify-content:space-between;align-items:start}.item strong{display:block}.item small{color:var(--muted);display:block;overflow-wrap:anywhere}.item .buttons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.item button{padding:7px 10px;font-size:12px}.empty{color:var(--muted);padding:12px;text-align:center}.steps{padding-left:22px;margin-bottom:0}.steps li{margin-bottom:8px}code{background:#eff0f2;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.footer{font-size:12px;color:var(--muted);text-align:center}#preview{white-space:pre-wrap;overflow-wrap:anywhere;background:#16181d;color:#eee;padding:12px;border-radius:10px;max-height:260px;overflow:auto;font-size:11px;display:none}@media(max-width:580px){.fields{grid-template-columns:1fr}.item{display:block}.item .buttons{justify-content:flex-start;margin-top:10px}.actions>*{flex:1 1 auto}header{padding:20px 15px}}
 </style></head><body>
 <header><div class="wrap"><h1>Mega<span>Vitrine</span> <span style="color:#fff;font-size:15px">• Cadastro direto</span></h1><p>Cadastre eletrônicos, periféricos e peças para PC diretamente na sua loja.</p></div></header>
@@ -15,10 +17,12 @@
 <p id="connectionImport" class="help" role="status" aria-live="polite"></p><details><summary>Como configurar o token do GitHub</summary><ol class="steps"><li>Abra <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">seus tokens no GitHub</a>. Confira <strong>Resource owner: Luckas-siqueira</strong> e selecione somente <strong>Mega-Vitrine</strong>.</li><li>Para cadastrar e editar: <strong>Contents → Read and write</strong>.</li><li>Somente para extrair informações automaticamente: também <strong>Actions → Read and write</strong>. A API da Shopee precisa estar aprovada e configurada.</li><li>Copie o valor completo do token para o campo acima e use <strong>Testar conexão</strong>. Ele é mantido apenas enquanto esta página está aberta.</li></ol></details><p class="notice">⚠️ Crie o token apenas na sua conta do GitHub, limitado ao repositório <strong>Mega-Vitrine</strong>, com permissão <strong>Contents: Read and write</strong> e expiração curta. Nunca envie o token pelo chat, por prints ou para outras pessoas. Não adicione tokens ao código do site. Não use este painel em dispositivos compartilhados.</p>
 <p class="help">O token solicitado aqui é do GitHub. App ID e Secret da Shopee servem apenas à importação automática. Depois de informar o token, use “Cadastrar no GitHub”. Para editar, carregue primeiro o catálogo. Se outro acesso alterar o mesmo produto, o painel bloqueia a edição para evitar perder dados.</p></section>
 <section class="panel"><h2>Importar produto por link</h2><p class="help">Cole um link da Shopee para preencher nome, preço, foto e link de afiliado. Confira a categoria sugerida antes de cadastrar. A descrição completa pode precisar ser preenchida por você.</p><div class="field"><label for="importUrl">Link do produto na Shopee</label><input id="importUrl" type="url" placeholder="https://s.shopee.com.br/..." autocomplete="off"></div><p class="notice">A extração automática precisa de acesso aprovado à Open API da Shopee. Se sua conta ainda não tem esse acesso, use <strong>Usar link no cadastro manual</strong>; gerar outro token do GitHub não libera a API da Shopee.</p><div class="actions"><button id="useProductLink" type="button" class="dark">＋ Usar link no cadastro manual</button><button id="importProduct" type="button" class="primary">🔎 Extrair informações</button></div><p class="help"><a href="https://github.com/Luckas-siqueira/Mega-Vitrine/actions/workflows/importar-produto.yml" target="_blank" rel="noopener noreferrer">Acompanhar importações no GitHub</a></p><p id="importStatus" class="status" role="status" aria-live="polite"></p><p id="importReview" class="notice" hidden></p><details><summary>Ativar a importação automática</summary><ol class="steps"><li>Confira o acesso à <a href="https://affiliate.shopee.com.br/open_api" target="_blank" rel="noopener noreferrer">Open API no painel de afiliados Shopee</a>. A aprovação depende da Shopee.</li><li>Guarde o App ID e o Secret nos <a href="https://github.com/Luckas-siqueira/Mega-Vitrine/settings/secrets/actions" target="_blank" rel="noopener noreferrer">Secrets do repositório</a>, com os nomes <code>SHOPEE_APP_ID</code> e <code>SHOPEE_SECRET</code>. Não envie essas chaves pelo chat.</li><li>O token do GitHub usado neste painel precisa de <strong>Contents: Read and write</strong> e <strong>Actions: Read and write</strong>, apenas para Mega-Vitrine.</li></ol><p class="help">O cadastro manual continua disponível. A importação salva um rascunho e as fotos no GitHub; o produto só entra na vitrine depois de você conferir e cadastrar.</p></details></section>
+<section class="panel"><h2>Adicionar vários links</h2><p class="help">Cole até 20 links da Shopee por vez, um por linha. A lista remove links repetidos e permite revisar cada cadastro. Preparar a lista não precisa da API da Shopee.</p><div class="field"><label for="bulkLinks">Links de produtos de informática e eletrônicos</label><textarea id="bulkLinks" rows="5" placeholder="https://s.shopee.com.br/...&#10;https://s.shopee.com.br/..." spellcheck="false" autocomplete="off"></textarea></div><div class="actions"><button id="prepareBulk" type="button" class="primary">＋ Preparar lista</button><button id="extractBulk" type="button">🔎 Extrair lista (API)</button><button id="stopBulk" type="button" disabled>Interromper espera</button><button id="clearBulkSaved" type="button">Limpar já cadastrados</button></div><p id="bulkStatus" class="status" role="status" aria-live="polite"></p><p id="bulkCount" class="stats"></p><div id="bulkItems"></div><p class="notice">Sem API aprovada? Use Preencher cadastro em cada item. Com a API aprovada e as chaves configuradas no GitHub, Extrair lista consulta os links em sequência e otimiza as imagens dos novos produtos. Cada produto é revisado e confirmado antes de entrar na loja. A fila fica salva neste navegador; o token não é salvo.</p></section>
 <section class="panel"><h2>1. Seu catálogo</h2><p class="help">Use Carregar catálogo do GitHub para ver e editar seus produtos. Cada cadastro busca a versão mais recente e salva diretamente no GitHub.</p><div class="actions"><label class="file-button primary">📂 Importar produtos.json <input id="importFile" type="file" accept=".json,application/json"></label><button id="download" class="dark" type="button">⬇ Baixar produtos.json</button><button id="copy" type="button">📋 Copiar JSON</button></div><p id="status" class="status" role="status" aria-live="polite"></p></section>
 <section class="panel"><h2 id="formTitle">2. Adicionar produto</h2><p id="modeInfo" class="notice" aria-live="polite">🟢 Modo: novo cadastro</p><form id="productForm"><div class="fields"><div class="field wide"><label for="name">Nome do produto *</label><input id="name" required maxlength="180" placeholder="Ex.: Mouse gamer ou memória RAM DDR4"></div><div class="field"><label for="category">Categoria *</label><select id="category"><option>Teclados e Mouses</option><option>Áudio e Headsets</option><option>Processadores</option><option>Placas de Vídeo</option><option>Memória RAM</option><option>SSD e HD</option><option>Computadores e Notebooks</option><option>Placas-Mãe</option><option>Fontes</option><option>Gabinetes</option><option>Refrigeração</option><option>Monitores</option><option>Redes e Conectividade</option><option>Kits e Acessórios para PC</option><option>Games e Consoles</option></select></div><div class="field"><label for="image">Imagem (caminho do arquivo ou URL HTTPS)</label><input id="image" placeholder="imagens/produtos/mouse-gamer.webp"></div><div class="field wide"><label for="description">Descrição</label><textarea id="description" maxlength="500" placeholder="Breve descrição verdadeira do produto"></textarea></div><div class="field wide"><label for="url">Link de afiliado (HTTPS)</label><input id="url" type="url" placeholder="https://s.shopee.com.br/..."></div><div class="field"><label for="price">Preço atual (opcional, R$)</label><input id="price" inputmode="decimal" placeholder="Deixe vazio para Consultar preço"></div><div class="field"><label for="oldPrice">Preço anterior (opcional, R$)</label><input id="oldPrice" inputmode="decimal" placeholder="Ex.: 199,90"></div><div class="field wide"><label><input id="featured" type="checkbox" style="width:auto;margin-right:8px">Destacar produto na loja</label></div></div><div class="actions"><button class="primary" type="submit" id="save">☁ Cadastrar no GitHub</button><button type="button" id="newProduct" class="dark">＋ Novo cadastro</button><button type="button" id="reset">🧹 Limpar campos</button></div><p id="formFeedback" class="status" role="status" aria-live="polite"></p></form><p class="help" style="margin-top:12px">Envie a foto para a pasta imagens/produtos e informe o caminho completo, por exemplo imagens/produtos/mouse-gamer.webp. Use nomes sem espaços e sem acentos. Também são aceitos arquivos na pasta principal e links HTTPS. Formatos: JPG, JPEG, PNG ou WEBP.</p></section>
 <section class="panel"><h2>3. Produtos cadastrados</h2><p class="stats" id="count">0 produtos</p><div id="items"></div><div class="actions"><button id="download2" class="primary" type="button">⬇ Gerar produtos.json</button><button id="clearAll" class="danger" type="button">Limpar cópia local</button></div><pre id="preview"></pre></section>
 
+<section id="offerPanel" class="panel" hidden><h2>Divulgação pronta</h2><p class="help">Revise o preço e o texto. O link de afiliado do cadastro é mantido na mensagem.</p><label for="offerText">Mensagem para o grupo</label><textarea id="offerText" rows="9"></textarea><div class="actions"><button id="copyOffer" type="button">📋 Copiar mensagem</button><button id="shareOffer" type="button" class="primary">Compartilhar no WhatsApp</button></div><p id="offerStatus" class="status" role="status" aria-live="polite"></p></section>
 <p class="footer">MegaVitrine • Painel de informática • O cadastro só é confirmado depois que o GitHub salva o produto.</p>
 </main>
 <script>
@@ -27,20 +31,21 @@ const KEY='megavitrine-pc-catalog-v2';
 const $=id=>document.getElementById(id);
 const categories=["Teclados e Mouses","Áudio e Headsets","Processadores","Placas de Vídeo","Memória RAM","SSD e HD","Computadores e Notebooks","Placas-Mãe","Fontes","Gabinetes","Refrigeração","Monitores","Redes e Conectividade","Kits e Acessórios para PC","Games e Consoles"];
 let products=[],editing=-1;
+let bulkQueue=[],bulkActiveUrl='',bulkRunning=false,bulkStop=false;
 function message(s,error=false){$('status').textContent=s;$('status').className='status'+(error?' error':'');}
 function isHttps(s){try{return new URL(s).protocol==='https:'}catch{return false}}
 function validImage(s){return !s||isHttps(s)||/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(s)}
 function amount(s){if(!s.trim())return null;const raw=s.trim().replace(/\s/g,'');const v=raw.includes(',')?raw.replace(/\./g,'').replace(',','.'):raw;const n=Number(v);if(!Number.isFinite(n)||n<0)throw Error('Digite um preço válido, por exemplo 79,90.');return Math.round(n*100)/100}
 function normalize(p){if(!p||typeof p!=='object'||typeof p.id!=='string'||typeof p.nome!=='string'||!p.nome.trim()||!categories.includes(p.categoria))throw Error('Catálogo contém produto sem id, nome ou categoria válida de informática.');return {id:p.id,nome:p.nome,categoria:p.categoria,descricao:typeof p.descricao==='string'?p.descricao:'',imagem:typeof p.imagem==='string'?p.imagem:'',preco:typeof p.preco==='number'&&Number.isFinite(p.preco)?p.preco:null,precoAnterior:typeof p.precoAnterior==='number'&&Number.isFinite(p.precoAnterior)?p.precoAnterior:null,destaque:!!p.destaque,url:typeof p.url==='string'?p.url:''}}
 function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(products))}catch{message('Não foi possível salvar neste navegador. Baixe seu JSON para não perder os dados.',true)}}
-function render(){const root=$('items');root.replaceChildren();$('count').textContent=products.length+' produto(s)';if(!products.length){const e=document.createElement('p');e.className='empty';e.textContent='Nenhum produto ainda. Importe seu catálogo ou adicione um produto.';root.append(e)}products.forEach((p,i)=>{const box=document.createElement('div');box.className='item';const detail=document.createElement('div');const name=document.createElement('strong');name.textContent=(i+1)+'. '+p.nome;const meta=document.createElement('small');meta.textContent=p.categoria+' • '+(p.destaque?'⭐ Destaque':'Normal')+' • '+(p.imagem||'Sem foto')+' • '+(p.url?'Com link':'Sem link');detail.append(name,meta);const buttons=document.createElement('div');buttons.className='buttons';const edit=document.createElement('button');edit.textContent='Editar';edit.type='button';edit.onclick=()=>startEdit(i);const remove=document.createElement('button');remove.textContent='Remover da cópia local';remove.type='button';remove.className='danger';remove.onclick=()=>{if(confirm('Remover somente da cópia local? O produto continua no GitHub.')){products.splice(i,1);if(editing===i)resetForm();else if(editing>i)editing--;saveLocal();render()}};buttons.append(edit,remove);box.append(detail,buttons);root.append(box)})}
+function render(){const root=$('items');root.replaceChildren();$('count').textContent=products.length+' produto(s)';if(!products.length){const e=document.createElement('p');e.className='empty';e.textContent='Nenhum produto ainda. Importe seu catálogo ou adicione um produto.';root.append(e)}products.forEach((p,i)=>{const box=document.createElement('div');box.className='item';const detail=document.createElement('div');const name=document.createElement('strong');name.textContent=(i+1)+'. '+p.nome;const meta=document.createElement('small');meta.textContent=p.categoria+' • '+(p.destaque?'⭐ Destaque':'Normal')+' • '+(p.imagem||'Sem foto')+' • '+(p.url?'Com link':'Sem link');detail.append(name,meta);const buttons=document.createElement('div');buttons.className='buttons';const edit=document.createElement('button');edit.textContent='Editar';edit.type='button';edit.onclick=()=>startEdit(i);const remove=document.createElement('button');remove.textContent='Remover da cópia local';remove.type='button';remove.className='danger';remove.onclick=()=>{if(confirm('Remover somente da cópia local? O produto continua no GitHub.')){products.splice(i,1);if(editing===i)resetForm();else if(editing>i)editing--;saveLocal();render()}};const promote=document.createElement('button');promote.type='button';promote.textContent='Gerar divulgação';promote.onclick=()=>showOffer(p);const share=document.createElement('button');share.type='button';share.textContent='Compartilhar no WhatsApp';share.onclick=()=>{if(showOffer(p))shareOfferText()};buttons.append(edit,promote,share,remove);box.append(detail,buttons);root.append(box)})}
 function clearFields(){['name','image','description','url','price','oldPrice'].forEach(id=>$(id).value='');$('category').value='Teclados e Mouses';$('featured').checked=false;}
 function feedback(s){$('formFeedback').textContent=s;message(s)}
-function resetForm(){clearFields();editing=-1;$('formTitle').textContent='2. Adicionar produto';$('save').textContent='☁ Cadastrar no GitHub';$('modeInfo').textContent='🟢 Modo: novo cadastro'}
+function resetForm(){bulkActiveUrl='';clearFields();editing=-1;$('formTitle').textContent='2. Adicionar produto';$('save').textContent='☁ Cadastrar no GitHub';$('modeInfo').textContent='🟢 Modo: novo cadastro'}
 function newProduct(){resetForm();feedback('✅ Novo cadastro iniciado. O produto anterior permanece salvo.');$('name').focus();}
 function startEdit(i){const p=products[i];editing=i;$('name').value=p.nome;$('category').value=p.categoria;$('image').value=p.imagem;$('description').value=p.descricao;$('url').value=p.url;$('price').value=p.preco===null?'':String(p.preco).replace('.',',');$('oldPrice').value=p.precoAnterior===null?'':String(p.precoAnterior).replace('.',',');$('featured').checked=p.destaque;$('formTitle').textContent='2. Editar produto';$('modeInfo').textContent='🟡 Modo: editando '+p.nome;$('formFeedback').textContent='';$('save').textContent='☁ Salvar no GitHub';$('productForm').scrollIntoView({behavior:'smooth',block:'start'})}
 let saving=false;
-function lockSaving(value){saving=value;document.querySelectorAll('button,input,select,textarea').forEach(el=>el.disabled=value);}
+function lockSaving(value){saving=value;document.querySelectorAll('button,input,select,textarea').forEach(el=>el.disabled=el.id==='stopBulk'?!bulkRunning:value);if(!value)renderBulk();}
 $('productForm').addEventListener('submit',async e=>{
  e.preventDefault();if(saving)return;
  try{
@@ -69,7 +74,7 @@ $('productForm').addEventListener('submit',async e=>{
  }
  const result=await githubRequest('PUT',{message:(old?'Editar produto: ':'Cadastrar produto: ')+p.nome,content:encode64Unicode(JSON.stringify(incoming,null,2)+"\n"),sha:latest.sha,branch:'main'});
  remoteSha=result.content.sha;products=incoming.map(normalize);remoteSnapshot=JSON.stringify(products);
- saveLocal();render();resetForm();feedback('✅ Produto salvo no GitHub! A loja será atualizada automaticamente.');ghStatus('✅ Cadastro confirmado no GitHub.');
+ saveLocal();render();markBulkSaved();resetForm();feedback('✅ Produto salvo no GitHub! A loja será atualizada automaticamente.');ghStatus('✅ Cadastro confirmado no GitHub.');
  }catch(err){message(err.message,true);ghStatus('❌ Não salvo: '+err.message,true);}
  finally{lockSaving(false);}
 });
@@ -183,24 +188,94 @@ $('importProduct').addEventListener('click',async()=>{
   if(!confirm('Importar um novo produto e substituir os campos do formulário? O catálogo já salvo não será alterado.'))return;
  }
  importing=true;lockSaving(true);$('importReview').hidden=true;
- let requestId='';
  try{
-  const bytes=crypto.getRandomValues(new Uint8Array(16));requestId=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
   importStatus('Consultando a Shopee e otimizando as imagens do novo produto. Isso pode levar alguns minutos...');
-  await importRequest('/actions/workflows/importar-produto.yml/dispatches','POST',{ref:'main',inputs:{product_url:url,request_id:requestId}});
-  const deadline=Date.now()+300000;
-  while(Date.now()<deadline){
-   await new Promise(resolve=>setTimeout(resolve,4000));
-   const file=await importRequest('/contents/.imports/'+requestId+'.json?ref=main');
-   if(!file)continue;
-   const result=JSON.parse(decode64Unicode(file.content));
-   if(!result.ok)throw Error(result.error||'A Shopee não retornou os dados do produto.');
-   fillImportedProduct(result);importStatus('✅ Importação concluída. Confira o produto antes de cadastrar.');
-   $('productForm').scrollIntoView({behavior:'smooth',block:'start'});return;
-  }
-  throw Error('A importação está demorando. Confira a execução no GitHub Actions; o catálogo não foi alterado.');
+  const result=await extractProductData(url);fillImportedProduct(result);importStatus('✅ Importação concluída. Confira o produto antes de cadastrar.');
+  $('productForm').scrollIntoView({behavior:'smooth',block:'start'});
  }catch(err){importStatus('❌ '+err.message,true);}
  finally{importing=false;lockSaving(false);}
 });
+
+const BULK_KEY='megavitrine-pc-links-v1';
+function linkKey(url){const u=new URL(url);u.hash='';return u.href;}
+function bulkStatus(text,error=false){$('bulkStatus').textContent=text;$('bulkStatus').className='status'+(error?' error':'');}
+function saveBulk(){try{localStorage.setItem(BULK_KEY,JSON.stringify(bulkQueue));}catch{bulkStatus('A lista está apenas nesta página. O navegador não permitiu guardar os rascunhos.',true);}}
+function prepareBulkLinks(value){
+ const values=value.trim().split(/\s+/).filter(Boolean);
+ if(!values.length)throw Error('Cole os links dos produtos, um por linha.');
+ if(values.length>20)throw Error('Cole até 20 links por vez.');
+ const invalid=values.map((url,i)=>({url,line:i+1})).filter(x=>!shopeeLink(x.url));
+ if(invalid.length)throw Error('Link inválido na posição '+invalid.map(x=>x.line).join(', ')+'. Cole apenas links HTTPS de produtos da Shopee. A lista anterior foi mantida.');
+ const known=new Set([...bulkQueue.map(x=>linkKey(x.url)),...products.filter(p=>shopeeLink(p.url)).map(p=>linkKey(p.url))]);
+ const added=[];let skipped=0;
+ for(const url of values){const key=linkKey(url);if(known.has(key)){skipped++;continue;}known.add(key);added.push({url,status:'pending',data:null,error:''});}
+ if(bulkQueue.length+added.length>50)throw Error('A fila comporta até 50 links. Remova os itens já cadastrados antes de adicionar mais.');
+ bulkQueue.push(...added);saveBulk();renderBulk();return {added:added.length,skipped};
+}
+function renderBulk(){
+ const root=$('bulkItems');root.replaceChildren();
+ $('bulkCount').textContent=bulkQueue.length+' link(s) na lista • '+bulkQueue.filter(x=>x.status==='ready').length+' pronto(s) para revisão • '+bulkQueue.filter(x=>x.status==='saved').length+' cadastrado(s)';
+ bulkQueue.forEach((item,i)=>{
+  const box=document.createElement('div');box.className='item';const detail=document.createElement('div');const title=document.createElement('strong');title.textContent=(i+1)+'. '+(item.data?.product?.nome||'Novo produto');
+  const link=document.createElement('small');link.textContent=item.url;const status=document.createElement('small');status.textContent=({pending:'Aguardando preenchimento ou extração',ready:'Dados extraídos: revisar antes de cadastrar',saved:'Cadastrado no GitHub',error:'Falha na extração'})[item.status]+(item.error?' • '+item.error:'');detail.append(title,link,status);
+  const buttons=document.createElement('div');buttons.className='buttons';const use=document.createElement('button');use.type='button';use.textContent=item.data?'Revisar cadastro':'Preencher cadastro';use.disabled=item.status==='saved'||saving;use.onclick=()=>openBulkItem(i);
+  const remove=document.createElement('button');remove.type='button';remove.textContent='Remover da lista';remove.disabled=saving;remove.onclick=()=>{if(bulkActiveUrl===item.url)bulkActiveUrl='';bulkQueue.splice(i,1);saveBulk();renderBulk();};buttons.append(use,remove);box.append(detail,buttons);root.append(box);
+ });
+}
+function openBulkItem(i){
+ if(saving)return;const item=bulkQueue[i];if(!item||item.status==='saved')return;
+ if(editing>=0||['name','image','description','url','price','oldPrice'].some(id=>$(id).value.trim()))if(!confirm('Substituir os campos atuais pelo item da lista? Cadastros já salvos não serão alterados.'))return;
+ if(item.data)fillImportedProduct(item.data);else{resetForm();$('url').value=item.url;feedback('Preencha nome, foto, categoria e preço deste item. O link já foi colocado no cadastro.');}
+ bulkActiveUrl=item.url;$('productForm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function markBulkSaved(){if(!bulkActiveUrl)return;const item=bulkQueue.find(x=>x.url===bulkActiveUrl);if(item){item.status='saved';item.error='';saveBulk();renderBulk();}}
+async function extractProductData(url,checkStop=()=>false){
+ const requestId=Array.from(crypto.getRandomValues(new Uint8Array(16)),b=>b.toString(16).padStart(2,'0')).join('');
+ await importRequest('/actions/workflows/importar-produto.yml/dispatches','POST',{ref:'main',inputs:{product_url:url,request_id:requestId}});
+ const deadline=Date.now()+300000;
+ while(Date.now()<deadline){
+  if(checkStop())throw Error('Espera interrompida. A execução já iniciada no GitHub pode terminar; o cadastro não é publicado automaticamente.');
+  await new Promise(resolve=>setTimeout(resolve,4000));
+  if(checkStop())throw Error('Espera interrompida. Você pode revisar a lista e tentar novamente depois.');
+  const file=await importRequest('/contents/.imports/'+requestId+'.json?ref=main');if(!file)continue;
+  const result=JSON.parse(decode64Unicode(file.content));if(!result.ok)throw Error(result.error||'A Shopee não retornou os dados.');
+  const p=result.product;if(!p||!p.nome||!validImage(p.imagem)||!shopeeLink(p.url))throw Error('O importador devolveu dados incompletos.');return result;
+ }
+ throw Error('A importação está demorando. Confira a execução no GitHub Actions.');
+}
+$('prepareBulk').addEventListener('click',()=>{if(saving)return;try{const result=prepareBulkLinks($('bulkLinks').value);bulkStatus('✅ '+result.added+' link(s) adicionado(s); '+result.skipped+' repetido(s) ignorado(s). Use Preencher cadastro em cada item, ou Extrair lista após ativar a API.');$('bulkLinks').value='';}catch(error){bulkStatus(error.message,true);}});
+$('extractBulk').addEventListener('click',async()=>{
+ if(saving||bulkRunning)return;
+ try{if(!token())throw Error('Informe seu token do GitHub. A extração também exige Actions: Read and write e a API Shopee ativada.');}catch(error){bulkStatus(error.message,true);return;}
+ const items=bulkQueue.filter(x=>x.status==='pending'||x.status==='error');if(!items.length){bulkStatus('Adicione links à lista ou revise os itens que já estão prontos.');return;}
+ bulkRunning=true;bulkStop=false;lockSaving(true);let completed=0;
+ try{for(const item of items){
+  if(bulkStop)break;
+  bulkStatus('Extraindo item '+(completed+1)+' de '+items.length+' e otimizando as imagens do novo produto...');
+  try{item.data=await extractProductData(item.url,()=>bulkStop);item.status='ready';item.error='';completed++;saveBulk();renderBulk();}
+  catch(error){item.status='error';item.error=error.message;saveBulk();renderBulk();throw error;}
+ }
+ bulkStatus(completed+' item(ns) pronto(s) para revisão. '+(bulkStop?'Espera interrompida. ':'')+'Use Revisar cadastro e confirme cada produto no GitHub.');
+ }catch(error){bulkStatus(completed+' item(ns) pronto(s). Extração interrompida: '+error.message,true);}
+ finally{bulkRunning=false;lockSaving(false);renderBulk();}
+});
+$('stopBulk').addEventListener('click',()=>{bulkStop=true;bulkStatus('Interrompendo a espera. Os rascunhos prontos serão mantidos.');});
+$('clearBulkSaved').addEventListener('click',()=>{if(saving)return;bulkQueue=bulkQueue.filter(x=>x.status!=='saved');saveBulk();renderBulk();bulkStatus('Itens já cadastrados removidos da lista.');});
+try{const saved=JSON.parse(localStorage.getItem(BULK_KEY)||'[]');if(Array.isArray(saved))bulkQueue=saved.filter(x=>x&&shopeeLink(x.url)&&['pending','ready','saved','error'].includes(x.status)).slice(0,50);}catch{}renderBulk();
+
+function offerMessage(p){
+ if(!p||!p.nome||!shopeeLink(p.url))throw Error('Este produto precisa de nome e link de afiliado Shopee para gerar a divulgação.');
+ const price=Number.isFinite(p.preco)&&p.preco>=0?'💰 '+p.preco.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}):'💰 Consulte o preço na loja';
+ return '⚡ MegaVitrine | Ofertas Tech\n\n'+p.nome+'\n'+price+'\n\n👉 Ver oferta: '+p.url+'\n\nPreço e estoque podem mudar. Confira as condições na loja.\nLink de afiliado: podemos receber comissão, sem custo adicional para você.';
+}
+function showOffer(p){try{$('offerText').value=offerMessage(p);$('offerPanel').hidden=false;$('offerStatus').textContent='Confira a mensagem antes de compartilhar. Escolha WhatsApp e o grupo no seu celular, depois confirme o envio.';$('offerPanel').scrollIntoView({behavior:'smooth',block:'start'});return true;}catch(error){message(error.message,true);return false;}}
+async function shareOfferText(){
+ const text=$('offerText').value;if(!text.trim())return;
+ try{if(navigator.share){await navigator.share({title:'MegaVitrine | Ofertas Tech',text});$('offerStatus').textContent='Compartilhamento aberto. O envio é confirmado no aplicativo escolhido.';}
+ else{window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');$('offerStatus').textContent='Escolha o grupo no WhatsApp e confirme o envio.';}}
+ catch(error){if(error.name!=='AbortError')$('offerStatus').textContent='Não foi possível abrir o compartilhamento. Use Copiar mensagem e cole no grupo.';}
+}
+$('copyOffer').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('offerText').value);$('offerStatus').textContent='✅ Mensagem copiada. Cole no seu grupo de ofertas.';}catch{$('offerText').focus();$('offerText').select();$('offerStatus').textContent='Selecione e copie a mensagem acima.';}});
+$('shareOffer').addEventListener('click',shareOfferText);
 
 </script></body></html>
