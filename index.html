@@ -71,6 +71,22 @@ footer{background:#111318;color:white;margin-top:34px;padding:30px 5%;display:gr
 .notice{background:#0b2033;border-color:#214968}.category .icon{color:#7dd3fc}
 .product-name:hover{color:#38bdf8}.missing-photo{font-size:12px;color:#c4d3e5;padding:8px;text-align:center}
 header,nav,footer{border-color:#22344d}.search{background:#132238;border-color:#28405b}
+
+/* Filtros compactos, com rótulos acessíveis e controles alinhados. */
+.toolbar{gap:7px}
+.toolbar label{font-size:12px}
+.toolbar select,.toolbar button{font-size:13px;line-height:1.25;min-height:36px;padding:6px 9px;border-radius:7px}
+@media(max-width:600px){
+ .toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;grid-template-areas:"category-label sort-label ." "category sort clear";gap:4px 6px;margin-bottom:12px}
+ .toolbar label{font-size:11px;line-height:1.2}
+ .toolbar label[for="categoryFilter"]{grid-area:category-label}
+ .toolbar label[for="sort"]{grid-area:sort-label}
+ #categoryFilter{grid-area:category}
+ #sort{grid-area:sort}
+ #clearFilters{grid-area:clear}
+ .toolbar select,.toolbar button{width:100%;min-width:0;max-width:100%;font-size:12px;min-height:36px;padding:6px 7px}
+ #clearFilters{white-space:nowrap;font-size:11px}
+}
 </style>
 </head>
 <body>
