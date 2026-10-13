@@ -51,7 +51,7 @@ class ImportTests(unittest.TestCase):
 
     def test_optimized_images_and_catalog_unchanged(self):
         raw = io.BytesIO();Image.new('RGB', (1600, 1000), '#aacc22').save(raw, 'PNG')
-        offer = {'productName': 'Tênis Fitness', 'shopId': 123, 'itemId': 456, 'offerLink': 'https://s.shopee.com.br/own-affiliate', 'imageUrl': 'https://down-br.img.susercontent.com/test', 'priceMin': '29.90', 'priceMax': '39.90'}
+        offer = {'productName': 'Headset Gamer', 'shopId': 123, 'itemId': 456, 'offerLink': 'https://s.shopee.com.br/own-affiliate', 'imageUrl': 'https://down-br.img.susercontent.com/test', 'priceMin': '29.90', 'priceMax': '39.90'}
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder);catalog = root / 'produtos.json';catalog.write_text('[{"id":"existing"}]')
             with patch.object(m, 'resolve_product', return_value=('123','456')), patch.object(m, 'request_offer', return_value=offer), patch.object(m, 'download_image', return_value=raw.getvalue()):
@@ -67,6 +67,11 @@ class ImportTests(unittest.TestCase):
                 with Image.open(files[0]) as image:
                     self.assertEqual(image.format,'WEBP');self.assertEqual(max(image.size),size)
             self.assertEqual(next((root/'imagens/originais').glob('*')).read_bytes(), raw.getvalue())
+
+    def test_pc_categories(self):
+        examples = {'AMD Ryzen 5 processador': 'Processadores', 'Placa de vídeo RTX 4060': 'Placas de Vídeo', 'Placa mãe AM4': 'Placas-Mãe', 'Memória RAM DDR4': 'Memória RAM', 'SSD NVMe 1TB': 'SSD e HD', 'Fonte 650W': 'Fontes', 'Mouse gamer': 'Teclados e Mouses', 'Headset RGB': 'Áudio e Headsets', 'Kit gamer teclado e mouse': 'Kits e Acessórios para PC'}
+        for name, expected in examples.items():
+            with self.subTest(name=name): self.assertEqual(m.category(name), expected)
 
     def test_small_images_are_not_enlarged(self):
         data = io.BytesIO();Image.new('RGBA',(100,80),(0,0,0,0)).save(data,'PNG')

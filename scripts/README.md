@@ -14,7 +14,7 @@ Se faltarem chaves ou aprovação, o painel informa que a importação não est�
 ## Dados e revisão
 
 - Nome, preço e link de afiliado vêm da API. O link retornado corresponde à conta das credenciais configuradas; um link de outra pessoa não é mantido como link de compra.
-- Categoria é sugerida pelo nome e precisa ser conferida. A descrição fica vazia porque o endpoint não oferece a descrição completa. Preço anterior não é inventado; destaque não é ativado automaticamente.
+- Categoria de informática é sugerida pelo nome e precisa ser conferida. A importação deve ser usada apenas para eletrônicos e itens do novo nicho. A descrição fica vazia porque o endpoint não oferece a descrição completa. Preço anterior não é inventado; destaque não é ativado automaticamente.
 - Preço pode variar conforme tamanho/modelo. Nem todo produto aparece na API de afiliados.
 - A foto é preservada em `imagens/originais`, com WebP até 480 px para o catálogo e até 1200 px para ampliar. Não aumenta imagens pequenas. Nomes incluem produto, IDs e hash para evitar substituir imagens existentes.
 - Rascunhos ficam em `.imports/` (no repositório público) e só contêm dados do produto ou mensagens de erro, nunca credenciais. São consultados pela API do GitHub, não pelo GitHub Pages.
@@ -29,3 +29,5 @@ Se faltarem chaves ou aprovação, o painel informa que a importação não est�
 ## Verificações locais
 
 `node tests/test_import_panel.cjs` verifica o preenchimento e os erros do painel. `python -m unittest discover -s tests` verifica resolução de links, validação de origem, assinatura com resposta simulada, preservação de imagens e ausência de alteração do catálogo. A integração completa com a Shopee exige credenciais aprovadas.
+
+`node tests/test_site.cjs` verifica filtros, destaques e detalhes da vitrine de informática.

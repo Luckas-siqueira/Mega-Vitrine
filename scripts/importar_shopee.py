@@ -86,21 +86,24 @@ def price(value):
 def category(name):
     n = unicodedata.normalize('NFKD', name.lower()).encode('ascii', 'ignore').decode()
     groups = [
-        ('Música', r'\b(bateria acustica|afinacao|guitarra|violao|instrumento|musical)\b'),
-        ('Veículos', r'\b(automotivo|carro|moto|veiculo|capacete)\b'),
-        ('Games', r'\b(console|gamer|video game|videogame|playstation|xbox)\b'),
-        ('Pet', r'\b(pet|cachorro|gato|racao)\b'),
-        ('Bebê', r'\b(bebe|fralda|mamadeira)\b'),
-        ('Papelaria', r'\b(caneta|caderno|lapis|papelaria)\b'),
-        ('Ferramentas', r'\b(ferramenta|ferramentas|furadeira|parafusadeira|alicate)\b'),
-        ('Beleza', r'\b(protetor solar|maquiagem|skincare|creme|shampoo|batom)\b'),
-        ('Fitness', r'\b(creatina|whey|fitness|academia|halter|haltere|treino|musculacao)\b'),
-        ('Bolsas e Malas', r'\b(mochila|mala|bolsa|bolsas)\b'),
-        ('Moda', r'\b(tenis|camiseta|blusa|shorts|bermuda|calca|vestido|cropped)\b'),
-        ('Tecnologia', r'\b(bluetooth|fone|celular|smartphone|tablet|notebook|teclado|mouse)\b'),
-        ('Casa', r'\b(lencol|organizador|organizadora|cozinha|panela|escova|limpeza)\b'),
+        ('Placas de Vídeo', r'\b(placa de video|gpu|geforce|radeon|rtx|gtx)\b'),
+        ('Placas-Mãe', r'\b(placa mae|motherboard|mainboard)\b'),
+        ('Processadores', r'\b(processador|ryzen|core i[3579]|cpu)\b'),
+        ('Memória RAM', r'\b(memoria ram|ddr[345]|ram)\b'),
+        ('SSD e HD', r'\b(ssd|nvme|hd|hdd|disco rigido)\b'),
+        ('Fontes', r'\b(fonte|psu)\b'),
+        ('Refrigeração', r'\b(cooler|water cooler|ventoinha|pasta termica)\b'),
+        ('Gabinetes', r'\b(gabinete)\b'),
+        ('Monitores', r'\b(monitor|monitores)\b'),
+        ('Computadores e Notebooks', r'\b(notebook|laptop|mini pc|computador completo)\b'),
+        ('Redes e Conectividade', r'\b(roteador|wifi|wi-fi|switch|adaptador de rede)\b'),
+        ('Games e Consoles', r'\b(console|playstation|xbox|video game|videogame)\b'),
+        ('Kits e Acessórios para PC', r'\b(kit gamer|mobilador|hub|cabo|adaptador)\b'),
+        ('Teclados e Mouses', r'\b(teclado|mouse|mousepad)\b'),
+        ('Áudio e Headsets', r'\b(headset|fone|caixa de som|caixinha de som|microfone)\b'),
     ]
-    return next((c for c, pattern in groups if re.search(pattern, n)), 'Outros')
+    return next((c for c, pattern in groups if re.search(pattern, n)), 'Kits e Acessórios para PC')
+
 
 def image_versions(data):
     with Image.open(io.BytesIO(data)) as source:
