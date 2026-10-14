@@ -7,6 +7,10 @@ on:
         description: Link publico do produto
         required: true
         type: string
+      direct_url:
+        description: URL direta opcional do mesmo produto
+        required: false
+        type: string
       request_id:
         description: Identificador unico da solicitacao
         required: true
@@ -44,6 +48,7 @@ jobs:
         env:
           PRODUCT_URL: ${{ inputs.product_url || 'https://meli.la/32d4BRi' }}
           REQUEST_ID: ${{ inputs.request_id || 'teste-mercadolivre' }}
+          DIRECT_URL: ${{ github.event_name == 'push' && 'https://www.mercadolivre.com.br/mouse-recarregavel-bluetooth-wireless-ergonomico-optico-informatica-gamer-led-rgb-notebook-pc-tablet-smartphone-blackbom/p/MLB72674962?pdp_filters=item_id%3AMLB6943757138' || inputs.direct_url }}
         run: node extract.mjs
       - name: Publicar somente resultado da leitura
         env:
