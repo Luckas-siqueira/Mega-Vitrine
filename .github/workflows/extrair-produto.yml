@@ -1,0 +1,53 @@
+name: Extrair produto - Oferta Tech AI
+run-name: Extrair produto ${{ inputs.request_id || 'teste-mercadolivre' }}
+on:
+  workflow_dispatch:
+    inputs:
+      product_url:
+        description: Link publico do produto
+        required: true
+        type: string
+      request_id:
+        description: Identificador unico da solicitacao
+        required: true
+        type: string
+  push:
+    paths:
+      - '.github/workflows/extrair-produto.yml'
+      - 'tools/extractor/**'
+permissions:
+  contents: write
+concurrency:
+  group: oferta-tech-extractor
+  cancel-in-progress: false
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar extrator
+        working-directory: tools/extractor
+        run: |
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Testar validacoes
+        working-directory: tools/extractor
+        run: node test.mjs
+      - name: Ler produto publico
+        working-directory: tools/extractor
+        env:
+          PRODUCT_URL: ${{ inputs.product_url || 'https://meli.la/32d4BRi' }}
+          REQUEST_ID: ${{ inputs.request_id || 'teste-mercadolivre' }}
+        run: node extract.mjs
+      - name: Publicar somente resultado da leitura
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUEST_ID: ${{ inputs.request_id || 'teste-mercadolivre' }}
+        run: |
+          node tools/extractor/publish.mjs
