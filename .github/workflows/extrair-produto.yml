@@ -15,10 +15,6 @@ on:
         description: Identificador unico da solicitacao
         required: true
         type: string
-  push:
-    paths:
-      - '.github/workflows/extrair-produto.yml'
-      - 'tools/extractor/**'
 permissions:
   contents: write
 concurrency:
@@ -48,7 +44,7 @@ jobs:
         env:
           PRODUCT_URL: ${{ inputs.product_url || 'https://meli.la/32d4BRi' }}
           REQUEST_ID: ${{ inputs.request_id || 'teste-mercadolivre' }}
-          DIRECT_URL: ${{ github.event_name == 'push' && 'https://www.mercadolivre.com.br/mouse-recarregavel-bluetooth-wireless-ergonomico-optico-informatica-gamer-led-rgb-notebook-pc-tablet-smartphone-blackbom/p/MLB72674962?pdp_filters=item_id%3AMLB6943757138' || inputs.direct_url }}
+          DIRECT_URL: ${{ inputs.direct_url }}
         run: node extract.mjs
       - name: Publicar somente resultado da leitura
         env:
