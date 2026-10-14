@@ -2,13 +2,13 @@
   "ok": false,
   "id": "teste-mercadolivre",
   "original_url": "https://meli.la/32d4BRi",
-  "error": "A página não disponibilizou dados suficientes do produto. Complete manualmente.",
+  "error": "A loja exigiu login ou bloqueou a leitura. Complete os dados manualmente.",
   "diagnostic": {
     "title": "",
-    "final_host": "meli.la",
+    "final_host": "www.mercadolivre.com.br",
     "text_sample": "Mercado Libre - Donde comprar y vender de todo\n\n\nHubo un error accediendo a esta pagina...\nIr a la página principal",
     "structured_count": 0,
     "has_product_image": false
   },
-  "created_at": "2026-10-14T03:37:20.351Z"
+  "created_at": "2026-10-14T03:39:10.168Z"
 }
