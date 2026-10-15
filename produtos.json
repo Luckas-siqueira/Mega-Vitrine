@@ -130,5 +130,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/3g4QizFJWh"
+  },
+  {
+    "id": "tech-c8e160c1-e625-47d5-805e-ff773b9ce2a8",
+    "nome": "Suporte para controle",
+    "descricao": "Suporte Porta Controle Videogame Gamer Para Ps4 Xbox Ps5",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-77172a9d-bdde-4114-8c85-eafa0ae1f052.webp",
+    "preco": 19.85,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/8pmZs9Qy2N"
   }
 ]
