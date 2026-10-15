@@ -152,5 +152,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/1BN8kMQcL7"
+  },
+  {
+    "id": "tech-bf7b94ae-c63b-458a-a830-3380b3d79c12",
+    "nome": "Kit 3 quadros gamer",
+    "descricao": "Kit 3 Quadros Gamer Neon RGB Controle Game | Decoração Quarto Gamer Setup PC Gamer Colorido",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-60bc2dbe-49f6-4c8a-8804-6d9185c858c0.webp",
+    "preco": 15.6,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/3g4TkN7slk"
   }
 ]
