@@ -218,5 +218,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/gQsFCyA9g"
+  },
+  {
+    "id": "tech-1b80d4d7-f19d-4e80-ac8b-03db2658562c",
+    "nome": "Monitor Brasil PC",
+    "descricao": "Monitor Brazil PC 23 Led Full Hd Hdmi Vga Tela Plana Preto",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-541830cb-e418-4f95-9a83-7a3d60ec2113.webp",
+    "preco": 351.88,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/9zyXNTAAJq"
   }
 ]
