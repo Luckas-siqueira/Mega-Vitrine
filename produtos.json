@@ -284,5 +284,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/5AtHiN2Cbx"
+  },
+  {
+    "id": "tech-1ecdd8f7-06bf-43b1-a65a-7fbc052fd277",
+    "nome": "Fonte ATX 600w",
+    "descricao": "Fonte Gamer 600W Bivolt Automática Silenciosa Alta Performance para PC Desktop Intel AMD",
+    "categoria": "Fontes",
+    "imagem": "imagens/produtos/tech-01fa0042-f35e-470c-a043-fd0cdb9c0ca9.webp",
+    "preco": 160.46,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/1gJPa3SXKT"
   }
 ]
