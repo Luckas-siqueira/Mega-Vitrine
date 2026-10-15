@@ -261,20 +261,45 @@ function render(){
  categoryFilter.value=category;
  document.querySelectorAll('[data-category]').forEach(a=>a.classList.toggle('active',a.dataset.category===category));
 }
+let catalogGeneration=0;
+function clearCatalogView(message='Atualizando produtos…'){
+ products=[];
+ grid.replaceChildren(text('p','empty',message));
+ featuredTrack.replaceChildren();
+ clearInterval(carouselTimer);
+ document.getElementById('featuredPrev').disabled=true;
+ document.getElementById('featuredNext').disabled=true;
+ pauseButton.disabled=true;
+ count.textContent=message;
+ if(imageViewer.open)imageViewer.close();
+}
 async function loadProducts(){
+ const generation=++catalogGeneration;
+ clearCatalogView();
  try{
-  const response=await fetch('./produtos.json',{cache:'no-store'});
+  // A unique URL also avoids intermediary and previously cached JSON responses.
+  const response=await fetch('./produtos.json?atualizacao='+Date.now()+'-'+generation,{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
   const data=await response.json();
   if(!Array.isArray(data))throw new Error('Catálogo inválido');
+  if(generation!==catalogGeneration)return;
   products=data.filter(p=>p&&typeof p.id==='string'&&typeof p.nome==='string'&&typeof p.categoria==='string'&&p.nome.trim()).map(p=>({...p,preco:typeof p.preco==='number'?p.preco:null,precoAnterior:typeof p.precoAnterior==='number'?p.precoAnterior:null}));
   render();
  }catch(err){
+  if(generation!==catalogGeneration)return;
   console.error('Falha ao carregar catálogo:',err);
-  grid.replaceChildren(text('p','empty','Não foi possível carregar o catálogo. Verifique produtos.json e recarregue a página.'));
+  clearCatalogView('Não foi possível atualizar os produtos. Confira a conexão e tente novamente.');
   count.textContent='Catálogo indisponível';
  }
 }
+// Android and installed shortcuts may restore the old DOM from the back/forward cache.
+window.addEventListener('pagehide',()=>{catalogGeneration++;clearCatalogView();});
+window.addEventListener('pageshow',event=>{if(event.persisted)loadProducts();});
+document.addEventListener('visibilitychange',()=>{
+ if(document.visibilityState==='hidden'){catalogGeneration++;clearCatalogView();}
+ else if(document.visibilityState==='visible')loadProducts();
+});
+window.addEventListener('online',()=>loadProducts());
 form.addEventListener('submit',e=>{e.preventDefault();render();document.getElementById('catalogo').scrollIntoView();});
 input.addEventListener('input',render);
 sort.addEventListener('change',render);
