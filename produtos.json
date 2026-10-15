@@ -207,5 +207,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://meli.la/1cknGP1"
+  },
+  {
+    "id": "tech-4a8af0cd-2a99-4aee-bc4e-d773f5284f46",
+    "nome": "Monitor led widescreen",
+    "descricao": "Monitor Led 19\"BPC-19WE02-B Widescreen BraziPc",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-0432d0c7-8a89-463f-9977-b61b82ce9b92.webp",
+    "preco": 189.91,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/gQsFCyA9g"
   }
 ]
