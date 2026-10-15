@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-uboq3leIzavLrFTcnh2HoPx4Yxu2MmWzzY46WQFjhMA='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="MegaVitrine: informática, periféricos, componentes de PC e eletrônicos. Compare ofertas de teclados, mouses, headsets e acessórios nas lojas parceiras.">
 <meta name="theme-color" content="#081426">
@@ -176,7 +179,10 @@ let products=[];
 let category='';
 const emojis={"Decoração Gamer":"🖼️","Cartões de Memória":"💾","Teclados e Mouses":"⌨️","Áudio e Headsets":"🎧","Processadores":"⚙️","Placas de Vídeo":"🎮","Memória RAM":"▦","SSD e HD":"💾","Computadores e Notebooks":"💻","Placas-Mãe":"🔲","Fontes":"🔌","Gabinetes":"🖥️","Refrigeração":"❄️","Monitores":"🖥️","Redes e Conectividade":"📡","Kits e Acessórios para PC":"🧩","Games e Consoles":"🕹️"};
 const money=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(n);
-const validUrl=value=>{try{const u=new URL(value);return u.protocol==='https:';}catch{return false;}};
+// Domínios exatos: não aceitar sufixos parecidos, credenciais ou portas alternativas.
+const allowedStoreHosts=new Set(['s.shopee.com.br','shopee.com.br','www.shopee.com.br','meli.la','mercadolivre.com.br','www.mercadolivre.com.br','produto.mercadolivre.com.br','lista.mercadolivre.com.br','m.mercadolivre.com.br']);
+const validUrl=value=>{try{if(typeof value!=='string'||value.length>4096||/[\u0000-\u0020\u007f]/.test(value)||value.includes('\\'))return false;const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&(!u.port||u.port==='443');}catch{return false;}};
+const validAffiliateUrl=value=>validUrl(value)&&allowedStoreHosts.has(new URL(value).hostname);
 const validImage=value=>typeof value==='string'&&value.trim()&&(validUrl(value)||/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp|gif)$/i.test(value));
 const text=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;return el;};
 const largeImages={"imagens/produtos/caixinha-de-som-bluetooth.webp":"imagens/ampliadas/caixinha-de-som-bluetooth.webp","imagens/produtos/fone-de-ouvido-bluetooth-x55-mini.webp":"imagens/ampliadas/fone-de-ouvido-bluetooth-x55-mini.webp","imagens/produtos/console-portatil-r36s.webp":"imagens/ampliadas/console-portatil-r36s.webp","imagens/produtos/kit-mobilador-completo.webp":"imagens/ampliadas/kit-mobilador-completo.webp","imagens/produtos/caixa-de-som-para-pc.webp":"imagens/ampliadas/caixa-de-som-para-pc.webp","imagens/produtos/headset-gamer.webp":"imagens/ampliadas/headset-gamer.webp","imagens/produtos/fone-anti-rudos.webp":"imagens/ampliadas/fone-anti-rudos.webp"};
@@ -244,7 +250,7 @@ function makeCard(p,showBadge=false,priority=false){
   card.append(text('div','price',money(p.preco)));
  }else card.append(text('div','price','Consultar preço'));
  card.append(text('div','installment','Preço e disponibilidade no parceiro'));
- if(validUrl(p.url)){
+ if(validAffiliateUrl(p.url)){
   const link=text('a','btn affiliate-link','VER OFERTA →');
   link.href=p.url;
   link.target='_blank';
