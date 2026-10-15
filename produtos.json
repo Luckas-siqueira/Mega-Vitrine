@@ -262,5 +262,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/AAHxcN1ce8"
+  },
+  {
+    "id": "tech-3e9823bd-c2fe-4689-be61-0c3ed2610c50",
+    "nome": "Fonte ATX para PC",
+    "descricao": "Fonte ATX para PC 500W Bivolt com 6 Conectores FDD Foneng HDW-004",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-a62a39ea-18d3-4697-a0ec-358b8340ba6e.webp",
+    "preco": 120.56,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/1BN8uNZDCm"
   }
 ]
