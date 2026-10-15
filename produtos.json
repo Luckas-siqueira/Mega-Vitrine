@@ -163,5 +163,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/3g4TkN7slk"
+  },
+  {
+    "id": "tech-e2f2ec14-407f-4a8a-9ec1-519303292f0a",
+    "nome": "Chaveiro GTA 6",
+    "descricao": "Chaveiro Mini Capa Capinha Jogo PS5 Grand Theft Auto GTA 6 Playstation 5",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-a150dbc4-7665-46ae-a24a-e08b537e1269.webp",
+    "preco": 13.99,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/6L5EvdO6t6"
   }
 ]
