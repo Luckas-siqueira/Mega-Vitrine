@@ -229,5 +229,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/9zyXNTAAJq"
+  },
+  {
+    "id": "tech-f0651fd0-a8b6-4a05-b247-4f97a4105200",
+    "nome": "Memória ram Kingston",
+    "descricao": "Kingston HyperX FURY DDR4 16GB 8GB 4GB 3200MHz 2666MHz 2400MHz 2133M PC4 Memória RAM Desktop 288Pins",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-4af426dc-d05c-4ca7-b3cf-01f415b1dbb6.webp",
+    "preco": 142.41,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/4qGREzD7Fm"
   }
 ]
