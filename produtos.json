@@ -295,5 +295,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/1gJPa3SXKT"
+  },
+  {
+    "id": "tech-0d352368-8763-41d2-a52e-30e7a829aed2",
+    "nome": "Memória ram Synex 16GB ddr4",
+    "descricao": "Memória SYNEX, 16GB, DDR4, 3200MHz, Preto, 16GB-3200-DDR4",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-1a5e0a3a-8265-40bb-bc4d-c489a538a26f.webp",
+    "preco": 633.89,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/Lo2vOyAuL"
   }
 ]
