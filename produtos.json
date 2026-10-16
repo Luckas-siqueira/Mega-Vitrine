@@ -405,5 +405,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/5fpZMi7Ntl"
+  },
+  {
+    "id": "tech-efc83f13-cdfa-4b4a-80d4-7f99c16a5bf6",
+    "nome": "Placa de vídeo NVidia Geforce GT 740 4Gb",
+    "descricao": "Placa de Video NVIDIA GeForce GT740 4GB GDDR5 128 Bit Single Fan - GPUK7404GBFSF1 - VINIK",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-e199bef3-02ce-4213-b9e2-c578bb5ac088.webp",
+    "preco": 407.84,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/6AlpyGKWUz"
   }
 ]
