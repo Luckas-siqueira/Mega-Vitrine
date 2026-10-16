@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-uboq3leIzavLrFTcnh2HoPx4Yxu2MmWzzY46WQFjhMA='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Wffi/qrSu4zMq1Kll4f6StSacGhdM6lvUuOXTD4brQM='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -114,11 +114,17 @@ header{grid-template-columns:108px minmax(0,1fr) auto;padding:12px 5%;gap:18px}
 .header-logo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
 header .search{min-width:0}header .search button{min-width:44px;min-height:44px;padding:0 14px}
 @media(max-width:900px){header{grid-template-columns:84px minmax(0,1fr);gap:10px 12px}.header-logo{width:84px}.header-links{grid-column:1/-1;justify-content:space-between}.search input{padding:12px;font-size:14px}}
+
+.search-area{position:relative;min-width:0}.search-help{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.search-suggestions{position:absolute;right:0;top:calc(100% + 8px);width:max(100%,min(340px,90vw));max-width:calc(100vw - 24px);z-index:50;padding:8px;background:#101e32;border:1px solid #31516f;border-radius:14px;box-shadow:0 14px 36px #0008;max-height:310px;overflow:auto}
+.search-suggestions[hidden]{display:none}.search-suggestions-title{margin:5px 8px 8px;color:#7dd3fc;font-size:12px;font-weight:700}
+.search-suggestion{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;min-height:48px;text-align:left;padding:10px;border:0;border-radius:8px;background:transparent;color:#f4f4f5;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+.search-suggestion:hover,.search-suggestion:focus-visible{background:#1b3550}.search-suggestion small{color:#a7b7ca;font-size:11px}.search-suggestions-empty{margin:8px;font-size:13px;color:#c3cdd9}
 </style>
 </head>
 <body>
 
-<header><a class="header-logo" href="#inicio" aria-label="MegaVitrine página inicial"><img src="imagens/grupo/megavitrine-ofertas-tech.webp" alt="MegaVitrine" width="108" height="108" fetchpriority="high" decoding="async"></a><form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Buscar produtos…" aria-label="Pesquisar produtos"><button type="submit" aria-label="Pesquisar">⌕</button></form><div class="header-links"><a href="#categorias">Categorias</a><a href="#ofertas">🔥 Ofertas</a></div></header>
+<header><a class="header-logo" href="#inicio" aria-label="MegaVitrine página inicial"><img src="imagens/grupo/megavitrine-ofertas-tech.webp" alt="MegaVitrine" width="108" height="108" fetchpriority="high" decoding="async"></a><div class="search-area" id="searchArea"><form class="search" id="searchForm"><input id="searchInput" type="search" maxlength="120" autocomplete="off" aria-controls="searchSuggestions" aria-expanded="false" aria-describedby="searchHelp" placeholder="Buscar produtos…" aria-label="Pesquisar produtos"><button type="submit" aria-label="Pesquisar">⌕</button></form><div class="search-suggestions" id="searchSuggestions" hidden></div><span id="searchHelp" class="search-help">Digite um produto. A busca aceita pequenos erros e palavras sem acento.</span></div><div class="header-links"><a href="#categorias">Categorias</a><a href="#ofertas">🔥 Ofertas</a></div></header>
 <nav><a href="#inicio">Início</a><a href="#ofertas">🔥 Ofertas em destaque</a><a href="#categorias">Todas as categorias</a><a href="#grupo-whatsapp">Grupo de ofertas</a><a href="#sobre">Sobre a MegaVitrine</a></nav>
 <main id="inicio"><section class="hero"><div><div class="eyebrow">Hardware • Periféricos • Setup</div><h1>SEU PRÓXIMO<br><span>UPGRADE</span><br>COMEÇA AQUI.</h1><p>Periféricos, eletrônicos e componentes para montar, melhorar e completar seu PC.</p><a class="btn" href="#ofertas">EXPLORAR O SETUP →</a></div><div class="hero-art" aria-hidden="true"><svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pcGlow" x1="0" x2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs><path d="M30 180H100V100H140M235 60H300V125H325M225 205H300" fill="none" stroke="#38bdf8" stroke-opacity=".25" stroke-width="3"/><rect x="110" y="20" width="120" height="195" rx="14" fill="#0b1324" stroke="url(#pcGlow)" stroke-width="3"/><rect x="124" y="38" width="90" height="155" rx="8" fill="#11243a" stroke="#284d70"/><circle cx="169" cy="78" r="25" fill="#081426" stroke="url(#pcGlow)" stroke-width="5"/><circle cx="169" cy="145" r="25" fill="#081426" stroke="url(#pcGlow)" stroke-width="5"/><circle cx="169" cy="78" r="8" fill="#38bdf8"/><circle cx="169" cy="145" r="8" fill="#6366f1"/><path d="M134 200H199" stroke="#38bdf8" stroke-width="3"/><circle cx="210" cy="200" r="3" fill="#38bdf8"/><rect x="50" y="194" width="52" height="22" rx="5" fill="#102846" stroke="#38bdf8"/><path d="M58 201H93M58 207H93" stroke="#38bdf8" stroke-width="2"/></svg><span>MONTE SEU SETUP</span></div></section>
 <div class="trust"><div>⚙️ Foco no seu PC</div><div>🎧 Periféricos para sua rotina</div><div>🔗 Compra no site parceiro</div></div>
@@ -270,13 +276,70 @@ function makeCard(p,showBadge=false,priority=false){
  }
  return card;
 }
+// Busca local: normalização, prefixos e distância de edição com transposição.
+function normalizeSearch(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
+function typoDistance(a,b){
+ if(Math.abs(a.length-b.length)>2)return 3;
+ const rows=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));
+ for(let i=0;i<=a.length;i++)rows[i][0]=i;for(let j=0;j<=b.length;j++)rows[0][j]=j;
+ for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++){
+  rows[i][j]=Math.min(rows[i-1][j]+1,rows[i][j-1]+1,rows[i-1][j-1]+Number(a[i-1]!==b[j-1]));
+  if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])rows[i][j]=Math.min(rows[i][j],rows[i-2][j-2]+1);
+ }
+ return rows[a.length][b.length];
+}
+function productSearchScore(product,rawQuery){
+ const query=normalizeSearch(String(rawQuery||'').slice(0,120));if(!query)return 1;
+ const title=normalizeSearch(product.nome),content=normalizeSearch([product.nome,product.categoria,String(product.descricao||'').slice(0,2000)].join(' '));
+ if(title.includes(query))return 120;if(content.includes(query))return 100;
+ const ignored=new Set(['de','da','do','das','dos','para','com','e']);
+ const tokens=query.split(' ').filter(t=>!ignored.has(t)).slice(0,10);if(!tokens.length)return 0;
+ const words=[...new Set(content.split(' '))].filter(w=>w.length<=40).slice(0,240);
+ let total=0;
+ for(const token of tokens){
+  if(token.length>40)return 0;
+  let best=0;
+  for(const word of words){
+   if(word===token){best=100;break;}
+   if(token.length>=3&&word.startsWith(token)){best=Math.max(best,85);continue;}
+   const limit=token.length>=8?2:token.length>=4?1:0;
+   if(limit&&Math.abs(token.length-word.length)<=limit){const distance=typoDistance(token,word);if(distance<=limit)best=Math.max(best,70-distance*10);}
+  }
+  if(!best)return 0;total+=best;
+ }
+ return total/tokens.length;
+}
+// Fim da lógica pura de busca.
+const searchArea=document.getElementById('searchArea'),searchSuggestions=document.getElementById('searchSuggestions');
+let suggestionButtons=[];
+function closeSearchSuggestions(){searchSuggestions.hidden=true;searchSuggestions.replaceChildren();suggestionButtons=[];input.setAttribute('aria-expanded','false');}
+function renderSearchSuggestions(){
+ const query=input.value.trim();let matches;
+ if(query)matches=products.map(p=>({product:p,score:productSearchScore(p,query)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).map(x=>x.product).slice(0,5);
+ else{matches=[];for(const word of ['memoria','mouse','teclado','monitor','headset']){const p=products.find(p=>normalizeSearch(p.nome).includes(word));if(p&&!matches.includes(p))matches.push(p);}for(const p of products){if(matches.length>=5)break;if(!matches.includes(p))matches.push(p);}}
+ searchSuggestions.replaceChildren(text('p','search-suggestions-title',query?'Você pode estar procurando':'Experimente buscar'));suggestionButtons=[];
+ if(!matches.length)searchSuggestions.append(text('p','search-suggestions-empty',products.length?'Nenhuma sugestão. Tente o tipo do produto ou a marca.':'Aguarde o catálogo carregar para ver sugestões.'));
+ for(const p of matches){
+  const button=text('button','search-suggestion','');button.type='button';button.append(text('span','',p.nome),text('small','',p.categoria));
+  button.addEventListener('click',()=>{input.value=p.nome;category='';render();closeSearchSuggestions();input.blur?.();document.getElementById('catalogo').scrollIntoView();});
+  const index=suggestionButtons.length;
+  button.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();input.focus();closeSearchSuggestions();}else if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const next=index+(event.key==='ArrowDown'?1:-1);if(next<0)input.focus();else suggestionButtons[next]?.focus();}});
+  suggestionButtons.push(button);searchSuggestions.append(button);
+ }
+ searchSuggestions.hidden=false;input.setAttribute('aria-expanded','true');
+}
+input.addEventListener('focus',renderSearchSuggestions);
+input.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSearchSuggestions();}else if(event.key==='ArrowDown'){event.preventDefault();if(searchSuggestions.hidden)renderSearchSuggestions();suggestionButtons[0]?.focus();}});
+searchArea.addEventListener('focusout',event=>{if(!searchArea.contains(event.relatedTarget))closeSearchSuggestions();});
+document.addEventListener('pointerdown',event=>{if(!searchArea.contains(event.target))closeSearchSuggestions();});
 function render(){
- const q=input.value.trim().toLocaleLowerCase('pt-BR');
- const filtered=products.filter(p=>(!category||p.categoria===category)&&[p.nome,p.categoria,p.descricao||''].join(' ').toLocaleLowerCase('pt-BR').includes(q));
+ const q=input.value.trim();
+ const scores=new Map(products.map(p=>[p,productSearchScore(p,q)]));
+ const filtered=products.filter(p=>(!category||p.categoria===category)&&scores.get(p)>0);
  if(sort.value==='name')filtered.sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
  else if(sort.value==='low')filtered.sort((a,b)=>(Number.isFinite(a.preco)?a.preco:Infinity)-(Number.isFinite(b.preco)?b.preco:Infinity));
  else if(sort.value==='high')filtered.sort((a,b)=>(Number.isFinite(b.preco)?b.preco:-Infinity)-(Number.isFinite(a.preco)?a.preco:-Infinity));
- else filtered.sort((a,b)=>Number(b.destaque)-Number(a.destaque));
+ else filtered.sort((a,b)=>(q?scores.get(b)-scores.get(a):0)||Number(b.destaque)-Number(a.destaque));
  const highlights=filtered.filter(p=>p.destaque===true);
  featuredTrack.replaceChildren(...highlights.map((p,i)=>makeCard(p,true,i<2)));
  featuredSection.hidden=!highlights.length;
@@ -289,6 +352,7 @@ function render(){
 let catalogGeneration=0;
 function clearCatalogView(message='Atualizando produtos…'){
  products=[];
+ closeSearchSuggestions();
  grid.replaceChildren(text('p','empty',message));
  featuredTrack.replaceChildren();
  clearInterval(carouselTimer);
@@ -310,6 +374,7 @@ async function loadProducts(){
   if(generation!==catalogGeneration)return;
   products=data.filter(p=>p&&typeof p.id==='string'&&typeof p.nome==='string'&&typeof p.categoria==='string'&&p.nome.trim()).map(p=>({...p,preco:typeof p.preco==='number'?p.preco:null,precoAnterior:typeof p.precoAnterior==='number'?p.precoAnterior:null}));
   render();
+  if(document.activeElement===input)renderSearchSuggestions();
  }catch(err){
   if(generation!==catalogGeneration)return;
   console.error('Falha ao carregar catálogo:',err);
@@ -325,8 +390,8 @@ document.addEventListener('visibilitychange',()=>{
  else if(document.visibilityState==='visible')loadProducts();
 });
 window.addEventListener('online',()=>loadProducts());
-form.addEventListener('submit',e=>{e.preventDefault();render();document.getElementById('catalogo').scrollIntoView();});
-input.addEventListener('input',render);
+form.addEventListener('submit',e=>{e.preventDefault();render();closeSearchSuggestions();input.blur?.();document.getElementById('catalogo').scrollIntoView();});
+input.addEventListener('input',()=>{render();renderSearchSuggestions();});
 sort.addEventListener('change',render);
 categoryFilter.addEventListener('change',()=>{category=categoryFilter.value;render();});
 document.getElementById('toggleCategories').addEventListener('click',e=>{const expanded=document.getElementById('categoryGrid').classList.toggle('expanded');e.currentTarget.setAttribute('aria-expanded',String(expanded));e.currentTarget.textContent=expanded?'Menos categorias ↑':'Mais categorias ↓';});
