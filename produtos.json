@@ -317,5 +317,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/8KqKUSjfuq"
+  },
+  {
+    "id": "tech-7abff8ad-78df-4606-b0b2-a78630f83da7",
+    "nome": "Placa de vídeo RX550",
+    "descricao": "Placa de Vídeo Leader Tech Radeon RX 550, 4GB, 128-BIT, GDDR5, Single Fan,DVI/HDMI/DisplayPort-PV-LT-RX550-4G-D5",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-64649011-ec29-4d4c-8b66-043a91a061e2.webp",
+    "preco": 620.17,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/7KxnIlo6ot"
   }
 ]
