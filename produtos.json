@@ -306,5 +306,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/Lo2vOyAuL"
+  },
+  {
+    "id": "tech-a393ebc6-354c-467d-b812-8a98e11d0be8",
+    "nome": "Water cooler Durex vision 240",
+    "descricao": "Water Cooler Duex Vision 240, 240mm, ARGB, Preto, DXWC240VISION",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-f706794b-645b-48f3-b012-b6fa173908ba.webp",
+    "preco": 327.45,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/8KqKUSjfuq"
   }
 ]
