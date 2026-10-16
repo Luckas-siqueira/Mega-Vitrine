@@ -361,5 +361,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/gQtNhEwAY"
+  },
+  {
+    "id": "tech-0ceb47f9-7389-4765-b37a-e72c272eaada",
+    "nome": "Processador AMD Ryzen 7 5700",
+    "descricao": "Processador Amd (AM4) Ryzen 7 5700 3.7 Ghz - 4.6 Ghz",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-53c050c9-e743-47e8-89f5-1e2e0a020f5a.webp",
+    "preco": 812.2,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/qkJaXIV8t"
   }
 ]
