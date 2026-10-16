@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-hDxs3iuoHfTYEDHmpWW2sQqiru3nGcCzi7oiIkMHq1M='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-I6KjDG+9gzbYD8G6cEtbkAqdwD7PW0V5HzKROw9GBN8='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -121,6 +121,7 @@ header .search{min-width:0}header .search button{min-width:44px;min-height:44px;
 .search-suggestion{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;min-height:48px;text-align:left;padding:10px;border:0;border-radius:8px;background:transparent;color:#f4f4f5;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
 .search-suggestion:hover,.search-suggestion:focus-visible{background:#1b3550}.search-suggestion small{color:#a7b7ca;font-size:11px}.search-suggestions-empty{margin:8px;font-size:13px;color:#c3cdd9}
 .catalog-pagination{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 12px}.catalog-pagination[hidden],.catalog-pagination button[hidden]{display:none}.catalog-pagination button{border:1px solid #31516f;border-radius:10px;min-height:44px;padding:12px 18px;background:#132b43;color:#e5f3ff;font-weight:700}.catalog-pagination button:hover{border-color:#38bdf8}.catalog-pagination #showMoreProducts{background:#38bdf8;border-color:#38bdf8;color:#081426}@media(max-width:480px){.catalog-pagination button{flex:1;font-size:12px;padding:12px 10px}}
+.viewer-viewport{position:relative;height:min(65vh,600px);max-height:none;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;text-align:initial}.viewer-viewport.dragging{cursor:grabbing}.viewer-viewport img{position:absolute;left:50%;top:50%;display:block;margin:0;max-width:none;max-height:none;object-fit:contain;transform-origin:center;pointer-events:none;user-select:none;-webkit-user-drag:none}.viewer-actions #viewerScale{font-size:13px;min-width:48px;text-align:center;font-variant-numeric:tabular-nums}.viewer-actions button:disabled{opacity:.45;cursor:default}
 </style>
 </head>
 <body>
@@ -139,7 +140,7 @@ header .search{min-width:0}header .search button{min-width:44px;min-height:44px;
 <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja parceira. Confira conexões, medidas e compatibilidade dos componentes antes de comprar.</div></section>
 <section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><p>A MegaVitrine reúne eletrônicos, periféricos e categorias de componentes para quem quer montar ou melhorar o PC. Compare as ofertas e confira as especificações e a compatibilidade no anúncio do vendedor. Compra, pagamento, entrega e atendimento são realizados pela loja parceira.</p></section></main>
 <footer><div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--accent)">Vitrine</span></div><p>Seu próximo upgrade começa aqui!</p></div><div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><a href="./privacidade.html">Política de Privacidade</a><a href="./termos.html">Termos de Uso</a></div><div><h3>Atendimento</h3><a href="./contato.html">Fale com a MegaVitrine</a><a href="mailto:luckas.5414@gmail.com" style="overflow-wrap:anywhere">luckas.5414@gmail.com</a><a href="#ofertas">Como funcionam as ofertas</a></div><div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div></footer>
-<dialog id="imageViewer" class="image-viewer" aria-labelledby="viewerTitle"><div class="viewer-head"><h2 id="viewerTitle">Imagem do produto</h2><button id="viewerClose" type="button" aria-label="Fechar imagem">Fechar ✕</button></div><div id="viewerViewport" class="viewer-viewport"><img id="viewerImage" alt=""></div><div class="viewer-actions"><button id="viewerZoom" type="button" aria-pressed="false">Ampliar mais ＋</button><p id="viewerStatus" class="viewer-status" role="status" aria-live="polite"></p></div><section class="viewer-description" aria-labelledby="viewerDescriptionTitle"><h3 id="viewerDescriptionTitle">Descrição</h3><p id="viewerDescription"></p></section></dialog>
+<dialog id="imageViewer" class="image-viewer" aria-labelledby="viewerTitle"><div class="viewer-head"><h2 id="viewerTitle">Imagem do produto</h2><button id="viewerClose" type="button" aria-label="Fechar imagem">Fechar ✕</button></div><div id="viewerViewport" class="viewer-viewport" tabindex="0" role="region" aria-label="Imagem do produto: use dois dedos, a roda do mouse ou os botões para ampliar e arraste para mover"><img id="viewerImage" alt="" draggable="false"></div><div class="viewer-actions"><button id="viewerZoomOut" type="button" aria-label="Diminuir imagem">−</button><span id="viewerScale" aria-label="Nível de ampliação">100%</span><button id="viewerZoom" type="button" aria-label="Ampliar imagem">＋</button><button id="viewerReset" type="button">Ajustar imagem</button><p id="viewerStatus" class="viewer-status" role="status" aria-live="polite"></p></div><section class="viewer-description" aria-labelledby="viewerDescriptionTitle"><h3 id="viewerDescriptionTitle">Descrição</h3><p id="viewerDescription"></p></section></dialog>
 <script>
 'use strict';
 const form=document.getElementById('searchForm');
@@ -206,19 +207,83 @@ const viewerZoom=document.getElementById('viewerZoom');
 const viewerStatus=document.getElementById('viewerStatus');
 const viewerDescription=document.getElementById('viewerDescription');
 let viewerOpener=null,previousBodyOverflow='';
-function resetViewerZoom(){viewerViewport.classList.remove('magnified');viewerZoom.setAttribute('aria-pressed','false');viewerZoom.textContent='Ampliar mais ＋';viewerViewport.scrollTop=0;viewerViewport.scrollLeft=0;}
+// Geometria pura: preserva o ponto sob os dedos/cursor e limita as bordas.
+const MIN_IMAGE_ZOOM=1,MAX_IMAGE_ZOOM=6;
+function clampImageView(view,bounds){
+ const scale=Math.max(MIN_IMAGE_ZOOM,Math.min(MAX_IMAGE_ZOOM,view.scale));
+ const maxX=Math.max(0,(bounds.imageWidth*scale-bounds.width)/2),maxY=Math.max(0,(bounds.imageHeight*scale-bounds.height)/2);
+ return {scale,x:Math.max(-maxX,Math.min(maxX,view.x)),y:Math.max(-maxY,Math.min(maxY,view.y))};
+}
+function zoomImageView(view,nextScale,from,to,bounds){
+ const scale=Math.max(MIN_IMAGE_ZOOM,Math.min(MAX_IMAGE_ZOOM,nextScale)),ratio=scale/view.scale;
+ return clampImageView({scale,x:to.x-(from.x-view.x)*ratio,y:to.y-(from.y-view.y)*ratio},bounds);
+}
+// Fim da geometria pura.
+const viewerPointers=new Map(),viewerZoomOut=document.getElementById('viewerZoomOut'),viewerReset=document.getElementById('viewerReset'),viewerScale=document.getElementById('viewerScale');
+let viewerReady=false,viewerView={scale:1,x:0,y:0},viewerImageSize={width:0,height:0};
+function viewerBounds(){const r=viewerViewport.getBoundingClientRect();return {width:r.width,height:r.height,imageWidth:viewerImageSize.width,imageHeight:viewerImageSize.height};}
+function applyViewerView(){
+ viewerView=clampImageView(viewerView,viewerBounds());
+ viewerImage.style.transform='translate3d('+viewerView.x+'px,'+viewerView.y+'px,0) scale('+viewerView.scale+')';
+ viewerScale.textContent=Math.round(viewerView.scale*100)+'%';
+ viewerZoom.disabled=!viewerReady||viewerView.scale>=MAX_IMAGE_ZOOM;viewerZoomOut.disabled=!viewerReady||viewerView.scale<=MIN_IMAGE_ZOOM;
+ viewerReset.disabled=!viewerReady||(viewerView.scale===1&&viewerView.x===0&&viewerView.y===0);
+}
+function resetViewerZoom(){viewerPointers.clear();viewerViewport.classList.remove('magnified','dragging');viewerView={scale:1,x:0,y:0};applyViewerView();}
+function fitViewerImage(){
+ const r=viewerViewport.getBoundingClientRect();if(!r.width||!r.height||!viewerImage.naturalWidth||!viewerImage.naturalHeight)return;
+ const fit=Math.min(r.width/viewerImage.naturalWidth,r.height/viewerImage.naturalHeight);
+ viewerImageSize={width:viewerImage.naturalWidth*fit,height:viewerImage.naturalHeight*fit};
+ viewerImage.style.width=viewerImageSize.width+'px';viewerImage.style.height=viewerImageSize.height+'px';
+ viewerImage.style.marginLeft=(-viewerImageSize.width/2)+'px';viewerImage.style.marginTop=(-viewerImageSize.height/2)+'px';
+ viewerReady=true;resetViewerZoom();
+}
+function viewerPoint(event){const r=viewerViewport.getBoundingClientRect();return {x:event.clientX-r.left-r.width/2,y:event.clientY-r.top-r.height/2};}
+function zoomViewer(scale,from={x:0,y:0},to=from){if(!viewerReady)return;viewerView=zoomImageView(viewerView,scale,from,to,viewerBounds());applyViewerView();}
+viewerViewport.addEventListener('wheel',event=>{
+ if(!viewerReady)return;event.preventDefault();
+ const pixels=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?viewerBounds().height:1);
+ zoomViewer(viewerView.scale*Math.exp(-Math.max(-1000,Math.min(1000,pixels))*.002),viewerPoint(event));
+},{passive:false});
+viewerViewport.addEventListener('pointerdown',event=>{
+ if(!viewerReady||(event.pointerType==='mouse'&&event.button!==0))return;
+ event.preventDefault();viewerPointers.set(event.pointerId,viewerPoint(event));viewerViewport.setPointerCapture?.(event.pointerId);viewerViewport.classList.add('dragging');
+});
+viewerViewport.addEventListener('pointermove',event=>{
+ if(!viewerPointers.has(event.pointerId)||!viewerReady)return;event.preventDefault();
+ const before=[...viewerPointers.values()];const previous=viewerPointers.get(event.pointerId);viewerPointers.set(event.pointerId,viewerPoint(event));const after=[...viewerPointers.values()];
+ if(after.length>=2){
+  const mid=points=>({x:(points[0].x+points[1].x)/2,y:(points[0].y+points[1].y)/2});
+  const distance=points=>Math.hypot(points[0].x-points[1].x,points[0].y-points[1].y);
+  const oldDistance=distance(before);if(oldDistance>1)zoomViewer(viewerView.scale*distance(after)/oldDistance,mid(before),mid(after));
+ }else{const current=after[0];viewerView=clampImageView({...viewerView,x:viewerView.x+current.x-previous.x,y:viewerView.y+current.y-previous.y},viewerBounds());applyViewerView();}
+});
+function releaseViewerPointer(event){viewerPointers.delete(event.pointerId);if(!viewerPointers.size)viewerViewport.classList.remove('dragging');}
+for(const type of ['pointerup','pointercancel','lostpointercapture'])viewerViewport.addEventListener(type,releaseViewerPointer);
+viewerImage.addEventListener('dragstart',event=>event.preventDefault());
+viewerZoom.addEventListener('click',()=>zoomViewer(viewerView.scale*1.5));
+viewerZoomOut.addEventListener('click',()=>zoomViewer(viewerView.scale/1.5));
+viewerReset.addEventListener('click',resetViewerZoom);
+viewerViewport.addEventListener('keydown',event=>{
+ if(!viewerReady)return;
+ if(event.key==='+'||event.key==='='){event.preventDefault();zoomViewer(viewerView.scale*1.5);}
+ else if(event.key==='-'||event.key==='_'){event.preventDefault();zoomViewer(viewerView.scale/1.5);}
+ else if(event.key==='0'||event.key==='Home'){event.preventDefault();resetViewerZoom();}
+ else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();viewerView=clampImageView({...viewerView,x:viewerView.x+(event.key==='ArrowLeft'?40:event.key==='ArrowRight'?-40:0),y:viewerView.y+(event.key==='ArrowUp'?40:event.key==='ArrowDown'?-40:0)},viewerBounds());applyViewerView();}
+});
+window.addEventListener('resize',()=>{if(imageViewer.open&&viewerReady)fitViewerImage();});
 function openProductImage(p,opener){
- viewerOpener=opener;resetViewerZoom();
+ viewerOpener=opener;viewerReady=false;resetViewerZoom();
  document.getElementById('viewerTitle').textContent=p.nome;
  viewerDescription.textContent=typeof p.descricao==='string'&&p.descricao.trim()?p.descricao:'Descrição não informada para este produto.';
  imageViewer.scrollTop=0;
  const hasImage=validImage(p.imagem);
- viewerViewport.hidden=!hasImage;viewerZoom.disabled=!hasImage;
+ viewerViewport.hidden=!hasImage;viewerZoom.disabled=true;viewerZoomOut.disabled=true;viewerReset.disabled=true;
  viewerImage.alt=p.nome;
  viewerStatus.textContent='Carregando imagem com mais detalhes...';
  let usedFallback=false;
- viewerImage.onload=()=>{viewerStatus.textContent=usedFallback?'Visualizando a foto disponível.':'Use Ampliar mais para ver os detalhes.';};
- viewerImage.onerror=()=>{if(!usedFallback&&viewerImage.getAttribute('src')!==p.imagem){usedFallback=true;viewerImage.src=p.imagem;}else{viewerStatus.textContent='Não foi possível carregar esta foto. Feche e tente novamente.';}};
+ viewerImage.onload=()=>{fitViewerImage();viewerStatus.textContent=(usedFallback?'Visualizando a foto disponível. ':'')+'Use dois dedos ou a roda do mouse para ampliar. Arraste para mover a imagem.';};
+ viewerImage.onerror=()=>{viewerReady=false;resetViewerZoom();if(!usedFallback&&viewerImage.getAttribute('src')!==p.imagem){usedFallback=true;viewerImage.src=p.imagem;}else{viewerStatus.textContent='Não foi possível carregar esta foto. Feche e tente novamente.';}};
  viewerImage.decoding='async';viewerImage.referrerPolicy='no-referrer';
  if(hasImage)viewerImage.src=largeImages[p.imagem]||(/^imagens\/produtos\/[a-zA-Z0-9_.-]+\.webp$/.test(p.imagem)?p.imagem.replace('imagens/produtos/','imagens/ampliadas/'):p.imagem);
  if(!hasImage){viewerImage.removeAttribute('src');viewerStatus.textContent='Este produto ainda não tem uma foto disponível.';}
@@ -228,8 +293,8 @@ function openProductImage(p,opener){
 }
 document.getElementById('viewerClose').addEventListener('click',()=>imageViewer.close());
 imageViewer.addEventListener('click',e=>{if(e.target===imageViewer){const rect=imageViewer.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)imageViewer.close();}});
-imageViewer.addEventListener('close',()=>{document.body.style.overflow=previousBodyOverflow;viewerImage.onload=null;viewerImage.onerror=null;viewerImage.removeAttribute('src');resetViewerZoom();if(viewerOpener&&viewerOpener.isConnected)viewerOpener.focus();});
-viewerZoom.addEventListener('click',()=>{const expanded=viewerViewport.classList.toggle('magnified');viewerZoom.setAttribute('aria-pressed',String(expanded));viewerZoom.textContent=expanded?'Ajustar à tela −':'Ampliar mais ＋';});
+imageViewer.addEventListener('close',()=>{document.body.style.overflow=previousBodyOverflow;viewerImage.onload=null;viewerImage.onerror=null;viewerImage.removeAttribute('src');viewerReady=false;resetViewerZoom();if(viewerOpener&&viewerOpener.isConnected)viewerOpener.focus();});
+
 
 function makeCard(p,showBadge=false,priority=false){
  const card=text('article','product','');
