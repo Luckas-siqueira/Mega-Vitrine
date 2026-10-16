@@ -10,7 +10,7 @@ vm.createContext(ctx);vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 (async()=>{
  await vm.runInContext('loadProducts()',ctx);
- assert.equal(get('productGrid').children.length,catalog.length);
+ assert.equal(get('productGrid').children.length,Math.min(12,catalog.length));
  assert(requests.every(r=>r.options.cache==='no-store'&&r.url.includes('?atualizacao=')));
  const removed=catalog[0];currentData=catalog.slice(1);
  events.pagehide();assert.equal(vm.runInContext('products.length',ctx),0);assert.equal(get('featuredTrack').children.length,0);

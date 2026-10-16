@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Wffi/qrSu4zMq1Kll4f6StSacGhdM6lvUuOXTD4brQM='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-hDxs3iuoHfTYEDHmpWW2sQqiru3nGcCzi7oiIkMHq1M='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -120,6 +120,7 @@ header .search{min-width:0}header .search button{min-width:44px;min-height:44px;
 .search-suggestions[hidden]{display:none}.search-suggestions-title{margin:5px 8px 8px;color:#7dd3fc;font-size:12px;font-weight:700}
 .search-suggestion{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;min-height:48px;text-align:left;padding:10px;border:0;border-radius:8px;background:transparent;color:#f4f4f5;font-size:14px;line-height:1.4;overflow-wrap:anywhere}
 .search-suggestion:hover,.search-suggestion:focus-visible{background:#1b3550}.search-suggestion small{color:#a7b7ca;font-size:11px}.search-suggestions-empty{margin:8px;font-size:13px;color:#c3cdd9}
+.catalog-pagination{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 12px}.catalog-pagination[hidden],.catalog-pagination button[hidden]{display:none}.catalog-pagination button{border:1px solid #31516f;border-radius:10px;min-height:44px;padding:12px 18px;background:#132b43;color:#e5f3ff;font-weight:700}.catalog-pagination button:hover{border-color:#38bdf8}.catalog-pagination #showMoreProducts{background:#38bdf8;border-color:#38bdf8;color:#081426}@media(max-width:480px){.catalog-pagination button{flex:1;font-size:12px;padding:12px 10px}}
 </style>
 </head>
 <body>
@@ -134,7 +135,7 @@ header .search{min-width:0}header .search button{min-width:44px;min-height:44px;
 </section>
 <section id="categorias"><div class="section-head"><h2>Explore seu próximo upgrade</h2><a href="#catalogo" id="viewAll">Ver produtos ↓</a></div><div class="categories" id="categoryGrid"><a class="category" href="#catalogo" data-category="Teclados e Mouses"><span class="icon">⌨️</span>Teclados e Mouses</a><a class="category" href="#catalogo" data-category="Áudio e Headsets"><span class="icon">🎧</span>Áudio e Headsets</a><a class="category" href="#catalogo" data-category="Processadores"><span class="icon">⚙️</span>Processadores</a><a class="category" href="#catalogo" data-category="Placas de Vídeo"><span class="icon">🎮</span>Placas de Vídeo</a><a class="category" href="#catalogo" data-category="Memória RAM"><span class="icon">▦</span>Memória RAM</a><a class="category" href="#catalogo" data-category="SSD e HD"><span class="icon">💾</span>SSD e HD</a><a class="category" href="#catalogo" data-category="Computadores e Notebooks"><span class="icon">💻</span>Computadores e Notebooks</a><a class="category" href="#catalogo" data-category="Placas-Mãe"><span class="icon">🔲</span>Placas-Mãe</a><a class="category" href="#catalogo" data-category="Fontes"><span class="icon">🔌</span>Fontes</a><a class="category" href="#catalogo" data-category="Gabinetes"><span class="icon">🖥️</span>Gabinetes</a><a class="category" href="#catalogo" data-category="Refrigeração"><span class="icon">❄️</span>Refrigeração</a><a class="category" href="#catalogo" data-category="Monitores"><span class="icon">🖥️</span>Monitores</a><a class="category" href="#catalogo" data-category="Redes e Conectividade"><span class="icon">📡</span>Redes e Conectividade</a><a class="category" href="#catalogo" data-category="Kits e Acessórios para PC"><span class="icon">🧩</span>Kits e Acessórios para PC</a><a class="category" href="#catalogo" data-category="Games e Consoles"><span class="icon">🕹️</span>Games e Consoles</a><a class="category" href="#catalogo" data-category="Cartões de Memória"><span class="icon">💾</span>Cartões de Memória</a><a class="category" href="#catalogo" data-category="Decoração Gamer"><span class="icon">🖼️</span>Decoração Gamer</a></div><button id="toggleCategories" class="category-toggle" type="button" aria-expanded="false" aria-controls="categoryGrid">Mais categorias ↓</button></section>
 <section id="ofertas" aria-labelledby="featuredTitle" hidden><div class="section-head"><h2 id="featuredTitle">🔥 Ofertas em destaque</h2><div class="featured-controls"><button id="featuredPrev" type="button" aria-label="Destaques anteriores" aria-controls="featuredTrack">←</button><button id="featuredPause" type="button" aria-controls="featuredTrack" aria-pressed="false">Pausar</button><button id="featuredNext" type="button" aria-label="Próximos destaques" aria-controls="featuredTrack">→</button></div></div><p class="carousel-hint">Deslize para escolher ou use as setas. A passagem pausa enquanto você navega.</p><div id="featuredTrack" class="featured-track" tabindex="0" role="region" aria-label="Produtos em destaque" aria-roledescription="carrossel"></div></section>
-<section id="catalogo"><div class="section-head"><h2>Informática e eletrônicos</h2><span id="resultCount" aria-live="polite" style="font-size:13px;color:#a3a5ac">Carregando...</span></div><div class="toolbar"><label for="categoryFilter">Categoria:</label><select id="categoryFilter"><option value="">Todas</option><option>Teclados e Mouses</option><option>Áudio e Headsets</option><option>Processadores</option><option>Placas de Vídeo</option><option>Memória RAM</option><option>SSD e HD</option><option>Computadores e Notebooks</option><option>Placas-Mãe</option><option>Fontes</option><option>Gabinetes</option><option>Refrigeração</option><option>Monitores</option><option>Redes e Conectividade</option><option>Kits e Acessórios para PC</option><option>Games e Consoles</option><option>Cartões de Memória</option><option>Decoração Gamer</option></select><label for="sort">Ordenar:</label><select id="sort"><option value="featured">Destaques</option><option value="name">Nome (A–Z)</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select><button id="clearFilters" type="button">Limpar filtros</button></div><div class="grid" id="productGrid" aria-live="polite"></div>
+<section id="catalogo"><div class="section-head"><h2>Informática e eletrônicos</h2><span id="resultCount" aria-live="polite" style="font-size:13px;color:#a3a5ac">Carregando...</span></div><div class="toolbar"><label for="categoryFilter">Categoria:</label><select id="categoryFilter"><option value="">Todas</option><option>Teclados e Mouses</option><option>Áudio e Headsets</option><option>Processadores</option><option>Placas de Vídeo</option><option>Memória RAM</option><option>SSD e HD</option><option>Computadores e Notebooks</option><option>Placas-Mãe</option><option>Fontes</option><option>Gabinetes</option><option>Refrigeração</option><option>Monitores</option><option>Redes e Conectividade</option><option>Kits e Acessórios para PC</option><option>Games e Consoles</option><option>Cartões de Memória</option><option>Decoração Gamer</option></select><label for="sort">Ordenar:</label><select id="sort"><option value="featured">Destaques</option><option value="name">Nome (A–Z)</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select><button id="clearFilters" type="button">Limpar filtros</button></div><div class="grid" id="productGrid" aria-live="polite"></div><div class="catalog-pagination" id="catalogPagination" hidden><button type="button" id="showMoreProducts" aria-controls="productGrid">Ver mais produtos</button><button type="button" id="showLessProducts" aria-controls="productGrid" hidden>Mostrar menos</button></div>
 <div class="notice"><strong>Transparência:</strong> a MegaVitrine é uma vitrine de recomendações e pode receber comissão por compras feitas por links de afiliados, sem custo adicional para você. Preços e disponibilidade devem ser confirmados na loja parceira. Confira conexões, medidas e compatibilidade dos componentes antes de comprar.</div></section>
 <section id="sobre" class="notice"><strong>Sobre a MegaVitrine</strong><p>A MegaVitrine reúne eletrônicos, periféricos e categorias de componentes para quem quer montar ou melhorar o PC. Compare as ofertas e confira as especificações e a compatibilidade no anúncio do vendedor. Compra, pagamento, entrega e atendimento são realizados pela loja parceira.</p></section></main>
 <footer><div><div class="brand"><span style="color:white">Mega</span><span style="color:var(--accent)">Vitrine</span></div><p>Seu próximo upgrade começa aqui!</p></div><div><h3>Institucional</h3><a href="#sobre">Sobre nós</a><a href="./privacidade.html">Política de Privacidade</a><a href="./termos.html">Termos de Uso</a></div><div><h3>Atendimento</h3><a href="./contato.html">Fale com a MegaVitrine</a><a href="mailto:luckas.5414@gmail.com" style="overflow-wrap:anywhere">luckas.5414@gmail.com</a><a href="#ofertas">Como funcionam as ofertas</a></div><div><h3>Compre com informação</h3><p>Confira preço, frete, avaliações e disponibilidade diretamente no site do vendedor antes de comprar.</p></div></footer>
@@ -332,8 +333,29 @@ input.addEventListener('focus',renderSearchSuggestions);
 input.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSearchSuggestions();}else if(event.key==='ArrowDown'){event.preventDefault();if(searchSuggestions.hidden)renderSearchSuggestions();suggestionButtons[0]?.focus();}});
 searchArea.addEventListener('focusout',event=>{if(!searchArea.contains(event.relatedTarget))closeSearchSuggestions();});
 document.addEventListener('pointerdown',event=>{if(!searchArea.contains(event.target))closeSearchSuggestions();});
+const CATALOG_PAGE_SIZE=12;
+let catalogLimit=CATALOG_PAGE_SIZE,catalogResults=[],catalogFilterKey='';
+const catalogPagination=document.getElementById('catalogPagination'),showMoreProducts=document.getElementById('showMoreProducts'),showLessProducts=document.getElementById('showLessProducts');
+function updateCatalogPagination(){
+ const shown=Math.min(catalogLimit,catalogResults.length),remaining=catalogResults.length-shown;
+ count.textContent=shown+' de '+catalogResults.length+' produto(s)';
+ catalogPagination.hidden=catalogResults.length<=CATALOG_PAGE_SIZE;
+ showMoreProducts.hidden=remaining<=0;showLessProducts.hidden=shown<=CATALOG_PAGE_SIZE;
+ showMoreProducts.textContent='Ver mais produtos (+'+Math.min(CATALOG_PAGE_SIZE,remaining)+')';
+}
+showMoreProducts.addEventListener('click',()=>{
+ const start=Math.min(catalogLimit,catalogResults.length);catalogLimit=Math.min(catalogLimit+CATALOG_PAGE_SIZE,catalogResults.length);
+ grid.append(...catalogResults.slice(start,catalogLimit).map(p=>makeCard(p)));
+ updateCatalogPagination();if(showMoreProducts.hidden)showLessProducts.focus();
+});
+showLessProducts.addEventListener('click',()=>{
+ catalogLimit=CATALOG_PAGE_SIZE;
+ grid.replaceChildren(...Array.from(grid.children).slice(0,CATALOG_PAGE_SIZE));
+ updateCatalogPagination();showMoreProducts.focus();document.getElementById('catalogo').scrollIntoView({block:'start'});
+});
 function render(){
  const q=input.value.trim();
+ const filterKey=JSON.stringify([q,category,sort.value]);if(filterKey!==catalogFilterKey){catalogLimit=CATALOG_PAGE_SIZE;catalogFilterKey=filterKey;}
  const scores=new Map(products.map(p=>[p,productSearchScore(p,q)]));
  const filtered=products.filter(p=>(!category||p.categoria===category)&&scores.get(p)>0);
  if(sort.value==='name')filtered.sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
@@ -344,14 +366,16 @@ function render(){
  featuredTrack.replaceChildren(...highlights.map((p,i)=>makeCard(p,true,i<2)));
  featuredSection.hidden=!highlights.length;
  resetCarousel();
- grid.replaceChildren(...(filtered.length?filtered.map(p=>makeCard(p)):[text('p','empty','Nenhum produto disponível para esta busca ou categoria no momento. Veja outras categorias ou limpe os filtros.')]));
- count.textContent=filtered.length+' produto(s)';
+ catalogResults=filtered;
+ grid.replaceChildren(...(filtered.length?filtered.slice(0,catalogLimit).map(p=>makeCard(p)):[text('p','empty','Nenhum produto disponível para esta busca ou categoria no momento. Veja outras categorias ou limpe os filtros.')]));
+ updateCatalogPagination();
  categoryFilter.value=category;
  document.querySelectorAll('[data-category]').forEach(a=>a.classList.toggle('active',a.dataset.category===category));
 }
 let catalogGeneration=0;
 function clearCatalogView(message='Atualizando produtos…'){
  products=[];
+ catalogResults=[];catalogLimit=CATALOG_PAGE_SIZE;catalogFilterKey='';catalogPagination.hidden=true;
  closeSearchSuggestions();
  grid.replaceChildren(text('p','empty',message));
  featuredTrack.replaceChildren();
