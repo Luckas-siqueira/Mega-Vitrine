@@ -394,5 +394,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/6VOgM2vn1c"
+  },
+  {
+    "id": "tech-f8dc5e2a-3108-45ed-8f91-7c013e14d04e",
+    "nome": "Placa de vídeo Geforce GT 730 4GB",
+    "descricao": "Placa De Vídeo Gaming Nvidia Geforce Gt730 4gb Ddr3 Hdmi Vga",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-dca33d17-00b3-42cd-97a4-b33512df5032.webp",
+    "preco": 353.69,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/5fpZMi7Ntl"
   }
 ]
