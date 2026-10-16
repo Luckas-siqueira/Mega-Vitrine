@@ -328,5 +328,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/7KxnIlo6ot"
+  },
+  {
+    "id": "tech-8aa1569f-2920-469c-b1be-0915260a4660",
+    "nome": "Placa de vídeo MSI Geforce GT710",
+    "descricao": "Placa De Video MSI GeForce Gt 710, 2GB, Ddr3, Low Profile, 912-V809-4415",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-d796d8b3-3cf1-475c-ac76-9ec1b877ab8b.webp",
+    "preco": 465.55,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/6AlpvBE9TK"
   }
 ]
