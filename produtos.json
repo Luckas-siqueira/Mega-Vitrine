@@ -427,5 +427,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/9APRZexAzu"
+  },
+  {
+    "id": "tech-1cdb30da-ca46-4d65-808c-b693edb0772f",
+    "nome": "Kit cooler fan",
+    "descricao": "Kit Cooler Fan para Gabinete 3UN Sangue Frio 3 ARGB Black Vulcan Reverse 120MM Pcyes - K3ARGBSF3RVBR",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-52811601-3ba4-42dc-a76b-81242bba8e45.webp",
+    "preco": 159.51,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/5fpZPmIcvf"
   }
 ]
