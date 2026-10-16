@@ -460,5 +460,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/2VsXeoVCg3"
+  },
+  {
+    "id": "tech-401751bd-fb0b-458c-828e-5594c7584c58",
+    "nome": "Memória ram HIPERX DDR4 8GB",
+    "descricao": "MEMÓRIA RAM HYPERX DDR4 8G 3200MHz HYPERX KINGSTON HX432C16FB3/8  DESKTOP",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-f4e7d4ba-bff9-49b8-82da-e647568fdc0d.webp",
+    "preco": 360.1,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/2VsXex5ddW"
   }
 ]
