@@ -350,5 +350,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/1qcqlimr9B"
+  },
+  {
+    "id": "tech-5caac58a-9fba-44b7-925a-457b1cd7ee33",
+    "nome": "Processador AMD Ryzen 5 5500",
+    "descricao": "Processador AMD Ryzen 5 5500 3.60GHz (Turbo 4.20GHz) - 5000 Series, AM4 - 100-100000457BOX",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-83cfc545-ed4a-423c-aed4-d37590b27688.webp",
+    "preco": 617.63,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/gQtNhEwAY"
   }
 ]
