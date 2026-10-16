@@ -372,5 +372,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/qkJaXIV8t"
+  },
+  {
+    "id": "tech-a60c26a8-7fe6-4afa-970d-7a4f0989f3fd",
+    "nome": "Placa de vídeo RX 580",
+    "descricao": "Placa De Vídeo AITEK RX 580 2048SP 8GB GDDR5 256 Bits PCIe 3.0 8 Pinos",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-9d418731-fe77-42e2-880c-ade63048363c.webp",
+    "preco": 759.92,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/AUup6ux9L6"
   }
 ]
