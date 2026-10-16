@@ -471,5 +471,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/2VsXex5ddW"
+  },
+  {
+    "id": "tech-072f993b-3208-4c8a-b9c9-8f4929419bb7",
+    "nome": "Kit mobilador completo",
+    "descricao": "Kit Mobilador de Celular Completo  6 items Teclado Gamer + Mouse Para Jogos+ Hub usb 4 Portas",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-bfad21ed-b094-4065-8afb-077359ce9aa2.webp",
+    "preco": 29,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/1BClDctXx"
   }
 ]
