@@ -416,5 +416,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/6AlpyGKWUz"
+  },
+  {
+    "id": "tech-bb2de26d-9d02-4826-9487-1232a2b0ade7",
+    "nome": "Placa de vídeo INNO3D Geforce RTX5060 Twin",
+    "descricao": "Placa de Video INNO3D GeForce RTX 5060 Twin X2 8GB 128BITS GDDR7 N50602-08D7-195071N - INNO3D",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-3cca4c9c-93ce-4734-b7dc-1bf379dd218d.webp",
+    "preco": 2697.35,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/9APRZexAzu"
   }
 ]
