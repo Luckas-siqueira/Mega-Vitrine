@@ -526,5 +526,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/3qNwtgqZ1d"
+  },
+  {
+    "id": "tech-306bb6a7-d4a7-4db2-874c-e9ae745e31bb",
+    "nome": "PC Gamer Completo I5 6400",
+    "descricao": "Computador Completo Pc Gamer I5 6400 8gb Monitor 27 Ssd 128 e HDD 500GB + Teclado Mêcanico RGB + Mouse Sem Fio",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-d848c0d0-8a82-45dd-9903-e6dc826a8c37.webp",
+    "preco": 2174.99,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/2gBzVgvuFL"
   }
 ]
