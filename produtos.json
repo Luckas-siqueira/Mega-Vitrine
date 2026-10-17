@@ -548,5 +548,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/Lo4qLkbp2"
+  },
+  {
+    "id": "tech-c1acbd4b-4214-4b1e-9e51-623148434899",
+    "nome": "PC Gamer Completo Intel Core I7",
+    "descricao": "Cpu Gamer I7 8gb Ssd 240gb + Wifi + GT 210 1GB Nvidia + Monitor 19 Gamer Ultra Profissional",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-b4818f91-b881-49fb-b403-92d2127ce534.webp",
+    "preco": 1424.99,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/5q91OpXuTo"
   }
 ]
