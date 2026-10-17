@@ -122,6 +122,14 @@ header .search{min-width:0}header .search button{min-width:44px;min-height:44px;
 .search-suggestion:hover,.search-suggestion:focus-visible{background:#1b3550}.search-suggestion small{color:#a7b7ca;font-size:11px}.search-suggestions-empty{margin:8px;font-size:13px;color:#c3cdd9}
 .catalog-pagination{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 12px}.catalog-pagination[hidden],.catalog-pagination button[hidden]{display:none}.catalog-pagination button{border:1px solid #31516f;border-radius:10px;min-height:44px;padding:12px 18px;background:#132b43;color:#e5f3ff;font-weight:700}.catalog-pagination button:hover{border-color:#38bdf8}.catalog-pagination #showMoreProducts{background:#38bdf8;border-color:#38bdf8;color:#081426}@media(max-width:480px){.catalog-pagination button{flex:1;font-size:12px;padding:12px 10px}}
 .viewer-viewport{position:relative;height:min(65vh,600px);max-height:none;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;text-align:initial}.viewer-viewport.dragging{cursor:grabbing}.viewer-viewport img{position:absolute;left:50%;top:50%;display:block;margin:0;max-width:none;max-height:none;object-fit:contain;transform-origin:center;pointer-events:none;user-select:none;-webkit-user-drag:none}.viewer-actions #viewerScale{font-size:13px;min-width:48px;text-align:center;font-variant-numeric:tabular-nums}.viewer-actions button:disabled{opacity:.45;cursor:default}
+
+/* Categorias compactas, com alvos de toque preservados. */
+.categories{gap:8px}
+.categories .category{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:64px;padding:10px 6px;border-radius:9px;font-size:12px;line-height:1.3;overflow-wrap:anywhere}
+.categories .category .icon{font-size:23px;line-height:1.1;margin:0}
+.category-toggle{min-height:44px;padding:8px 14px;margin-top:10px;font-size:12px}
+#categorias .section-head{gap:8px;flex-wrap:wrap}
+@media(max-width:480px){.categories{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.categories .category{min-height:66px;padding:8px 5px;font-size:11px}.categories .category .icon{font-size:20px}#categorias .section-head{margin-top:18px;margin-bottom:10px}#categorias .section-head h2{font-size:18px;line-height:1.25}#categorias .section-head a{font-size:11px}}
 </style>
 </head>
 <body>
