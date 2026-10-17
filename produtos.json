@@ -493,5 +493,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/5LCj76gpeS"
+  },
+  {
+    "id": "tech-76bbf01c-b650-4242-a69a-5cc854e4d098",
+    "nome": "Kit Upgrade Gamer",
+    "descricao": "Kit Upgrade Gamer - Ryzen 7 + Placa Mãe M.2 + 32gb Ram Ddr4",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-5a80c58e-8f26-4430-9a96-47bf6d25da62.webp",
+    "preco": 1499.49,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/AAI0HG7npK"
   }
 ]
