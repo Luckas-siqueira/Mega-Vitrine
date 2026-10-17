@@ -504,5 +504,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/AAI0HG7npK"
+  },
+  {
+    "id": "tech-fc5eaacd-a602-4844-a496-fe0ccf2710e6",
+    "nome": "PC Gamer completo",
+    "descricao": "PC Gamer Completo Ryzen 7 5700G, 16GB DDR4, SSD SATA 240GB, 500W 80 Plus, YK2UC14M-E",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-959a3311-73b1-48f0-accf-f8aa05952f57.webp",
+    "preco": 4906.42,
+    "precoAnterior": null,
+    "destaque": true,
+    "url": "https://s.shopee.com.br/8AWw3VHm0n"
   }
 ]
