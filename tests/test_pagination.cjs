@@ -14,7 +14,7 @@ vm.createContext(ctx);vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)
  const grid=get('productGrid'),more=get('showMoreProducts'),less=get('showLessProducts');
  assert.equal(grid.children.length,12);assert.equal(get('resultCount').textContent,'12 de 37 produto(s)');assert.equal(less.hidden,true);assert.equal(more.hidden,false);
  const first=grid.children[0];more.listeners.click();assert.equal(grid.children.length,24);assert.equal(grid.children[0],first,'Cartões já mostrados não devem ser recriados');assert.equal(less.hidden,false);
- more.listeners.click();assert.equal(grid.children.length,36);assert.match(more.textContent,/\+1/);
+ more.listeners.click();assert.equal(grid.children.length,36);assert.equal(more.textContent,'Ver mais produtos');
  more.listeners.click();assert.equal(grid.children.length,37);assert.equal(more.hidden,true);
  assert.equal(new Set(grid.children.map(c=>c.children[1].children[0].textContent)).size,37,'Não há produtos duplicados');
  less.listeners.click();assert.equal(grid.children.length,12);assert.equal(grid.children[0],first);assert.equal(less.hidden,true);assert.equal(more.hidden,false);

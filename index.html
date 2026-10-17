@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-I6KjDG+9gzbYD8G6cEtbkAqdwD7PW0V5HzKROw9GBN8='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-iRAjWYlvMbQvb/ziGCabKGpLjQ//jnizM7adNXOXkWw='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; media-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -406,7 +406,7 @@ function updateCatalogPagination(){
  count.textContent=shown+' de '+catalogResults.length+' produto(s)';
  catalogPagination.hidden=catalogResults.length<=CATALOG_PAGE_SIZE;
  showMoreProducts.hidden=remaining<=0;showLessProducts.hidden=shown<=CATALOG_PAGE_SIZE;
- showMoreProducts.textContent='Ver mais produtos (+'+Math.min(CATALOG_PAGE_SIZE,remaining)+')';
+ showMoreProducts.textContent='Ver mais produtos';
 }
 showMoreProducts.addEventListener('click',()=>{
  const start=Math.min(catalogLimit,catalogResults.length);catalogLimit=Math.min(catalogLimit+CATALOG_PAGE_SIZE,catalogResults.length);
