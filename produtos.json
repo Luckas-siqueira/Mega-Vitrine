@@ -537,5 +537,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/2gBzVgvuFL"
+  },
+  {
+    "id": "tech-130abc20-7972-4bfa-9f84-53979cf7eb1b",
+    "nome": "PC Gamer completo Intel Core I5",
+    "descricao": "PC Gamer Completo, Intel Core i5, GT 210, 12GB de Ram, SSD 480GB, Monitor 19",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-c6916a96-98e3-49ef-8a72-2a0795f775de.webp",
+    "preco": 1286.99,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/Lo4qLkbp2"
   }
 ]
