@@ -515,5 +515,16 @@
     "precoAnterior": null,
     "destaque": true,
     "url": "https://s.shopee.com.br/8AWw3VHm0n"
+  },
+  {
+    "id": "tech-db35db6f-a0d0-4bb1-97e0-1e789d8e14f7",
+    "nome": "PC Gamer Ryzen 7",
+    "descricao": "PC Gamer Ryzen 7 5700G, 16GB DDR4, SSD SATA 240GB, 500W 80 Plus, YM8J4WFG-E",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-de34f81f-fda1-440f-af0b-481f8ec5be90.webp",
+    "preco": 4705.9,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/3qNwtgqZ1d"
   }
 ]
