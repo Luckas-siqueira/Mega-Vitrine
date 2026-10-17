@@ -559,5 +559,16 @@
     "precoAnterior": null,
     "destaque": false,
     "url": "https://s.shopee.com.br/5q91OpXuTo"
+  },
+  {
+    "id": "tech-84290c14-e513-415d-a9cc-527d68dd52ff",
+    "nome": "PC Gamer completo AMD Ryzen 3",
+    "descricao": "PC GAMER COMPLETO AMD RYZEN 3 3200G 16GB (RADEON VEGA 8), A520M, SSD 1TB",
+    "categoria": "Kits e Acessórios para PC",
+    "imagem": "imagens/produtos/tech-07470c33-e8b7-4d04-ba2f-31ade23f90d9.webp",
+    "preco": 1979.99,
+    "precoAnterior": null,
+    "destaque": false,
+    "url": "https://s.shopee.com.br/5VWB0Ls5El"
   }
 ]
